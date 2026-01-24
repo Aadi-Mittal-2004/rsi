@@ -1,7 +1,12 @@
 import Home from "./Home";
+import PageTransition from "@/components/PageTransition";
 
 const Index = () => {
-  return <Home />;
+  return (
+    <PageTransition>
+      <Home />
+    </PageTransition>
+  );
 };
 
 export default Index;

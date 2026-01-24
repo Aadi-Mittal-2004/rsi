@@ -8,93 +8,102 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Pure white background for light mode */
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --foreground: 0 0% 0%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 10%;
+    /* Cards with pure white */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 98%;
+    /* Black primary */
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 45% 50%;
-    --secondary-foreground: 0 0% 98%;
+    /* White secondary */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    /* Muted uses white with black text */
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 0%;
 
-    --accent: 25 45% 50%;
-    --accent-foreground: 0 0% 98%;
+    /* LUXURIOUS GOLD ACCENT - HSL for #D4AF37 */
+    --accent: 45 65% 53%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 10%;
+    /* Black borders */
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 45 65% 53%;
 
     --radius: 0.5rem;
-    
-    --hero-overlay: 0 0% 0% / 0.4;
-    --stone-accent: 25 45% 50%;
+
+    /* Enhanced overlay for better contrast */
+    --hero-overlay: 0 0% 0% / 0.5;
+    --stone-accent: 45 65% 53%;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 45 65% 53%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 45 65% 53%;
   }
 
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 98%;
+    /* Pure black background for dark mode */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    /* Dark cards with pure black */
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 10%;
+    /* White primary in dark mode */
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 25 45% 50%;
-    --secondary-foreground: 0 0% 98%;
+    /* Black secondary */
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    /* Muted uses black with white text */
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 100%;
 
-    --accent: 25 45% 50%;
-    --accent-foreground: 0 0% 98%;
+    /* LUXURIOUS GOLD ACCENT - same gold in dark mode */
+    --accent: 45 65% 53%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 90%;
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 25 45% 50%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 25 45% 50%;
+    /* White borders in dark mode */
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 45 65% 53%;
+    
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 45 65% 53%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 45 65% 53%;
   }
 }
 
@@ -104,6 +113,117 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+/* Ken Burns animation for hero background: very slow, subtle zoom/pan */
+@layer utilities {
+  @keyframes kenburns {
+    0% {
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      transform: scale(1.06) translateY(-0.8%);
+    }
+    100% {
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .kenburns-bg {
+    animation: kenburns 40s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+
+
+  /* Elegant slow fade-in for luxury feel */
+  @keyframes elegant-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .elegant-fade-in {
+    opacity: 0;
+    animation: elegant-fade-in 2s ease-out forwards;
+  }
+
+  /* Gold shimmer effect for luxury touch */
+  @keyframes gold-shimmer {
+    0% {
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+  }
+
+  .gold-shimmer {
+    animation: gold-shimmer 2s ease-in-out infinite;
+  }
+
+  /* Scroll indicator bounce animation */
+  @keyframes scroll-bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(10px);
+    }
+    60% {
+      transform: translateY(5px);
+    }
+  }
+
+  .scroll-indicator {
+    animation: scroll-bounce 2s ease-in-out infinite;
+  }
+
+  /* Hide scrollbar for horizontal scroll containers */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mobile auto-scroll animation */
+  @keyframes scroll-mobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-mobile {
+    animation: scroll-mobile 20s linear infinite;
+  }
+
+  .animate-scroll-mobile:hover,
+  .animate-scroll-mobile:active {
+    animation-play-state: paused;
   }
 }
