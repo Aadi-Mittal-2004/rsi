@@ -121,8 +121,8 @@ const Home = () => {
 
         {/* Scroll Down Indicator */}
         <div className="absolute bottom-6 inset-x-0 z-20 flex flex-col items-center justify-center cursor-pointer scroll-indicator w-full opacity-50 hover:opacity-80 transition-opacity">
-          <span className="text-white/70 text-xs tracking-widest mb-1">Scroll</span>
-          <ChevronDown className="h-4 w-4 text-white/70" />
+          <span className="text-muted-foreground text-xs tracking-widest mb-1">Scroll</span>
+          <ChevronDown className="h-4 w-4 text-muted-foreground" />
         </div>
       </section>
 
@@ -161,7 +161,7 @@ const Home = () => {
                     <h3 className="text-white text-2xl font-bold mb-2 transition-colors duration-300">
                       {product.name}
                     </h3>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {product.description}
                     </p>
                   </div>
@@ -177,7 +177,7 @@ const Home = () => {
                 />
               ))}
             </div>
-            <p className="text-center text-white/50 text-xs mt-2">← Swipe to browse →</p>
+            <p className="text-center text-muted-foreground text-xs mt-2">← Swipe to browse →</p>
           </div>
 
           {/* Desktop: Grid layout */}
@@ -261,20 +261,20 @@ const Home = () => {
                   A Legacy in Stone
                   <span className="absolute bottom-0 left-0 w-16 h-px bg-accent"></span>
                 </h2>
-                <p className="text-white/80 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   Discover our heritage of excellence. With decades of experience,
                   we source the finest natural stones and transform them into
                   masterpieces of design and durability, upholding a steadfast
                   commitment to craftsmanship and quality.
                 </p>
-                <p className="text-white/80 mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-8 leading-relaxed">
                   From quarry to final product, we adhere to the strictest quality
                   controls to deliver superior natural stone that enhances
                   architectural projects worldwide.
                 </p>
                 <Link 
                   to="/about" 
-                  className="group inline-flex items-center gap-3 text-white/80 hover:text-white font-light tracking-wide transition-all duration-300"
+                  className="group inline-flex items-center gap-3 text-muted-foreground hover:text-white font-light tracking-wide transition-all duration-300"
                 >
                   <span>Learn More About Us</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" strokeWidth={1} />
@@ -334,7 +334,7 @@ const Home = () => {
               Trusted Worldwide
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
             </h3>
-            <p className="text-white/40 text-sm mt-4 tracking-wide">
+            <p className="text-muted-foreground text-sm mt-4 tracking-wide">
               Partnering with industry leaders across the globe
             </p>
           </div>
@@ -344,7 +344,7 @@ const Home = () => {
             {clientNames.map((name) => (
               <span 
                 key={name} 
-                className="text-white/50 text-lg md:text-xl font-medium tracking-wide whitespace-nowrap transition-opacity duration-300 hover:text-white/80 cursor-default"
+                className="text-muted-foreground text-lg md:text-xl font-medium tracking-wide whitespace-nowrap transition-opacity duration-300 hover:text-white/80 cursor-default"
               >
                 {name}
               </span>
@@ -365,7 +365,7 @@ const Home = () => {
             Get in Touch
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
           </h2>
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto mt-6 text-white/60 font-light leading-relaxed">
+          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto mt-6 text-muted-foreground font-light leading-relaxed">
             We're here to help you find the perfect stone. Contact us for
             inquiries or to request a quote.
           </p>

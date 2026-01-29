@@ -104,7 +104,7 @@ const About = () => {
               Our Core Values
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
             </h2>
-            <p className="text-white/60 text-lg mt-6">
+            <p className="text-muted-foreground text-lg mt-6">
               The principles that guide our work, our partnerships, and our commitment to excellence.
             </p>
           </div>
@@ -116,7 +116,7 @@ const About = () => {
                   <value.icon className="h-10 w-10 text-accent" strokeWidth={0.75} />
                 </div>
                 <h3 className="text-lg font-medium mb-3 tracking-wide">{value.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{value.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -150,7 +150,7 @@ const About = () => {
               </p>
               <Link 
                 to="/products" 
-                className="group inline-flex items-center gap-3 text-white/80 hover:text-white font-light tracking-wide transition-all duration-300"
+                className="group inline-flex items-center gap-3 text-muted-foreground hover:text-white font-light tracking-wide transition-all duration-300"
               >
                 <span>Explore Our Products</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" strokeWidth={1} />

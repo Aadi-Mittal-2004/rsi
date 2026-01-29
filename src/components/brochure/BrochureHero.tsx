@@ -11,21 +11,14 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
   return (
     <header className="relative overflow-hidden">
       <div aria-hidden className="absolute inset-0 bg-hero" />
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.35] mix-blend-overlay"
-        style={{
-          backgroundImage: `url(${stoneTexture})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      <div aria-hidden className="absolute inset-0 bg-hero" />
+      {/* Background image removed */}
       <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/25 to-background" />
 
       <div className="container relative py-14 md:py-20">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <p className="text-sm tracking-[0.28em] text-muted-foreground">ROOP STONE IMPEX PRESENTS</p>
+            <p className="text-sm tracking-[0.28em] text-accent">ROOP STONE IMPEX PRESENTS</p>
             <h1 className="mt-4 text-balance font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               THE ROOP STONE INNOVATION CHALLENGE 2026
             </h1>
@@ -33,18 +26,18 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
               From Quarry to Legacy: Where Your Vision Becomes Industry.
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
+            <div className="mt-7">
               <span
                 className={cn(
-                  "inline-flex items-center rounded-md border border-border bg-secondary px-3 py-2",
+                  "inline-flex items-center rounded-md border border-accent/40 bg-secondary px-3 py-2",
                   "text-xs font-medium tracking-[0.14em] text-foreground shadow-gilded",
                 )}
               >
                 15-Year Revenue Royalty & Real-World Funding
               </span>
-              <span className="inline-flex items-center rounded-md border border-border bg-card px-3 py-2 text-xs tracking-[0.14em] text-muted-foreground">
+              <p className="mt-3 text-xs tracking-[0.14em] text-muted-foreground">
                 Teams • Design • Manufacture • Market
-              </span>
+              </p>
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

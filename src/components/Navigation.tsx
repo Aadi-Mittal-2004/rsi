@@ -10,7 +10,7 @@ const Navigation = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Products" },
-    { href: "/legacy-project", label: "Competition" },
+    { href: "/competition", label: "Competition" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];

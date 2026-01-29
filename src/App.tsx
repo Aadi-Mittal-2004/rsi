@@ -17,7 +17,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
-import LegacyProject from "./pages/LegacyProject";
+import Competition from "./pages/Competition";
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -29,7 +29,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/legacy-project" element={<LegacyProject />} />
+        <Route path="/competition" element={<Competition />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

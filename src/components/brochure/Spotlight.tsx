@@ -12,7 +12,7 @@ type SpotlightProps = {
  * Signature moment: a subtle spotlight that follows the pointer.
  * Respects prefers-reduced-motion.
  */
-export function Spotlight({ className, children, strength = 0.55 }: SpotlightProps) {
+export function Spotlight({ className, children, strength = 0.8 }: SpotlightProps) {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const [enabled, setEnabled] = React.useState(true);
 
@@ -53,7 +53,7 @@ export function Spotlight({ className, children, strength = 0.55 }: SpotlightPro
         aria-hidden
         className={cn(
           "pointer-events-none absolute inset-0 opacity-100",
-          "[background:radial-gradient(600px_circle_at_var(--mx,50%)_var(--my,30%),hsl(var(--foreground)/0.1),transparent_55%)]",
+          "[background:radial-gradient(600px_circle_at_var(--mx,50%)_var(--my,30%),hsl(var(--foreground)/0.25),transparent_55%)]",
           "transition-opacity duration-500",
         )}
         style={{ opacity: enabled ? strength : 0 }}

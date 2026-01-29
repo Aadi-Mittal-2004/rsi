@@ -16,7 +16,7 @@ export function Section({ id, eyebrow, title, children, className }: SectionProp
       <div className="container">
         <header className="mb-7">
           {eyebrow ? (
-            <p className="text-sm tracking-[0.22em] text-muted-foreground">{eyebrow}</p>
+            <p className="text-sm tracking-[0.22em] text-accent">{eyebrow}</p>
           ) : null}
           <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             {title}

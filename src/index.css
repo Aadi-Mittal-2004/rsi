@@ -27,9 +27,9 @@ All colors MUST be HSL.
     --secondary: 0 0% 100%;
     --secondary-foreground: 0 0% 0%;
 
-    /* Muted uses white with black text */
+    /* Muted uses white with dark grey text */
     --muted: 0 0% 100%;
-    --muted-foreground: 0 0% 0%;
+    --muted-foreground: 0 0% 40%;
 
     /* LUXURIOUS GOLD ACCENT - HSL for #D4AF37 */
     --accent: 45 65% 53%;
@@ -80,9 +80,9 @@ All colors MUST be HSL.
     --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted uses black with white text */
+    /* Muted uses black with soft grey text */
     --muted: 0 0% 0%;
-    --muted-foreground: 0 0% 100%;
+    --muted-foreground: 0 0% 65%;
 
     /* LUXURIOUS GOLD ACCENT - same gold in dark mode */
     --accent: 45 65% 53%;
@@ -113,7 +113,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-serif;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   h1,
@@ -133,7 +133,7 @@ All colors MUST be HSL.
       transform: scale(1) translateY(0);
     }
     50% {
-      transform: scale(1.06) translateY(-0.8%);
+      transform: scale(1.15) translateY(-1.5%);
     }
     100% {
       transform: scale(1) translateY(0);

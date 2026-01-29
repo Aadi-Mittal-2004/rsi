@@ -154,7 +154,7 @@ const Products = () => {
         {/* Info Section */}
         <div className="mt-16 text-center bg-black text-white rounded-lg p-8 border border-white">
           <h2 className="text-2xl font-bold mb-4">Looking for something specific?</h2>
-          <p className="text-white/80 mb-6 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             We have a wide variety of natural stones in stock. Contact us to discuss your requirements
             and we'll help you find the perfect stone for your project.
           </p>

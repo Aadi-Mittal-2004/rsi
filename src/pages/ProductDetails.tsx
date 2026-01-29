@@ -66,7 +66,7 @@ const ProductDetails = () => {
               <h3 className="text-lg font-semibold mb-3">Key Features:</h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {product.properties.map((prop) => (
-                  <li key={prop} className="flex items-center text-sm text-gray-700 dark:text-gray-300">
+                  <li key={prop} className="flex items-center text-sm text-muted-foreground">
                     <Check className="h-4 w-4 text-accent mr-2" />
                     {prop}
                   </li>
