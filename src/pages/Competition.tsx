@@ -308,10 +308,14 @@ const Competition = () => {
                         <Phone className="h-4 w-4 text-accent" />
                         <span>+91 7357923714</span>
                       </p>
-                      <p className="flex items-center gap-2">
+                      <a href="mailto:aadi@roopstoneimpex.in" className="flex items-center gap-2 hover:text-accent transition-colors">
                         <Mail className="h-4 w-4 text-accent" />
-                        <span>aadimittalyt@gmail.com</span>
-                      </p>
+                        <span>aadi@roopstoneimpex.in</span>
+                      </a>
+                      <a href="mailto:snipun@roopstoneimpex.in" className="flex items-center gap-2 hover:text-accent transition-colors">
+                        <Mail className="h-4 w-4 text-accent" />
+                        <span>snipun@roopstoneimpex.in</span>
+                      </a>
                     </div>
                   </div>
 
