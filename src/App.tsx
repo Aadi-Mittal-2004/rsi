@@ -18,6 +18,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 const queryClient = new QueryClient();
 
 import Competition from "./pages/Competition";
+import Apply from "./pages/Apply";
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -30,6 +31,7 @@ const AnimatedRoutes = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/competition" element={<Competition />} />
+        <Route path="/apply" element={<Apply />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

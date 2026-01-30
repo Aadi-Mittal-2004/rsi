@@ -1,5 +1,6 @@
 import cncImage from "@/assets/cnc-machinery.jpg";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import PageTransition, { fadeIn, slideUp, staggerContainer, staggerItem } from "@/components/PageTransition";
 import { BrochureHero } from "@/components/brochure/BrochureHero";
 import { RoadmapTimeline } from "@/components/brochure/RoadmapTimeline";
@@ -257,7 +258,7 @@ const Competition = () => {
                   <div className="mt-8 flex flex-col items-center gap-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:justify-center w-full">
                       <Button variant="outline" size="lg" asChild className="border-accent/40 hover:border-accent w-full sm:w-auto">
-                        <a href="#">Start Your Application</a>
+                        <Link to="/apply">Start Your Application</Link>
                       </Button>
                       <Button variant="ghost" size="lg" asChild className="w-full sm:w-auto">
                         <a href="#intro">Back to top</a>
@@ -295,14 +296,18 @@ const Competition = () => {
                   <div className="flex items-center gap-4">
                     <a
                       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-muted-foreground transition-colors hover:border-accent hover:text-accent"
-                      href="#"
+                      href="https://www.instagram.com/roopstone/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Instagram"
                     >
                       <Instagram className="h-4 w-4" />
                     </a>
                     <a
                       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-muted-foreground transition-colors hover:border-accent hover:text-accent"
-                      href="#"
+                      href="https://www.linkedin.com/in/roopstoneimpex"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="h-4 w-4" />

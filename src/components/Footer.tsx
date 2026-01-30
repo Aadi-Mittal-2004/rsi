@@ -102,13 +102,13 @@ const Footer = () => {
                 Old Ajmer Road, RICCO Industrial Area, Deoli, Rajasthan, India
               </p>
               <div className="flex gap-8 pt-6">
-                <a href="#" className="text-black/40 hover:text-black transition-colors duration-300" aria-label="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=61586395348658" target="_blank" rel="noopener noreferrer" className="text-black/40 hover:text-black transition-colors duration-300" aria-label="Facebook">
                   <Facebook className="h-4 w-4" strokeWidth={1} />
                 </a>
-                <a href="#" className="text-black/40 hover:text-black transition-colors duration-300" aria-label="Instagram">
+                <a href="https://www.instagram.com/roopstone/" target="_blank" rel="noopener noreferrer" className="text-black/40 hover:text-black transition-colors duration-300" aria-label="Instagram">
                   <Instagram className="h-4 w-4" strokeWidth={1} />
                 </a>
-                <a href="#" className="text-black/40 hover:text-black transition-colors duration-300" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/roopstoneimpex" target="_blank" rel="noopener noreferrer" className="text-black/40 hover:text-black transition-colors duration-300" aria-label="LinkedIn">
                   <Linkedin className="h-4 w-4" strokeWidth={1} />
                 </a>
               </div>
