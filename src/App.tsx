@@ -14,6 +14,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
+import SEO from "./components/SEO";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <SEO 
+          title="Roop Stone Impex"
+          verification={{
+            // google: "your-google-verification-code",
+            // bing: "your-bing-verification-code",
+            // yandex: "your-yandex-verification-code",
+          }}
+        />
         <ScrollToTop />
         <Navigation />
         <AnimatedRoutes />

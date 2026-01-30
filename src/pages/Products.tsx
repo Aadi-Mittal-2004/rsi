@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { products, Product } from "@/data/products";
 import PageTransition, { staggerContainer, staggerItem } from "@/components/PageTransition";
+import SEO from "@/components/SEO";
 
 const Products = () => {
   const [searchParams] = useSearchParams();
@@ -45,6 +46,11 @@ const Products = () => {
 
   return (
     <PageTransition>
+      <SEO 
+        title={selectedCategory === 'all' ? 'Our Premium Stone Collection' : `${categories.find(c => c.id === selectedCategory)?.name || 'Products'} Collection`}
+        description={`Explore our extensive collection of ${selectedCategory === 'all' ? 'natural stones' : selectedCategory}, including ${selectedCategory === 'quartzite' ? 'Deoli Green and Copper' : selectedCategory === 'sandstone' ? 'Teakwood and Rainbow' : 'premium'} varieties.`}
+        keywords={`${selectedCategory}, natural stone, cladding, landscaping, Roop Stone Impex`}
+      />
     <div className="min-h-screen pt-24 pb-12" data-section-theme="dark">
       <div className="container mx-auto px-4">
         {/* Header */}

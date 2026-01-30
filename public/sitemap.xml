@@ -1,27 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Static Pages -->
   <url>
-    <loc>https://roopstoneimpex.com/</loc>
-    <lastmod>2026-01-16</lastmod>
+    <loc>https://roopstoneimpex.in/</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://roopstoneimpex.com/products</loc>
-    <lastmod>2026-01-16</lastmod>
+    <loc>https://roopstoneimpex.in/products</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://roopstoneimpex.com/about</loc>
-    <lastmod>2026-01-16</lastmod>
+    <loc>https://roopstoneimpex.in/about</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://roopstoneimpex.com/contact</loc>
-    <lastmod>2026-01-16</lastmod>
+    <loc>https://roopstoneimpex.in/contact</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://roopstoneimpex.in/competition</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/apply</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Quartzite Products -->
+  <url><loc>https://roopstoneimpex.in/products/q1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q2</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q3</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q4</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q5</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q6</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q7</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q8</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q9</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q10</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q11</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/q12</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Sandstone Products -->
+  <url><loc>https://roopstoneimpex.in/products/s1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s2</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s3</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s4</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s5</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s6</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s7</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s8</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s9</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s10</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s11</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s12</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s13</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s14</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s15</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s16</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s17</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s18</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s19</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s20</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s21</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/s22</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Limestone Products -->
+  <url><loc>https://roopstoneimpex.in/products/l1</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/l2</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Mosaic Products (m1 to m54) -->
+  <url><loc>https://roopstoneimpex.in/products/m1</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m2</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m3</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m4</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m5</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m6</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m7</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m8</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m9</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m10</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m11</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m12</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m13</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m14</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m15</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m16</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m17</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m18</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m19</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m20</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m21</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m22</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m23</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m24</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m25</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m26</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m27</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m28</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m29</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m30</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m31</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m32</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m33</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m34</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m35</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m36</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m37</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m38</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m39</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m40</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m41</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m42</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m43</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m44</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m45</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m46</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m47</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m48</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m49</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m50</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m51</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m52</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m53</loc><priority>0.6</priority></url>
+  <url><loc>https://roopstoneimpex.in/products/m54</loc><priority>0.6</priority></url>
 </urlset>

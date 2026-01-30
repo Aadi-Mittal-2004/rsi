@@ -1,0 +1,31 @@
+# Roop Stone Impex - Website Context for AI Agents
+
+## About
+Roop Stone Impex is a leading manufacturer and exporter of premium natural stone cladding, Quartzite, Sandstone, Limestone, and Marble from Rajasthan, India. Established in 1982.
+
+## Key Products
+
+### Quartzite
+- Terra Red Slate: Deep red hues, natural cleft texture.
+- Silver Shine: Shimmering silver-grey, metallic notes.
+- Deoli Green: Deep green, premium quartzite.
+- Copper: Rustic copper tones, textured cleft.
+- Ocean Green: Blend of green and grey.
+
+### Sandstone
+- Teakwood: Wood-like veining, golden/yellow tones.
+- Rainbow: Swirls of violet, plum, orange.
+- Kandla Grey: Consistent cool grey tones.
+- Agra Red: Deep robust red (Red Fort style).
+- Dholpur Beige: Classic cream/beige.
+
+### Contact Information
+- Location: Deoli, Rajasthan, India
+- Phone: +91-9214083550
+- Email: info@roopstoneimpex.in
+- Website: https://roopstoneimpex.in
+
+## Navigation
+- /products: Full catalog
+- /competition: Design competition details
+- /contact: Request quotes

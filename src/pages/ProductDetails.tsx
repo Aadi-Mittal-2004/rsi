@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import { ArrowLeft, Check } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
+import SEO from "@/components/SEO";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,8 +24,36 @@ const ProductDetails = () => {
     );
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description,
+    "image": window.location.origin + product.image,
+    "brand": {
+      "@type": "Brand",
+      "name": "Roop Stone Impex"
+    },
+    "category": product.category,
+    "keywords": product.properties.join(", "),
+    "additionalProperty": product.properties.map(prop => ({
+      "@type": "PropertyValue",
+      "name": "Feature",
+      "value": prop
+    }))
+  };
+
   return (
     <PageTransition>
+    <SEO 
+      title={product.name}
+      description={product.description}
+      keywords={`${product.name}, ${product.category}, ${product.subcategory || ''}, natural stone, Roop Stone Impex`}
+      image={product.image}
+      url={window.location.href}
+      type="product"
+      structuredData={jsonLd}
+    />
     <div className="min-h-screen pt-24 pb-12" data-section-theme="dark">
       <div className="container mx-auto px-4">
         <Link
@@ -56,14 +85,14 @@ const ProductDetails = () => {
             </p>
             
             <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3">Recommended Usage:</h3>
+              <h2 className="text-lg font-semibold mb-3">Recommended Usage:</h2>
               <p className="text-muted-foreground leading-relaxed">
                 {product.usage}
               </p>
             </div>
 
             <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3">Key Features:</h3>
+              <h2 className="text-lg font-semibold mb-3">Key Features:</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {product.properties.map((prop) => (
                   <li key={prop} className="flex items-center text-sm text-muted-foreground">

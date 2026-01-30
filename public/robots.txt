@@ -1,5 +1,5 @@
 # Robots.txt for Roop Stone Impex
-# https://roopstoneimpex.com
+# https://roopstoneimpex.in
 
 User-agent: Googlebot
 Allow: /
@@ -19,8 +19,15 @@ User-agent: *
 Allow: /
 Crawl-delay: 2
 
+# Friendly to AI Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 # Sitemap location
-Sitemap: https://roopstoneimpex.com/sitemap.xml
+Sitemap: https://roopstoneimpex.in/sitemap.xml
 
 # Disallow admin and private directories (if any)
 Disallow: /api/
