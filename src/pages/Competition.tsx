@@ -6,7 +6,7 @@ import { RoadmapTimeline } from "@/components/brochure/RoadmapTimeline";
 import { Section } from "@/components/brochure/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Compass, Film, Instagram, Linkedin, Mail, Phone, TrendingUp } from "lucide-react";
+import { Compass, Film, Instagram, Lightbulb, Linkedin, Mail, Phone, TrendingUp } from "lucide-react";
 
 const Competition = () => {
   const scrollToRegister = () => {
@@ -22,7 +22,7 @@ const Competition = () => {
 
           <main className="relative">
             {/* 2. Introduction */}
-            <Section id="intro" eyebrow="THE WHY" title="Carve Your Legacy in Stone" className="py-14 md:py-18">
+            <Section id="intro" eyebrow="THE STORY" title="The Industry is Stuck. Unstick It." className="py-14 md:py-18">
               <motion.div 
                 initial="initial"
                 whileInView="animate"
@@ -32,14 +32,13 @@ const Competition = () => {
               >
                 <div className="max-w-prose space-y-5 text-base font-normal leading-loose text-muted-foreground md:text-lg">
                   <motion.p variants={slideUp}>
-                    Roop Stone Impex invites the brightest minds to redefine how the world sees Natural Stone. This is not just
-                    a design competition; it is a product launchpad.
+                    For 20 years, the Indian stone industry has sold the same polished slabs. No innovation. No risk-taking.
+                    We are opening our factory doors to change that.
                   </motion.p>
                   <motion.p variants={slideUp}>
-                    We are looking for multidisciplinary teams to design, manufacture, and market the next generation of luxury
-                    stone products using the finest materials from Rajasthan.
+                    We are looking for <span className="text-foreground font-medium">Architects</span> to reimagine the form, <span className="text-foreground font-medium">Geologists</span> to rediscover the material, and <span className="text-foreground font-medium">Marketers</span> to tell the new story.
                   </motion.p>
-                  <motion.p variants={slideUp} className="font-medium text-accent">Don&apos;t just design it. Build it. Sell it. Own it.</motion.p>
+                  <motion.p variants={slideUp} className="font-medium text-accent">Your Mission: Create a design that forces the market to evolve.</motion.p>
                 </div>
 
                 <Card className="overflow-hidden">
@@ -63,8 +62,8 @@ const Competition = () => {
               </motion.div>
             </Section>
 
-            {/* 3. Who Should Apply */}
-            <Section id="talent" eyebrow="THE TALENT" title="Calling All Visionaries" className="py-14 md:py-18">
+            {/* 3. Build Your Dream Team */}
+            <Section id="talent" eyebrow="THE ROLES" title="Build Your Dream Team" className="py-14 md:py-18">
               <motion.div 
                 initial="initial"
                 whileInView="animate"
@@ -72,40 +71,29 @@ const Competition = () => {
                 variants={staggerContainer}
                 className="space-y-12"
               >
-                <div className="space-y-6">
-                  <motion.div variants={slideUp}>
-                    <p className="max-w-prose text-base font-normal leading-loose text-muted-foreground md:text-lg">
-                      The strongest products aren’t built by one skill—they’re built by teams. This challenge is designed for
-                      students from different backgrounds to come together, combine their strengths, and make a name in the
-                      industry.
-                    </p>
-                    <p className="max-w-prose mt-6 text-base font-normal leading-loose text-muted-foreground md:text-lg">
-                      Architects and civil engineers shape what’s feasible. Product designers define form and function.
-                      Cinematographers, filmmakers, and photographers build the story and the visual proof. Marketing,
-                      management, and business students take it to market.
-                    </p>
-                  </motion.div>
-                </div>
-
+                
                 {/* Team Formula Equation */}
                 <div className="relative">
-                  <div className="rounded-xl bg-[#111111] p-8 md:p-10 relative z-10">
-                    <p className="text-center text-xs tracking-[0.2em] text-accent font-medium mb-8">THE SQUAD FORMULA</p>
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:gap-8">
-                      <div className="flex flex-col items-center gap-3">
-                        <span className="text-lg md:text-2xl font-serif font-medium text-foreground">Architects & Designers</span>
+                  <div className="rounded-xl bg-[#111111] p-5 sm:p-8 md:p-10 relative z-10">
+                    <p className="text-center text-xs tracking-[0.2em] text-accent font-medium mb-6 md:mb-8">THE SQUAD FORMULA</p>
+                    <div className="flex flex-col items-center justify-center gap-3 text-center md:flex-row md:gap-6 lg:gap-8">
+                      <div className="flex flex-col items-center gap-2">
+                        <span className="text-base sm:text-lg md:text-2xl font-serif font-medium text-foreground">1. Architects</span>
+                        <span className="text-xs tracking-wider text-muted-foreground">DESIGN</span>
                       </div>
-                      <span className="text-2xl text-accent font-serif">+</span>
-                      <div className="flex flex-col items-center gap-3">
-                        <span className="text-lg md:text-2xl font-serif font-medium text-foreground">Filmmakers</span>
+                      <span className="text-xl md:text-2xl text-accent font-serif">+</span>
+                      <div className="flex flex-col items-center gap-2">
+                        <span className="text-base sm:text-lg md:text-2xl font-serif font-medium text-foreground">2. Geologists</span>
+                        <span className="text-xs tracking-wider text-muted-foreground">SCIENCE</span>
                       </div>
-                      <span className="text-2xl text-accent font-serif">+</span>
-                      <div className="flex flex-col items-center gap-3">
-                        <span className="text-lg md:text-2xl font-serif font-medium text-foreground">Marketers</span>
+                      <span className="text-xl md:text-2xl text-accent font-serif">+</span>
+                      <div className="flex flex-col items-center gap-2">
+                        <span className="text-base sm:text-lg md:text-2xl font-serif font-medium text-foreground">3. Marketers</span>
+                        <span className="text-xs tracking-wider text-muted-foreground">BUSINESS</span>
                       </div>
-                      <span className="text-2xl text-accent font-serif hidden md:inline">=</span>
-                      <div className="mt-4 md:mt-0 flex flex-col items-center gap-3 rounded-lg border border-accent/20 bg-accent/5 px-6 py-3">
-                        <span className="text-xl md:text-2xl font-serif font-semibold text-accent">The Perfect Squad</span>
+                      <span className="text-xl md:text-2xl text-accent font-serif hidden md:inline">=</span>
+                      <div className="mt-3 md:mt-0 flex flex-col items-center gap-2 rounded-lg border border-accent/20 bg-accent/5 px-4 py-2 sm:px-6 sm:py-3">
+                        <span className="text-lg sm:text-xl md:text-2xl font-serif font-semibold text-accent">The Perfect Squad</span>
                       </div>
                     </div>
                   </div>
@@ -113,76 +101,103 @@ const Competition = () => {
                   <div className="absolute left-1/2 -bottom-8 h-8 w-px bg-accent/30 -translate-x-1/2" />
                 </div>
 
-                {/* The Advantage Pull-Quote - Centered */}
-                <div className="relative py-8 text-center">
-                  <p className="text-xs tracking-[0.2em] text-muted-foreground mb-4">THE ADVANTAGE</p>
-                  <p className="text-2xl md:text-3xl font-serif italic text-accent max-w-4xl mx-auto leading-relaxed">
-                    &ldquo;Different disciplines. One outcome: a market-ready stone product—with a brand, a launch plan, and real commercial traction.&rdquo;
-                  </p>
-                  {/* Connector Line 2: Quote to Cards */}
-                  <div className="absolute left-1/2 -bottom-4 h-4 w-px bg-accent/30 -translate-x-1/2" />
-                </div>
-              </motion.div>
-
-              <motion.div 
-                initial="initial" 
-                whileInView="animate" 
-                viewport={{ once: true, margin: "-100px" }} 
-                variants={staggerContainer} 
-                className="mt-12 grid gap-6 md:grid-cols-3"
-              >
-                <motion.div variants={slideUp}>
-                  <Card className="h-full border-0 bg-[#1A1A1A]">
-                    <CardContent className="p-8">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Compass className="h-5 w-5 text-accent" />
-                        <p className="text-xs tracking-[0.18em] text-muted-foreground">THE CREATORS</p>
-                      </div>
-                      <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Design + Build</h3>
-                      <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
-                        Architecture, Product Design, and Civil Engineering—turn ideas into engineered, buildable products.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-                <motion.div variants={slideUp}>
-                  <Card className="h-full border-0 bg-[#1A1A1A]">
-                    <CardContent className="p-8">
-                      <div className="flex items-center gap-3 mb-4">
-                        <Film className="h-5 w-5 text-accent" />
-                        <p className="text-xs tracking-[0.18em] text-muted-foreground">THE STORYTELLERS</p>
-                      </div>
-                      <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Capture + Craft</h3>
-                      <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
-                        Cinematography, Filmmaking, and Photography—create premium visuals that sell the product.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-                <motion.div variants={slideUp}>
-                  <Card className="h-full border-0 bg-[#1A1A1A]">
-                    <CardContent className="p-8">
-                      <div className="flex items-center gap-3 mb-4">
-                        <TrendingUp className="h-5 w-5 text-accent" />
-                        <p className="text-xs tracking-[0.18em] text-muted-foreground">THE STRATEGISTS</p>
-                      </div>
-                      <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Launch + Lead</h3>
-                      <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
-                        Marketing, Management, and Business—position, price, and launch to win real orders.
-                      </p>
-                    </CardContent>
-                  </Card>
+                <motion.div 
+                  initial="initial" 
+                  whileInView="animate" 
+                  viewport={{ once: true, margin: "-100px" }} 
+                  variants={staggerContainer} 
+                  className="mt-12 grid gap-6 md:grid-cols-3"
+                >
+                  <motion.div variants={slideUp}>
+                    <Card className="h-full border-0 bg-[#1A1A1A]">
+                      <CardContent className="p-8">
+                        <div className="flex items-center gap-3 mb-4">
+                          <Compass className="h-5 w-5 text-accent" />
+                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE CREATORS</p>
+                        </div>
+                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Architects & Designers</h3>
+                        <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
+                          Break the mold. Move beyond CAD and learn to design for real-world CNC and hand-carving. Create a product that carries your name.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                  <motion.div variants={slideUp}>
+                    <Card className="h-full border-0 bg-[#1A1A1A]">
+                      <CardContent className="p-8">
+                        <div className="flex items-center gap-3 mb-4">
+                          <Lightbulb className="h-5 w-5 text-accent" />
+                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE SCIENTISTS</p>
+                        </div>
+                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">The Geologists</h3>
+                        <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
+                          Be the consultant. Don&apos;t just study rocks in a lab. Join our residency to analyze raw stone, advise designers on structural integrity, and rediscover lost textures in our quarry.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                  <motion.div variants={slideUp}>
+                    <Card className="h-full border-0 bg-[#1A1A1A]">
+                      <CardContent className="p-8">
+                        <div className="flex items-center gap-3 mb-4">
+                          <TrendingUp className="h-5 w-5 text-accent" />
+                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE STRATEGISTS</p>
+                        </div>
+                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Marketers & Entrepreneurs</h3>
+                        <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
+                          Don&apos;t have a design idea? That&apos;s fine. We need you to build the business case. Manage the budget, hire influencers, and create the launch strategy.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 </motion.div>
               </motion.div>
             </Section>
 
-            {/* 4. Roadmap */}
+            {/* 4. The Support Ecosystem */}
+            <Section id="support" eyebrow="THE SYSTEM" title="You Are Not Alone." className="py-14 md:py-18 bg-[#0A0A0A]">
+              <div className="space-y-12">
+                <motion.div 
+                   initial="initial"
+                   whileInView="animate"
+                   viewport={{ once: true, margin: "-100px" }}
+                   variants={staggerContainer}
+                >
+                  <p className="max-w-prose text-base font-normal leading-loose text-muted-foreground md:text-lg mb-10">
+                    We don&apos;t expect you to know everything. The &quot;Creation Triad&quot; is with you at every step:
+                  </p>
+
+                  <div className="grid gap-6 md:grid-cols-3">
+                     <motion.div variants={slideUp} className="rounded-lg border border-white/5 bg-white/5 p-6 backdrop-blur-sm">
+                        <h4 className="font-serif text-xl font-semibold text-foreground mb-3">The Geologist Guild</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          A dedicated team of geology students will act as technical consultants, helping you choose the right stone for your design.
+                        </p>
+                     </motion.div>
+                     <motion.div variants={slideUp} className="rounded-lg border border-white/5 bg-white/5 p-6 backdrop-blur-sm">
+                        <h4 className="font-serif text-xl font-semibold text-foreground mb-3">The Master Craftsmen</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Our in-house artisans will work alongside you to prove if your design is manufacturable.
+                        </p>
+                     </motion.div>
+                     <motion.div variants={slideUp} className="rounded-lg border border-white/5 bg-white/5 p-6 backdrop-blur-sm">
+                        <h4 className="font-serif text-xl font-semibold text-foreground mb-3">The Infrastructure</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Roop Stone provides the CNC machines, the raw material, and the capital. You just provide the vision.
+                        </p>
+                     </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </Section>
+
+            {/* 5. Roadmap */}
             <Section id="roadmap" eyebrow="THE PROCESS" title="The Roadmap" className="py-14 md:py-18">
               <RoadmapTimeline />
             </Section>
 
-            {/* 5. The Ultimate Prize (Pyramid Hierarchy) */}
-            <Section id="prize" eyebrow="THE INCENTIVE" title="The Ultimate Prize" className="py-14 md:py-18">
+            {/* 6. The Financials */}
+            <Section id="prize" eyebrow="THE FINANCIALS" title="The Financials" className="py-14 md:py-18">
               <motion.div
                 initial="initial"
                 whileInView="animate"
@@ -192,13 +207,12 @@ const Competition = () => {
               >
                 {/* 1. Main Paragraph */}
                 <motion.p variants={slideUp} className="max-w-prose text-base font-normal leading-loose text-muted-foreground md:text-lg">
-                  We don&apos;t just give out certificates. We build partnerships. Successful product lines will be inducted into
-                  the Roop Stone Impex Premium Collection.
+                  We don&apos;t just give out certificates. We build partnerships. Check the numbers.
                 </motion.p>
 
                 {/* Hero Card - The Big Hook */}
                 <motion.div variants={slideUp} className="relative overflow-hidden rounded-xl border border-accent/20 bg-gradient-to-b from-card to-background p-8 text-center shadow-2xl md:p-12">
-                  <p className="text-xs tracking-[0.2em] text-accent font-medium mb-4">THE INCENTIVE</p>
+                  <p className="text-xs tracking-[0.2em] text-accent font-medium mb-4">THE DEAL</p>
                   <h3 className="font-serif text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                     15-Year Revenue Royalty
                   </h3>
@@ -212,64 +226,18 @@ const Competition = () => {
                 {/* Supporting Details - 3 Column Grid */}
                 <div className="grid gap-4 md:grid-cols-3">
                   <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
-                    <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE DEAL</h4>
-                    <p className="text-sm text-muted-foreground">Royalty of up to 10% on revenue per unit sold.</p>
+                    <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE SEED FUND</h4>
+                    <p className="text-sm text-muted-foreground">Up to ₹20,000 provided upfront to winning proposals for marketing and prototyping expenses.</p>
                   </motion.div>
                   <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
-                    <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE DURATION</h4>
-                    <p className="text-sm text-muted-foreground">Contracts valid for up to 15 years.</p>
+                    <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE ROYALTY</h4>
+                    <p className="text-sm text-muted-foreground">A signed licensing agreement guaranteeing you 15% of gross sales for 15 years.</p>
                   </motion.div>
                   <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
-                    <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE OUTCOME</h4>
-                    <p className="text-sm text-muted-foreground">Create today, earn from it for a decade.</p>
+                    <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE EXPOSURE</h4>
+                    <p className="text-sm text-muted-foreground">Your name stamped on every product and featured in our catalog.</p>
                   </motion.div>
                 </div>
-              </motion.div>
-            </Section>
-
-            {/* 6. Technical Toolbox */}
-            <Section id="toolbox" eyebrow="THE CAPABILITIES" title="Your Playground" className="py-14 md:py-18">
-              <motion.p 
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                variants={slideUp}
-                className="max-w-prose text-base font-normal leading-loose text-muted-foreground md:text-lg"
-              >
-                You dream it, we help you build it. Available finishes and techniques:
-              </motion.p>
-              
-              <motion.div
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={staggerContainer}
-                className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-              >
-                {/* All capabilities as elegant cards */}
-                {[
-                  { category: "TEXTURAL", items: ["Leathered", "Split Face", "Sandblasted", "River-washed"] },
-                  { category: "PRECISION", items: ["CNC Carving", "Waterjet Cutting", "Shot Blasting"] },
-                  { category: "CLASSIC", items: ["Honed", "Polished", "Tumbled", "Bush Hammered"] },
-                ].map((group) => (
-                  <motion.div 
-                    key={group.category} 
-                    variants={staggerItem}
-                    className="rounded-lg border border-white/10 p-6"
-                  >
-                    <h4 className="font-sans text-xs font-semibold tracking-[0.2em] text-accent mb-4">
-                      {group.category}
-                    </h4>
-                    <ul className="space-y-3">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex items-center gap-3 text-base text-foreground/80">
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent/60" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
               </motion.div>
             </Section>
 
@@ -281,18 +249,23 @@ const Competition = () => {
                 <div className="text-center max-w-2xl mx-auto mb-12">
                   <p className="text-sm tracking-[0.22em] text-accent mb-4">GET STARTED</p>
                   <h2 className="text-balance font-serif text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-                    Ready to set your future in stone?
+                    From Screen to Stone.
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                    Register your team and we'll share timelines, eligibility, and next steps.
+                    The factory is waiting. The stone is ready. The budget is approved.
                   </p>
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                    <Button variant="outline" size="lg" asChild className="border-accent/40 hover:border-accent">
-                      <a href="#">Register Your Team</a>
-                    </Button>
-                    <Button variant="ghost" size="lg" asChild>
-                      <a href="#intro">Back to top</a>
-                    </Button>
+                  <div className="mt-8 flex flex-col items-center gap-4">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:justify-center w-full">
+                      <Button variant="outline" size="lg" asChild className="border-accent/40 hover:border-accent w-full sm:w-auto">
+                        <a href="#">Start Your Application</a>
+                      </Button>
+                      <Button variant="ghost" size="lg" asChild className="w-full sm:w-auto">
+                        <a href="#intro">Back to top</a>
+                      </Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground/60">
+                      Open to students of Architecture, Design, Geology, and Business/Marketing.
+                    </p>
                   </div>
                 </div>
 

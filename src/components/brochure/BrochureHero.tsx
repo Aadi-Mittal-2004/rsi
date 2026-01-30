@@ -20,10 +20,10 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
           <div>
             <p className="text-sm tracking-[0.28em] text-accent">ROOP STONE IMPEX PRESENTS</p>
             <h1 className="mt-4 text-balance font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              THE ROOP STONE INNOVATION CHALLENGE 2026
+              THE ROOP STONE PRODUCT INCUBATOR 2026
             </h1>
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-              From Quarry to Legacy: Where Your Vision Becomes Industry.
+              Don&apos;t just design a portfolio piece. Launch a real brand.
             </p>
 
             <div className="mt-7">
@@ -33,28 +33,28 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
                   "text-xs font-medium tracking-[0.14em] text-foreground shadow-gilded",
                 )}
               >
-                15-Year Revenue Royalty & Real-World Funding
+                Earn 15-Year Royalties on Every Product Sold
               </span>
-              <p className="mt-3 text-xs tracking-[0.14em] text-muted-foreground">
-                Teams • Design • Manufacture • Market
+              <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                We provide the Factory, the Geologists, the Craftsmen, and a ₹20,000 Seed Fund. You provide the Vision.
               </p>
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button variant="outline" size="lg" onClick={onRegister} className="relative">
-                <span className="relative z-10">Register Your Team</span>
+              <Button variant="outline" size="lg" onClick={onRegister} className="relative border-accent/40 hover:border-accent hover:text-accent transition-colors">
+                <span className="relative z-10">Apply for the Residency</span>
                 <span
                   aria-hidden
                   className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/25 to-transparent opacity-60 mask-image:linear-gradient(to_right,transparent,black,transparent) motion-safe:animate-shine"
                 />
               </Button>
               <Button variant="ghost" size="lg" asChild>
-                <a href="#roadmap">Explore the Roadmap</a>
+                <a href="#roadmap">View the Challenge</a>
               </Button>
             </div>
 
             <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
-              Professional. Visionary. Industrial. Sophisticated.
+              Factory • Geologists • Craftsmen • Funding
             </p>
           </div>
 
