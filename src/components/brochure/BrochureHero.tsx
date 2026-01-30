@@ -33,7 +33,7 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
                   "text-xs font-medium tracking-[0.14em] text-foreground shadow-gilded",
                 )}
               >
-                Earn 15-Year Royalties on Every Product Sold
+                Earn Upto 10% Royalties for Upto 15 Years
               </span>
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
                 We provide the Factory, the Geologists, the Craftsmen, and a ₹20,000 Seed Fund. You provide the Vision.
@@ -42,7 +42,7 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button variant="outline" size="lg" onClick={onRegister} className="relative border-accent/40 hover:border-accent hover:text-accent transition-colors">
-                <span className="relative z-10">Apply for the Residency</span>
+                <span className="relative z-10">Enroll in Competition</span>
                 <span
                   aria-hidden
                   className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/25 to-transparent opacity-60 mask-image:linear-gradient(to_right,transparent,black,transparent) motion-safe:animate-shine"

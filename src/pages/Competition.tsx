@@ -215,7 +215,7 @@ const Competition = () => {
                 <motion.div variants={slideUp} className="relative overflow-hidden rounded-xl border border-accent/20 bg-gradient-to-b from-card to-background p-8 text-center shadow-2xl md:p-12">
                   <p className="text-xs tracking-[0.2em] text-accent font-medium mb-4">THE DEAL</p>
                   <h3 className="font-serif text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-                    15-Year Revenue Royalty
+                    Upto 10% Revenue Royalty for Upto 15 Years
                   </h3>
                   <p className="mt-4 text-lg text-muted-foreground">& real-world funding to launch.</p>
                   <div className="my-6 h-px w-24 bg-accent/30 mx-auto" />
@@ -232,7 +232,7 @@ const Competition = () => {
                   </motion.div>
                   <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
                     <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE ROYALTY</h4>
-                    <p className="text-sm text-muted-foreground">A signed licensing agreement guaranteeing you 15% of gross sales for 15 years.</p>
+                    <p className="text-sm text-muted-foreground">A signed licensing agreement offering you upto 10% of gross sales for upto 15 years.</p>
                   </motion.div>
                   <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
                     <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE EXPOSURE</h4>

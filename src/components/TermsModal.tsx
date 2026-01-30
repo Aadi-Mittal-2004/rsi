@@ -60,7 +60,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
                 <li><strong>Entry</strong> means any design, concept, drawing, plan, model, video, text, artwork, prototype or other work submitted or developed by a Participant or team in the course of the Competition.</li>
                 <li><strong>Residency</strong> means the in‑person design and product development residency held at Roop Stone Impex’s facilities in Rajasthan, India, or at any other location notified by Roop Stone Impex.</li>
                 <li><strong>Team</strong> means a group of Participants formally accepted by Roop Stone Impex to participate together in the Competition, typically comprising at least one Architect/Designer, one Geologist/Scientist and one Marketer/Entrepreneur, as described on the Competition Website.</li>
-                <li><strong>Winning Team(s)</strong> means the Team(s) ultimately selected by Roop Stone Impex for product launch or commercialization, in its sole discretion.</li>
+                <li><strong>Winning Team(s)</strong> means the Team(s) selected by Roop Stone Impex as the winners of the Competition. Selection as a Winning Team does not guarantee product launch or commercialization.</li>
               </ul>
             </section>
 
@@ -97,7 +97,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
 
             <section className="space-y-4">
               <h4 className="text-foreground font-medium">6. TEAMS</h4>
-              <p>6.1 Participants may apply individually and/or as Teams, as specified on the Competition Website. Roop Stone Impex may assist in forming Teams by matching individuals with complementary skills, but final Team composition remains subject to Roop Stone Impex’s approval.</p>
+              <p>6.1 Participants may apply individually and/or as Teams, as specified on the Competition Website. Roop Stone Impex is under no obligation to assist in forming Teams, but may do so at its discretion by matching individuals with complementary skills, but final Team composition remains subject to Roop Stone Impex’s approval.</p>
               <p>6.2 Each Team must designate one Team Leader who will be the primary point of contact with Roop Stone Impex and who is authorised to receive communications, sign acknowledgements and make decisions on behalf of the Team. However, each Team member remains individually bound by these Terms.</p>
               <p>6.3 Roop Stone Impex will not be responsible for any internal arrangements, disputes, revenue‑sharing, or ownership issues among Team members. Teams are solely responsible for agreeing among themselves how any rights, responsibilities or benefits are shared.</p>
               <p>6.4 Roop Stone Impex may, in its sole discretion, permit changes in Team composition (e.g., addition or replacement of members) subject to written approval and any conditions it prescribes.</p>
@@ -122,8 +122,9 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
               <ul className="list-disc pl-5 space-y-1">
                 <li>a. travel to and from any Competition location (including the Residency);</li>
                 <li>b. visas, work permits, and any other travel or immigration documentation;</li>
-                <li>c. travel and health insurance; and</li>
-                <li>d. any personal expenses not expressly covered by Roop Stone Impex.</li>
+                <li>c. travel and health insurance;</li>
+                <li>d. any personal expenses not expressly covered by Roop Stone Impex; and</li>
+                <li>e. any medical costs or quarantine costs incurred during travel.</li>
               </ul>
               <p>8.2 Where Roop Stone Impex provides or sponsors accommodation, local transport, meals or stipends, the scope, standard and conditions of such support will be as described on the Competition Website or in written communication to relevant Participants or Teams. Roop Stone Impex reserves the right to substitute or withdraw any such support where reasonably necessary.</p>
               <p>8.3 Participants must comply with all laws and regulations of the host country/state, and with all rules of any accommodation or facilities used in connection with the Competition.</p>
@@ -132,7 +133,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
             <section className="space-y-4">
               <h4 className="text-foreground font-medium">9. FUNDING, ROYALTIES & COMMERCIAL OPPORTUNITIES</h4>
               <div className="space-y-2">
-                <p><strong>9.1 Non‑Guaranteed Benefits.</strong> The benefits described on the Competition Website – including, without limitation, access to Roop Stone Impex’s facilities and mentors, any “Start Fund”, “Seed Fund”, and any potential 15‑year revenue royalty or other revenue‑sharing on products commercialised through Roop Stone Impex – (together, the “Programme Benefits”) are indicative only and are subject to change or cancellation at any time.</p>
+                <p><strong>9.1 Non‑Guaranteed Benefits.</strong> The benefits described on the Competition Website – including, without limitation, access to Roop Stone Impex’s facilities and mentors, any “Start Fund”, “Seed Fund”, and any potential revenue royalty, profit-share, or other commercial arrangement on products commercialised through Roop Stone Impex – (together, the “Programme Benefits”) are indicative only and are subject to change or cancellation at any time.</p>
                 <p><strong>9.2 Subject to Further Agreement.</strong> Any investment, funding, residency grant, stipend, manufacturing support, marketing support, royalty, profit share or other commercial arrangement between Roop Stone Impex and any Participant or Team will be governed by a separate written agreement (such as an incubator agreement, production agreement, license agreement, or royalty agreement) to be executed between the relevant parties (each a “Commercial Agreement”).</p>
                 <p><strong>9.3 No Obligation to Commercialise.</strong> Roop Stone Impex has no obligation to manufacture, launch or commercialise any Entry or product, to provide any minimum level of Programme Benefits, or to continue commercialisation once started. Decisions on commercialisation, production volumes, markets, pricing, branding, distribution channels and discontinuation are at the sole discretion of Roop Stone Impex and any relevant Partners.</p>
                 <p><strong>9.4 Taxation.</strong> All payments, prizes or benefits received by Participants may be subject to tax, withholding or reporting under applicable law. Participants are solely responsible for their own tax obligations and for obtaining independent tax advice. Roop Stone Impex may deduct applicable taxes at source as required by law.</p>
@@ -147,6 +148,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
                 <ul className="list-disc pl-5 space-y-1">
                     <li>a. Each Participant retains ownership of any intellectual property rights (“IP”) they owned prior to the Competition (“Background IP”).</li>
                     <li>b. Nothing in these Terms transfers ownership of a Participant’s Background IP to Roop Stone Impex, except as may be agreed in a subsequent Commercial Agreement.</li>
+                    <li>c. To the extent any Background IP is incorporated into an Entry, you hereby grant Roop Stone Impex a non-exclusive, royalty-free, perpetual, worldwide license to use such Background IP as part of the Entry for the purposes of the Competition and any subsequent commercialization (subject to the Commercial Agreement).</li>
                 </ul>
                 <p><strong>10.2 IP in Entries (General Participants)</strong></p>
                 <ul className="list-disc pl-5 space-y-1">
@@ -159,7 +161,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
                             <li>publicising Roop Stone Impex, its products, services and future competitions.</li>
                         </ul>
                     </li>
-                    <li>c. This licence is perpetual and irrevocable in respect of uses already made, but Roop Stone Impex will, on reasonable written request, cease using an Entry for new advertising campaigns unrelated to the Competition.</li>
+                    <li>c. This licence is perpetual, irrevocable, and survives the termination of this Competition.</li>
                 </ul>
                 <p><strong>10.3 IP for Winning Teams and Commercialised Products</strong></p>
                 <ul className="list-disc pl-5 space-y-1">
@@ -168,7 +170,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
                         <ul className="list-disc pl-5 mt-1 space-y-1 text-muted-foreground/80">
                             <li>grant Roop Stone Impex an exclusive or non‑exclusive licence to manufacture, distribute and market the Product; and/or</li>
                             <li>provide for joint or sole ownership arrangements; and/or</li>
-                            <li>set out the structure and percentage of any 15‑year revenue royalty, profit‑share or similar arrangement.</li>
+                            <li>set out the structure and percentage of any revenue royalty, profit‑share or similar arrangement.</li>
                         </ul>
                     </li>
                     <li>c. In case of any conflict between these Terms and a signed Commercial Agreement, the Commercial Agreement shall prevail to the extent of such conflict.</li>
@@ -232,7 +234,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
                     <li>a. endangers their own safety or that of others;</li>
                     <li>b. damages equipment, facilities or property;</li>
                     <li>c. harasses, abuses, discriminates against or otherwise behaves inappropriately towards any person; or</li>
-                    <li>d. otherwise breaches these Terms or any applicable rules, in Roop Stone Impex’s reasonable opinion.</li>
+                    <li>d. otherwise breaches these Terms or any applicable rules, in Roop Stone Impex’s sole and absolute discretion.</li>
                 </ul>
               </p>
               <p>12.4 You are responsible for your own health and medical needs. You must inform Roop Stone Impex in advance of any medical condition, disability or dietary requirement that may affect your participation, and you must obtain any vaccinations or medical clearances recommended for travel to the Residency location.</p>
@@ -278,7 +280,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
               <p>15.1 Roop Stone Impex may disqualify any Participant or Team, or terminate their participation at any stage, if:
                  <ul className="list-disc pl-5 mt-1 space-y-1">
                     <li>a. they breach or fail to comply with these Terms or any applicable rules or policies;</li>
-                    <li>b. their conduct is, in Roop Stone Impex’s opinion, unethical, offensive, unsafe or damaging to Roop Stone Impex’s reputation or operations;</li>
+                    <li>b. their conduct is, in Roop Stone Impex’s sole and absolute discretion, unethical, offensive, unsafe or damaging to Roop Stone Impex’s reputation or operations;</li>
                     <li>c. their Entry is found to be plagiarised, copied, substantially similar to an existing work, or otherwise infringes any third‑party rights;</li>
                     <li>d. they provide false, misleading or incomplete information; or</li>
                     <li>e. they fail to meet any deadline or reasonable request for information.</li>
@@ -310,7 +312,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
                 <p><strong>16.3 Limitation of Liability.</strong> To the maximum extent permitted by law:
                      <ul className="list-disc pl-5 mt-1 space-y-1">
                     <li>a. Roop Stone Impex and its Partners shall not be liable for any indirect, incidental, consequential, special or punitive damages, or for any loss of profits, revenue, business, goodwill, or data, arising out of or in connection with the Competition or these Terms, even if advised of the possibility of such damages.</li>
-                    <li>b. Roop Stone Impex’s total aggregate liability to any Participant arising out of or in connection with the Competition or these Terms shall not exceed the higher of (i) the total amount actually paid by Roop Stone Impex to that Participant under the Competition (excluding reimbursements of third‑party costs), and (ii) INR 25,000, except where liability cannot be limited under applicable law (e.g., for death or personal injury caused by negligence, or fraud).</li>
+                    <li>b. Roop Stone Impex’s total aggregate liability to any Participant arising out of or in connection with the Competition or these Terms shall not exceed the higher of (i) the total amount actually paid by Roop Stone Impex to that Participant under the Competition (excluding reimbursements of third‑party costs), and (ii) INR 50,000 (limited to participation expenses only), except where liability cannot be limited under applicable law (e.g., for death or personal injury caused by negligence, or fraud).</li>
                     </ul>
                 </p>
                 <p>16.4 Roop Stone Impex is not responsible for:
@@ -338,8 +340,7 @@ export const TermsModal = ({ open, onOpenChange }: TermsModalProps) => {
              <section className="space-y-4">
               <h4 className="text-foreground font-medium">18. GOVERNING LAW & DISPUTE RESOLUTION</h4>
               <p>18.1 These Terms and any dispute or claim arising out of or in connection with them or the Competition shall be governed by and construed in accordance with the laws of India, without giving effect to conflict‑of‑law rules.</p>
-              <p>18.2 Subject to clause 18.3, the courts at Deoli, Rajasthan, India shall have exclusive jurisdiction to settle any dispute arising out of or in connection with these Terms or the Competition.</p>
-              <p>18.3 Roop Stone Impex may, at its sole discretion, require that any such dispute first be referred to mediation or arbitration in Deoli, Rajasthan, India, under rules and before a mediator/arbitrator it designates, before resorting to court proceedings.</p>
+              <p>18.2 Any dispute arising out of or in connection with these Terms, including any question regarding their existence, validity or termination, shall be referred to and finally resolved by arbitration in Deoli, Rajasthan. The seat of arbitration shall be Deoli. The language shall be English. The Courts at Deoli shall have exclusive jurisdiction only for the purposes of enforcing the arbitration award.</p>
             </section>
 
             <section className="space-y-4">
