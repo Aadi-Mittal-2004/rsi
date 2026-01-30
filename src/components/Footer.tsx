@@ -97,7 +97,7 @@ const Footer = () => {
             <div className="space-y-3">
               <p className="text-sm text-black/50 font-light">+91 9214083550</p>
               <p className="text-sm text-black/50 font-light">+91 7357923414</p>
-              <p className="text-sm text-black/50 font-light">aadi.mittal@roopstoneimpex.email</p>
+              <p className="text-sm text-black/50 font-light">aadi@roopstoneimpex.in</p>
               <p className="text-sm text-black/50 font-light leading-relaxed">
                 Old Ajmer Road, RICCO Industrial Area, Deoli, Rajasthan, India
               </p>

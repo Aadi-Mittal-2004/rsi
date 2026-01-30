@@ -44,8 +44,8 @@ const Contact = () => {
             </div>
             <h3 className="text-lg font-medium mb-3 tracking-wide">Email</h3>
             <p className="text-muted-foreground text-sm leading-relaxed mb-2">For general inquiries and support.</p>
-            <a href="mailto:aadi.mittal@roopstoneimpex.email" className="text-white text-lg font-medium tracking-wide hover:text-accent transition-colors break-all mt-4 inline-block">
-              aadi.mittal@roopstoneimpex.email
+            <a href="mailto:aadi@roopstoneimpex.in" className="text-white text-lg font-medium tracking-wide hover:text-accent transition-colors break-all mt-4 inline-block">
+              aadi@roopstoneimpex.in
             </a>
           </div>
 
