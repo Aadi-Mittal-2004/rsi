@@ -18,7 +18,7 @@ import SEO from "./components/SEO";
 
 const queryClient = new QueryClient();
 
-import Competition from "./pages/Competition";
+import Incubator from "./pages/Incubator";
 import Apply from "./pages/Apply";
 
 // Animated routes wrapper
@@ -31,7 +31,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/competition" element={<Competition />} />
+        <Route path="/incubator" element={<Incubator />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

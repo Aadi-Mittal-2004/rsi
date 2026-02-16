@@ -30,7 +30,7 @@ const About = () => {
     <PageTransition>
     <div className="min-h-screen">
       {/* About Roop Stone Impex */}
-      <section className="pt-24 pb-20 px-4" data-section-theme="dark">
+      <section className="pt-24 pb-20 px-4">
         <div className="container mx-auto">
           {/* Header */}
           <div className="text-left mb-12">
@@ -41,7 +41,7 @@ const About = () => {
           {/* Two Column Layout */}
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left - Image with Years Badge */}
-            <div className="relative group overflow-hidden rounded-lg">
+            <div className="relative group overflow-hidden">
               <img 
                 src={quarryImage} 
                 alt="Stone quarry" 
@@ -97,7 +97,7 @@ const About = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-32 px-4 bg-black text-white" data-section-theme="dark">
+      <section className="py-32 px-4 bg-card text-card-foreground">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
@@ -124,14 +124,14 @@ const About = () => {
       </section>
 
       {/* Craftsmanship */}
-      <section className="py-20 px-4" data-section-theme="dark">
+      <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 md:order-1">
               <img
                 src={craftsmanshipImage}
                 alt="Craftsmanship"
-                className="rounded-lg w-full h-[500px] object-cover shadow-xl"
+                className="w-full h-[500px] object-cover shadow-xl"
               />
             </div>
             <div className="order-1 md:order-2">
@@ -150,7 +150,7 @@ const About = () => {
               </p>
               <Link 
                 to="/products" 
-                className="group inline-flex items-center gap-3 text-muted-foreground hover:text-white font-light tracking-wide transition-all duration-300"
+                className="group inline-flex items-center gap-3 text-muted-foreground hover:text-foreground font-medium tracking-wide transition-all duration-300"
               >
                 <span>Explore Our Products</span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" strokeWidth={1} />

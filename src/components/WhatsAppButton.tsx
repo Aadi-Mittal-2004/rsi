@@ -24,7 +24,7 @@ const WhatsAppButton = () => {
       </svg>
       
       {/* Tooltip */}
-      <span className="absolute right-16 bg-black text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+      <span className="absolute right-16 bg-foreground text-background text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
         Chat with us!
       </span>
       

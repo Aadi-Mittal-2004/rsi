@@ -51,7 +51,7 @@ const Products = () => {
         description={`Explore our extensive collection of ${selectedCategory === 'all' ? 'natural stones' : selectedCategory}, including ${selectedCategory === 'quartzite' ? 'Deoli Green and Copper' : selectedCategory === 'sandstone' ? 'Teakwood and Rainbow' : 'premium'} varieties.`}
         keywords={`${selectedCategory}, natural stone, cladding, landscaping, Roop Stone Impex`}
       />
-    <div className="min-h-screen pt-24 pb-12" data-section-theme="dark">
+    <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -99,8 +99,8 @@ const Products = () => {
                   onClick={() => setSelectedSubcategory(sub.id)}
                   className={`transition-all duration-300 ${
                     selectedSubcategory === sub.id 
-                      ? "bg-white text-black border-white hover:bg-white/90" 
-                      : "bg-transparent text-muted-foreground border-white/10 hover:border-white/40 hover:text-white hover:bg-transparent"
+                      ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90" 
+                      : "bg-transparent text-muted-foreground border-border hover:border-foreground/40 hover:text-foreground hover:bg-transparent"
                   }`}
                 >
                   {sub.name}
@@ -128,7 +128,7 @@ const Products = () => {
                 transition={{ duration: 0.15, delay: index * 0.015 }}
               >
                 <Link to={`/products/${product.id}`} className="block h-full">
-                  <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 border border-white/20 hover:border-white h-full flex flex-col">
+                  <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 border border-border hover:border-foreground h-full flex flex-col">
                     <div className="relative aspect-square overflow-hidden bg-gray-100">
                       <img
                         src={product.image}
@@ -141,10 +141,10 @@ const Products = () => {
                       />
                     </div>
                     <CardHeader className="flex-none text-left">
-                      <CardTitle className="text-xl group-hover:text-white transition-colors line-clamp-1" title={product.name}>{product.name}</CardTitle>
+                      <CardTitle className="text-xl group-hover:text-foreground transition-colors line-clamp-1" title={product.name}>{product.name}</CardTitle>
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {product.properties.slice(0, 3).map((prop, i) => (
-                          <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-muted-foreground">
+                          <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
                             {prop}
                           </span>
                         ))}
@@ -158,13 +158,13 @@ const Products = () => {
         </AnimatePresence>
 
         {/* Info Section */}
-        <div className="mt-16 text-center bg-black text-white rounded-lg p-8 border border-white">
+        <div className="mt-16 text-center bg-card text-card-foreground rounded-lg p-8 border border-border">
           <h2 className="text-2xl font-bold mb-4">Looking for something specific?</h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             We have a wide variety of natural stones in stock. Contact us to discuss your requirements
             and we'll help you find the perfect stone for your project.
           </p>
-          <Button asChild className="bg-transparent border-white text-white hover:border-accent hover:text-accent hover:bg-transparent transition-colors" variant="outline">
+          <Button asChild className="bg-transparent border-foreground text-foreground hover:border-accent hover:text-accent hover:bg-transparent transition-colors" variant="outline">
             <Link to="/contact">Request a Quote</Link>
           </Button>
         </div>

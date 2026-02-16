@@ -59,8 +59,8 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-primary/25 via-transparent to-transparent blur-2xl" />
-            <figure className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/25 via-transparent to-transparent blur-2xl" />
+            <figure className="relative overflow-hidden border border-border bg-card shadow-lg">
               <img
                 src={heroImage}
                 alt="Split scene: raw stone block versus a finished luxury stone product under moody lighting"

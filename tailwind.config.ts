@@ -19,9 +19,16 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ["Cormorant Garamond", "ui-serif", "Georgia", "serif"],
-        display: ["Playfair Display", "ui-serif", "Georgia", "serif"],
+        sans: ["Outfit", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["Poiret One", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Poiret One", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      fontWeight: {
+        normal: "300",
+        medium: "400",
+        semibold: "500",
+        bold: "600",
+        extrabold: "700",
       },
       colors: {
         border: "hsl(var(--border))",

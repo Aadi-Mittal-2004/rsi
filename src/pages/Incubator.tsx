@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Compass, Film, Instagram, Lightbulb, Linkedin, Mail, Phone, TrendingUp } from "lucide-react";
 
-const Competition = () => {
+const Incubator = () => {
   const scrollToRegister = () => {
     document.getElementById("cta")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -23,7 +23,7 @@ const Competition = () => {
 
           <main className="relative">
             {/* 2. Introduction */}
-            <Section id="intro" eyebrow="THE STORY" title="The Industry is Stuck. Unstick It." className="py-14 md:py-18">
+            <Section id="intro" eyebrow="THE OPPORTUNITY" title="The Industry is Stuck. Unstick It." className="py-14 md:py-18">
               <motion.div 
                 initial="initial"
                 whileInView="animate"
@@ -37,9 +37,9 @@ const Competition = () => {
                     We are opening our factory doors to change that.
                   </motion.p>
                   <motion.p variants={slideUp}>
-                    We are looking for <span className="text-foreground font-medium">Architects</span> to reimagine the form, <span className="text-foreground font-medium">Geologists</span> to rediscover the material, and <span className="text-foreground font-medium">Marketers</span> to tell the new story.
+                    We are looking for <span className="text-foreground font-medium">Architects</span> to reimagine the form, <span className="text-foreground font-medium">Interior Designers</span> to curry the space, and <span className="text-foreground font-medium">Marketers</span> to tell the new story.
                   </motion.p>
-                  <motion.p variants={slideUp} className="font-medium text-accent">Your Mission: Create a design that forces the market to evolve.</motion.p>
+                  <motion.p variants={slideUp} className="font-medium text-accent">Your Mission: Create a design that forces the market to evolve. We build it. You get Paid.</motion.p>
                 </div>
 
                 <Card className="overflow-hidden">
@@ -75,17 +75,17 @@ const Competition = () => {
                 
                 {/* Team Formula Equation */}
                 <div className="relative">
-                  <div className="rounded-xl bg-[#111111] p-5 sm:p-8 md:p-10 relative z-10">
+                  <div className="rounded-xl bg-card p-5 sm:p-8 md:p-10 relative z-10">
                     <p className="text-center text-xs tracking-[0.2em] text-accent font-medium mb-6 md:mb-8">THE SQUAD FORMULA</p>
                     <div className="flex flex-col items-center justify-center gap-3 text-center md:flex-row md:gap-6 lg:gap-8">
                       <div className="flex flex-col items-center gap-2">
                         <span className="text-base sm:text-lg md:text-2xl font-serif font-medium text-foreground">1. Architects</span>
-                        <span className="text-xs tracking-wider text-muted-foreground">DESIGN</span>
+                        <span className="text-xs tracking-wider text-muted-foreground">STRUCTURE</span>
                       </div>
                       <span className="text-xl md:text-2xl text-accent font-serif">+</span>
                       <div className="flex flex-col items-center gap-2">
-                        <span className="text-base sm:text-lg md:text-2xl font-serif font-medium text-foreground">2. Geologists</span>
-                        <span className="text-xs tracking-wider text-muted-foreground">SCIENCE</span>
+                        <span className="text-base sm:text-lg md:text-2xl font-serif font-medium text-foreground">2. Interior Designers</span>
+                        <span className="text-xs tracking-wider text-muted-foreground">AESTHETICS</span>
                       </div>
                       <span className="text-xl md:text-2xl text-accent font-serif">+</span>
                       <div className="flex flex-col items-center gap-2">
@@ -110,13 +110,13 @@ const Competition = () => {
                   className="mt-12 grid gap-6 md:grid-cols-3"
                 >
                   <motion.div variants={slideUp}>
-                    <Card className="h-full border-0 bg-[#1A1A1A]">
+                    <Card className="h-full border-0 bg-card">
                       <CardContent className="p-8">
                         <div className="flex items-center gap-3 mb-4">
                           <Compass className="h-5 w-5 text-accent" />
-                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE CREATORS</p>
+                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE BUILDERS</p>
                         </div>
-                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Architects & Designers</h3>
+                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Architects</h3>
                         <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
                           Break the mold. Move beyond CAD and learn to design for real-world CNC and hand-carving. Create a product that carries your name.
                         </p>
@@ -124,27 +124,27 @@ const Competition = () => {
                     </Card>
                   </motion.div>
                   <motion.div variants={slideUp}>
-                    <Card className="h-full border-0 bg-[#1A1A1A]">
+                    <Card className="h-full border-0 bg-card">
                       <CardContent className="p-8">
                         <div className="flex items-center gap-3 mb-4">
                           <Lightbulb className="h-5 w-5 text-accent" />
-                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE SCIENTISTS</p>
+                          <p className="text-xs tracking-[0.18em] text-muted-foreground">THE VISIONARIES</p>
                         </div>
-                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">The Geologists</h3>
+                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Interior Designers</h3>
                         <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
-                          Be the consultant. Don&apos;t just study rocks in a lab. Join our residency to analyze raw stone, advise designers on structural integrity, and rediscover lost textures in our quarry.
+                          Understand the space. Curate the experience. Use natural stone to define modern luxury interiors.
                         </p>
                       </CardContent>
                     </Card>
                   </motion.div>
                   <motion.div variants={slideUp}>
-                    <Card className="h-full border-0 bg-[#1A1A1A]">
+                    <Card className="h-full border-0 bg-card">
                       <CardContent className="p-8">
                         <div className="flex items-center gap-3 mb-4">
                           <TrendingUp className="h-5 w-5 text-accent" />
                           <p className="text-xs tracking-[0.18em] text-muted-foreground">THE STRATEGISTS</p>
                         </div>
-                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Marketers & Entrepreneurs</h3>
+                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">Marketers</h3>
                         <p className="mt-4 text-base font-normal leading-loose text-muted-foreground/80">
                           Don&apos;t have a design idea? That&apos;s fine. We need you to build the business case. Manage the budget, hire influencers, and create the launch strategy.
                         </p>
@@ -156,7 +156,7 @@ const Competition = () => {
             </Section>
 
             {/* 4. The Support Ecosystem */}
-            <Section id="support" eyebrow="THE SYSTEM" title="You Are Not Alone." className="py-14 md:py-18 bg-[#0A0A0A]">
+            <Section id="support" eyebrow="THE SYSTEM" title="You Are Not Alone." className="py-14 md:py-18 bg-muted">
               <div className="space-y-12">
                 <motion.div 
                    initial="initial"
@@ -169,19 +169,19 @@ const Competition = () => {
                   </p>
 
                   <div className="grid gap-6 md:grid-cols-3">
-                     <motion.div variants={slideUp} className="rounded-lg border border-white/5 bg-white/5 p-6 backdrop-blur-sm">
-                        <h4 className="font-serif text-xl font-semibold text-foreground mb-3">The Geologist Guild</h4>
+                     <motion.div variants={slideUp} className="rounded-lg border border-border bg-card p-6 backdrop-blur-sm">
+                        <h4 className="font-serif text-xl font-semibold text-foreground mb-3">Technical Consultants</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                          A dedicated team of geology students will act as technical consultants, helping you choose the right stone for your design.
+                           Our engineering team will help you choose the right stone and ensure your structural designs are viable.
                         </p>
                      </motion.div>
-                     <motion.div variants={slideUp} className="rounded-lg border border-white/5 bg-white/5 p-6 backdrop-blur-sm">
+                     <motion.div variants={slideUp} className="rounded-lg border border-border bg-card p-6 backdrop-blur-sm">
                         <h4 className="font-serif text-xl font-semibold text-foreground mb-3">The Master Craftsmen</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           Our in-house artisans will work alongside you to prove if your design is manufacturable.
                         </p>
                      </motion.div>
-                     <motion.div variants={slideUp} className="rounded-lg border border-white/5 bg-white/5 p-6 backdrop-blur-sm">
+                     <motion.div variants={slideUp} className="rounded-lg border border-border bg-card p-6 backdrop-blur-sm">
                         <h4 className="font-serif text-xl font-semibold text-foreground mb-3">The Infrastructure</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           Roop Stone provides the CNC machines, the raw material, and the capital. You just provide the vision.
@@ -226,15 +226,15 @@ const Competition = () => {
 
                 {/* Supporting Details - 3 Column Grid */}
                 <div className="grid gap-4 md:grid-cols-3">
-                  <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
+                  <motion.div variants={slideUp} className="rounded-lg border border-border p-6 text-center">
                     <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE SEED FUND</h4>
                     <p className="text-sm text-muted-foreground">Up to ₹20,000 provided upfront to winning proposals for marketing and prototyping expenses.</p>
                   </motion.div>
-                  <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
+                  <motion.div variants={slideUp} className="rounded-lg border border-border p-6 text-center">
                     <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE ROYALTY</h4>
                     <p className="text-sm text-muted-foreground">A signed licensing agreement offering you upto 10% of gross sales for upto 15 years.</p>
                   </motion.div>
-                  <motion.div variants={slideUp} className="rounded-lg border border-white/10 p-6 text-center">
+                  <motion.div variants={slideUp} className="rounded-lg border border-border p-6 text-center">
                     <h4 className="font-sans text-sm font-semibold tracking-[0.15em] text-accent mb-2">THE EXPOSURE</h4>
                     <p className="text-sm text-muted-foreground">Your name stamped on every product and featured in our catalog.</p>
                   </motion.div>
@@ -244,7 +244,7 @@ const Competition = () => {
 
             {/* 7. Footer / CTA */}
             <section id="cta" className="relative py-16 md:py-24">
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background via-background to-[#111]" />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
               <div className="container relative">
                 {/* CTA Content */}
                 <div className="text-center max-w-2xl mx-auto mb-12">
@@ -265,7 +265,7 @@ const Competition = () => {
                       </Button>
                     </div>
                     <p className="text-xs text-muted-foreground/60">
-                      Open to students of Architecture, Design, Geology, and Business/Marketing.
+                      Open to students/professionals of Architecture, Interior Design, and Marketing.
                     </p>
                   </div>
                 </div>
@@ -295,7 +295,7 @@ const Competition = () => {
 
                   <div className="flex items-center gap-4">
                     <a
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                      className="inline-flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-accent hover:text-accent"
                       href="https://www.instagram.com/roopstone/"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -304,7 +304,7 @@ const Competition = () => {
                       <Instagram className="h-4 w-4" />
                     </a>
                     <a
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                      className="inline-flex h-10 w-10 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-accent hover:text-accent"
                       href="https://www.linkedin.com/in/roopstoneimpex"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -328,4 +328,4 @@ const Competition = () => {
   );
 };
 
-export default Competition;
+export default Incubator;

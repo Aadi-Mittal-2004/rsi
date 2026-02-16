@@ -8,39 +8,39 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Pure white background for light mode */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* Luxurious off-white background — Ethereal Ivory */
+    --background: 40 20% 96%;
+    --foreground: 30 10% 12%;
 
-    /* Cards with pure white */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    /* Cards — Warm Ivory */
+    --card: 38 18% 93%;
+    --card-foreground: 30 10% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 38 18% 93%;
+    --popover-foreground: 30 10% 12%;
 
-    /* Black primary */
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
+    /* Warm Charcoal primary */
+    --primary: 30 10% 12%;
+    --primary-foreground: 40 20% 96%;
 
-    /* White secondary */
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 0 0% 0%;
+    /* Soft secondary */
+    --secondary: 38 15% 91%;
+    --secondary-foreground: 30 10% 12%;
 
-    /* Muted uses white with dark grey text */
-    --muted: 0 0% 100%;
-    --muted-foreground: 0 0% 40%;
+    /* Muted — subtle warm tones */
+    --muted: 38 15% 91%;
+    --muted-foreground: 30 6% 45%;
 
-    /* LUXURIOUS GOLD ACCENT - HSL for #D4AF37 */
+    /* LUXURIOUS GOLD ACCENT — HSL for #D4AF37 */
     --accent: 45 65% 53%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 30 10% 12%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 40 20% 96%;
 
-    /* Black borders */
-    --border: 0 0% 0%;
-    --input: 0 0% 0%;
+    /* Soft Taupe borders */
+    --border: 35 10% 82%;
+    --input: 35 10% 82%;
     --ring: 45 65% 53%;
 
     --radius: 0.5rem;
@@ -50,13 +50,13 @@ All colors MUST be HSL.
     --stone-accent: 45 65% 53%;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 0 0% 0%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-background: 40 20% 96%;
+    --sidebar-foreground: 30 10% 12%;
+    --sidebar-primary: 30 10% 12%;
+    --sidebar-primary-foreground: 40 20% 96%;
     --sidebar-accent: 45 65% 53%;
-    --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 0 0% 0%;
+    --sidebar-accent-foreground: 30 10% 12%;
+    --sidebar-border: 35 10% 82%;
     --sidebar-ring: 45 65% 53%;
   }
 
@@ -113,7 +113,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased font-medium;
   }
 
   h1,
@@ -123,6 +123,35 @@ All colors MUST be HSL.
   h5,
   h6 {
     @apply font-serif;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.14em;
+    line-height: 1.1;
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.12em;
+    line-height: 1.15;
+    padding-top: 2rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    padding-top: 1.25rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
 }
 

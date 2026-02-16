@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, ChevronDown, Globe2, Leaf, Scissors } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/home-bg-new-1.webp";
 import mainBackground from "@/assets/home-bg-new-2.webp";
@@ -18,21 +19,94 @@ import quartziteWallImg from "@/assets/legacy/quartzite-wall.png";
 import stackedSlateImg from "@/assets/legacy/stacked-slate.png";
 
 // Client/Partner names
-const clientNames = ["Jagson India", "Mehta Stone", "SK World", "RM International", "Stone World"];
+const clientNames = ["Jagson India", "Mehta Stone", "SK World", "RM International"];
 
 const Home = () => {
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, 200]);
+  const aboutY1 = useTransform(scrollY, [500, 1500], [0, -50]);
+  const aboutY2 = useTransform(scrollY, [500, 1500], [0, 50]);
+
+  // --- Per-section parallax refs & transforms ---
+  const collectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: collectionProgress } = useScroll({
+    target: collectionRef,
+    offset: ["start end", "end start"],
+  });
+  const collectionHeadingY = useTransform(collectionProgress, [0, 1], [60, -30]);
+  const collectionCardsY = useTransform(collectionProgress, [0, 1], [80, -20]);
+
+  const advantagesRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: advantagesProgress } = useScroll({
+    target: advantagesRef,
+    offset: ["start end", "end start"],
+  });
+  const advantagesHeadingY = useTransform(advantagesProgress, [0, 1], [50, -25]);
+  const advantagesCardsY = useTransform(advantagesProgress, [0, 1], [70, -15]);
+
+  const trustedRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: trustedProgress } = useScroll({
+    target: trustedRef,
+    offset: ["start end", "end start"],
+  });
+  const trustedHeadingY = useTransform(trustedProgress, [0, 1], [40, -20]);
+  const trustedGridY = useTransform(trustedProgress, [0, 1], [50, -10]);
+
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: ctaProgress } = useScroll({
+    target: ctaRef,
+    offset: ["start end", "end start"],
+  });
+  const ctaHeadingY = useTransform(ctaProgress, [0, 1], [50, -30]);
+  const ctaButtonY = useTransform(ctaProgress, [0, 1], [30, -10]);
+
+
 
   // Background image rotation
   const backgroundImages = [heroImage, mainBackground];
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
+    const preloadImages = async () => {
+      const promises = backgroundImages.map((src) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+
+      try {
+        await Promise.all(promises);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error("Failed to preload images", error);
+        setImagesLoaded(true); // Proceed anyway to avoid getting stuck
+      }
+    };
+
+    preloadImages();
+  }, []);
+
+  useEffect(() => {
+    if (!imagesLoaded) return;
+    
     const bgInterval = setInterval(() => {
       setCurrentBgIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
     }, 8000); // Change every 8 seconds for a relaxed gallery feel
 
     return () => clearInterval(bgInterval);
-  }, []);
+  }, [imagesLoaded]);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-accent"></div>
+      </div>
+    );
+  }
 
 
 
@@ -94,25 +168,33 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section - full bleed */}
       <section className="relative h-[90vh] md:h-screen w-full overflow-hidden" data-section-theme="dark">
-      <div
-        className="absolute inset-0 bg-cover bg-center kenburns-bg transform-gpu transition-all duration-2000"
-        style={{ backgroundImage: `url(${backgroundImages[currentBgIndex]})` }}
-      />
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={currentBgIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 bg-cover bg-center kenburns-bg transform-gpu"
+          style={{ backgroundImage: `url(${backgroundImages[currentBgIndex]})`, y: heroY }}
+        />
+      </AnimatePresence>
 
         {/* Dark scrim overlay for consistent readability across all slides */}
-        <div className="absolute inset-0 bg-black/50 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
         {/* Vignette gradient for cinematic depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none z-10" />
 
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4 animate-fade-in">
-          <p className="uppercase tracking-[0.35em] font-medium text-sm md:text-base text-white/90 mb-2 elegant-fade-in">
+        <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-24 md:pb-32 animate-fade-in">
+          <p className="uppercase tracking-[0.5em] font-medium text-[10px] md:text-xs text-white/70 mb-8 md:mb-12 elegant-fade-in">
             Timeless Surfaces
           </p>
-          <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-medium mb-8 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
-            Where Stone Becomes Art
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
+            Where Stone<br />Becomes Art
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl elegant-fade-in" style={{ animationDelay: '0.3s' }}>
-            Discover the timeless elegance of our natural stones for exquisite living.
+            Discover the timeless elegance of our natural stones for
+            exquisite living.
           </p>
         </div>
 
@@ -128,9 +210,9 @@ const Home = () => {
 
 
       {/* Premium Collection */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 overflow-hidden" ref={collectionRef}>
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <motion.div className="text-center mb-12" style={{ y: collectionHeadingY }}>
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
               Our Premium Collection
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
@@ -139,16 +221,23 @@ const Home = () => {
               Explore our curated selection of the world's finest natural
               stones.
             </p>
-          </div>
+          </motion.div>
 
           {/* Mobile: Swipeable carousel with scroll indicator */}
           <div className="md:hidden">
-            <div className="flex gap-4 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide touch-pan-x px-4">
-              {products.map((product) => (
-                <Link
+            <div className="flex gap-4 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4">
+              {products.map((product, index) => (
+                <motion.div
                   key={product.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="w-[75vw] flex-shrink-0 snap-center"
+                >
+                <Link
                   to={`/products?category=${product.category}`}
-                  className="group relative overflow-hidden rounded-lg aspect-square transition-shadow duration-500 border-2 border-transparent hover:border-accent/50 w-[75vw] flex-shrink-0 snap-center"
+                  className="group relative overflow-hidden aspect-square transition-shadow duration-500 border-2 border-transparent hover:border-accent/50 block h-full"
                 >
                   <img
                     src={product.image}
@@ -166,6 +255,7 @@ const Home = () => {
                     </p>
                   </div>
                 </Link>
+                </motion.div>
               ))}
             </div>
             {/* Scroll indicator dots */}
@@ -173,7 +263,7 @@ const Home = () => {
               {products.map((_, index) => (
                 <div
                   key={index}
-                  className="w-2 h-2 rounded-full bg-white/40"
+                  className="w-2 h-2 rounded-full bg-foreground/40"
                 />
               ))}
             </div>
@@ -181,12 +271,18 @@ const Home = () => {
           </div>
 
           {/* Desktop: Grid layout */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <Link
+          <motion.div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ y: collectionCardsY }}>
+            {products.map((product, index) => (
+              <motion.div
                 key={product.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+              <Link
                 to={`/products?category=${product.category}`}
-                className="group relative overflow-hidden rounded-lg aspect-square transition-shadow duration-500 border-2 border-transparent hover:border-accent/50"
+                className="group relative overflow-hidden aspect-square transition-shadow duration-500 border-2 border-transparent hover:border-accent/50 block h-full"
               >
                 <img
                   src={product.image}
@@ -204,59 +300,61 @@ const Home = () => {
                   </p>
                 </div>
               </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Subtle Divider */}
       <div className="container mx-auto px-4">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
       {/* About Section - Broken Grid Layout */}
-      <section className="py-20 px-4 bg-black text-white" data-section-theme="dark">
+      <section className="py-20 px-4 bg-card text-card-foreground">
         <div className="container mx-auto">
           <div className="relative">
             {/* Image Grid - Primary Visual */}
             <div className="grid grid-cols-2 gap-4 md:w-3/5 md:ml-auto">
-              <div className="space-y-4">
+              <motion.div className="space-y-4" style={{ y: aboutY1 }}>
                 <img
                   src={goldenTeakImg}
                   alt="Golden Teak Sandstone Texture"
                   loading="lazy"
                   decoding="async"
-                  className="rounded-lg w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <img
                   src={villaExteriorImg}
                   alt="Luxury Stone Villa Exterior"
                   loading="lazy"
                   decoding="async"
-                  className="rounded-lg w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </div>
-              <div className="space-y-4 mt-8">
+              </motion.div>
+              <motion.div className="space-y-4 mt-8" style={{ y: aboutY2 }}>
                 <img
                   src={quartziteWallImg}
                   alt="Quartzite Feature Wall"
                   loading="lazy"
                   decoding="async"
-                  className="rounded-lg w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <img
                   src={stackedSlateImg}
                   alt="Stacked Slate Detail"
                   loading="lazy"
                   decoding="async"
-                  className="rounded-lg w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </div>
+
+              </motion.div>
             </div>
 
             {/* Overlapping Text Container */}
             <div className="md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 md:w-1/2 mt-8 md:mt-0">
-              <div className="bg-black/80 backdrop-blur-md p-8 md:p-10 rounded-lg shadow-2xl border border-white/10">
+              <div className="bg-card/95 backdrop-blur-md p-8 md:p-10 rounded-lg shadow-2xl border border-border">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 relative inline-block">
                   A Legacy in Stone
                   <span className="absolute bottom-0 left-0 w-16 h-px bg-accent"></span>
@@ -274,7 +372,7 @@ const Home = () => {
                 </p>
                 <Link 
                   to="/about" 
-                  className="group inline-flex items-center gap-3 text-muted-foreground hover:text-white font-light tracking-wide transition-all duration-300"
+                  className="group inline-flex items-center gap-3 text-muted-foreground hover:text-foreground font-medium tracking-wide transition-all duration-300"
                 >
                   <span>Learn More About Us</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" strokeWidth={1} />
@@ -287,13 +385,13 @@ const Home = () => {
 
       {/* Subtle Divider */}
       <div className="container mx-auto px-4">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
       {/* The Roop Stone Advantage */}
-      <section className="py-32 px-4">
+      <section className="py-32 px-4 overflow-hidden" ref={advantagesRef}>
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-20">
+          <motion.div className="text-center mb-20" style={{ y: advantagesHeadingY }}>
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
               The Roop Stone Advantage
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
@@ -301,11 +399,18 @@ const Home = () => {
             <p className="text-muted-foreground text-lg mt-6">
               Our commitment to excellence sets us apart in the global market.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-            {advantages.map((advantage) => (
-              <div key={advantage.title} className="text-center group">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16" style={{ y: advantagesCardsY }}>
+            {advantages.map((advantage, index) => (
+              <motion.div 
+                key={advantage.title} 
+                className="text-center group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
                 <div className="mb-6 inline-block transform transition-transform duration-300 group-hover:scale-110">
                   <advantage.icon className="h-10 w-10 text-accent" strokeWidth={0.75} />
                 </div>
@@ -315,21 +420,21 @@ const Home = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {advantage.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Subtle Divider */}
       <div className="container mx-auto px-4">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
       {/* Trusted By Section */}
-      <section className="py-20 bg-black" data-section-theme="dark">
+      <section className="py-20 bg-card overflow-hidden" ref={trustedRef}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
+          <motion.div className="text-center mb-10" style={{ y: trustedHeadingY }}>
             <h3 className="text-2xl md:text-3xl font-bold mb-2 relative inline-block">
               Trusted Worldwide
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
@@ -337,44 +442,46 @@ const Home = () => {
             <p className="text-muted-foreground text-sm mt-4 tracking-wide">
               Partnering with industry leaders across the globe
             </p>
-          </div>
+          </motion.div>
           
           {/* Static minimalist grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 max-w-4xl mx-auto items-center justify-items-center">
+          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mx-auto items-center justify-items-center" style={{ y: trustedGridY }}>
             {clientNames.map((name) => (
               <span 
                 key={name} 
-                className="text-muted-foreground text-lg md:text-xl font-medium tracking-wide whitespace-nowrap transition-opacity duration-300 hover:text-white/80 cursor-default"
+                className="text-muted-foreground text-lg md:text-xl font-medium tracking-wide whitespace-nowrap transition-opacity duration-300 hover:text-foreground/80 cursor-default"
               >
                 {name}
               </span>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Subtle Divider */}
       <div className="container mx-auto px-4">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-black text-white flex items-center justify-center" data-section-theme="dark">
+      <section className="py-24 px-4 bg-card text-card-foreground flex items-center justify-center overflow-hidden" ref={ctaRef}>
         <div className="container mx-auto text-center max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block">
+          <motion.h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block" style={{ y: ctaHeadingY }}>
             Get in Touch
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
-          </h2>
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto mt-6 text-muted-foreground font-light leading-relaxed">
+          </motion.h2>
+          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto mt-6 text-muted-foreground font-medium leading-relaxed">
             We're here to help you find the perfect stone. Contact us for
             inquiries or to request a quote.
           </p>
-          <Button asChild variant="outline" size="lg" className="px-10 py-8 text-lg hover:border-white">
-            <Link to="/contact">
-              <span className="mr-2">Get in Touch</span>
-              <ArrowRight className="h-5 w-5" strokeWidth={1} />
-            </Link>
-          </Button>
+          <motion.div style={{ y: ctaButtonY }}>
+            <Button asChild variant="outline" size="lg" className="px-10 py-8 text-lg hover:border-foreground">
+              <Link to="/contact">
+                <span className="mr-2">Get in Touch</span>
+                <ArrowRight className="h-5 w-5" strokeWidth={1} />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
     </div>

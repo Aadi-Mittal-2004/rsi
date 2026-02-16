@@ -54,7 +54,7 @@ const ProductDetails = () => {
       type="product"
       structuredData={jsonLd}
     />
-    <div className="min-h-screen pt-24 pb-12" data-section-theme="dark">
+    <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         <Link
           to="/products"
@@ -66,7 +66,7 @@ const ProductDetails = () => {
         
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Image Section */}
-          <div className="rounded-lg overflow-hidden shadow-lg border-2 border-transparent bg-gray-50">
+          <div className="overflow-hidden shadow-lg border-2 border-transparent bg-gray-50">
             <img
               src={product.image}
               alt={product.name}

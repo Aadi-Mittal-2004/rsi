@@ -128,7 +128,7 @@ const Apply = () => {
                 className="max-w-2xl mx-auto text-center"
               >
                 <motion.div variants={slideUp} className="flex justify-center mb-8">
-                  <div className="rounded-full bg-accent/10 p-6">
+                  <div className="bg-accent/10 p-6">
                     <CheckCircle2 className="h-16 w-16 text-accent" />
                   </div>
                 </motion.div>

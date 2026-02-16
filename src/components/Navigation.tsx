@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navigation = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Products" },
-    { href: "/competition", label: "Competition" },
+    { href: "/incubator", label: "Incubator" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -32,8 +33,9 @@ const Navigation = () => {
       const section = element?.closest("[data-section-theme]");
       const theme = section?.getAttribute("data-section-theme") as "light" | "dark" | null;
       
-      // Default to dark since the entire site is in dark mode
-      setNavTheme(theme || "dark");
+      // Default based on whether dark class is on html
+      const isDark = document.documentElement.classList.contains("dark");
+      setNavTheme(theme || (isDark ? "dark" : "light"));
     };
 
     onScroll();
@@ -82,6 +84,7 @@ const Navigation = () => {
             {/* Right: Links + Mobile Menu (aligned right) */}
             <div className="flex justify-end items-center gap-4 pr-4 md:pr-8">
               <div className="hidden md:flex items-center gap-8">
+                <ThemeToggle className={navTheme === "dark" ? "text-white" : "text-black"} />
                 {links.map((link) => (
                   <Link
                     key={link.href}
@@ -105,6 +108,7 @@ const Navigation = () => {
                 ))}
               </div>
 
+              <ThemeToggle className={cn("md:hidden", navTheme === "dark" ? "text-white" : "text-black")} />
               <div className="md:hidden">
                 <button
                   className="p-2"

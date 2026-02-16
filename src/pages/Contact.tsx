@@ -4,7 +4,7 @@ import PageTransition from "@/components/PageTransition";
 const Contact = () => {
   return (
     <PageTransition>
-    <div className="min-h-screen pt-24 pb-12" data-section-theme="dark">
+    <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -29,10 +29,10 @@ const Contact = () => {
               Reach out to our sales team directly.
             </p>
             <div className="flex flex-col gap-2 mt-4">
-              <a href="tel:+919214083550" className="text-white text-lg font-medium tracking-wide hover:text-accent transition-colors">
+              <a href="tel:+919214083550" className="text-foreground text-lg font-medium tracking-wide hover:text-accent transition-colors">
                 +91 9214083550
               </a>
-              <a href="tel:+917357923414" className="text-white text-lg font-medium tracking-wide hover:text-accent transition-colors">
+              <a href="tel:+917357923414" className="text-foreground text-lg font-medium tracking-wide hover:text-accent transition-colors">
                 +91 7357923414
               </a>
             </div>
@@ -44,7 +44,7 @@ const Contact = () => {
             </div>
             <h3 className="text-lg font-medium mb-3 tracking-wide">Email</h3>
             <p className="text-muted-foreground text-sm leading-relaxed mb-2">For general inquiries and support.</p>
-            <a href="mailto:aadi@roopstoneimpex.in" className="text-white text-lg font-medium tracking-wide hover:text-accent transition-colors break-all mt-4 inline-block">
+            <a href="mailto:aadi@roopstoneimpex.in" className="text-foreground text-lg font-medium tracking-wide hover:text-accent transition-colors break-all mt-4 inline-block">
               aadi@roopstoneimpex.in
             </a>
           </div>
@@ -58,7 +58,7 @@ const Contact = () => {
               href="https://maps.app.goo.gl/vCza1eT2qfBgYx9Y9" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white text-lg font-medium tracking-wide hover:text-accent transition-colors mt-4 inline-block"
+              className="text-foreground text-lg font-medium tracking-wide hover:text-accent transition-colors mt-4 inline-block"
             >
               Old Ajmer Road, RICCO Industrial Area, Deoli, Rajasthan, India
             </a>
