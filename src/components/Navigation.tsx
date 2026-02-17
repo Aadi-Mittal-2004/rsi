@@ -16,6 +16,17 @@ const Navigation = () => {
     { href: "/contact", label: "Contact" },
   ];
 
+  // Links always visible on mobile (Priority+ pattern)
+  const priorityLinks = [
+    { href: "/products", label: "Products" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  // Remaining links shown only in mobile dropdown
+  const mobileDropdownLinks = links.filter(
+    (l) => !priorityLinks.some((p) => p.href === l.href)
+  );
+
   const isActive = (href: string) => location.pathname === href;
 
   // Track scroll position to switch navbar style (transparent over hero -> solid on scroll)
@@ -106,9 +117,9 @@ const Navigation = () => {
               ))}
             </div>
 
-            {/* Right: WhatsApp + Theme Toggle + Mobile Menu */}
-            <div className="flex-1 flex justify-end items-center gap-3">
-              <ThemeToggle className={cn(navTheme === "dark" ? "text-white" : "text-black")} />
+            {/* Right: WhatsApp + Theme Toggle (desktop) + Priority Links + Mobile Menu */}
+            <div className="flex-1 flex justify-end items-center gap-2 sm:gap-3">
+              <ThemeToggle className={cn("hidden md:flex", navTheme === "dark" ? "text-white" : "text-black")} />
               <a
                 href={`https://wa.me/917357923414?text=${encodeURIComponent("Hello! I'm interested in your products.")}`}
                 target="_blank"
@@ -126,27 +137,64 @@ const Navigation = () => {
                 </svg>
                 WhatsApp
               </a>
+
+              {/* Priority+ links visible on mobile */}
+              <div className="flex md:hidden items-center gap-1">
+                {priorityLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={cn(
+                      "text-xs sm:text-sm font-medium px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300",
+                      isActive(link.href)
+                        ? navTheme === "dark"
+                          ? "text-white bg-white/10"
+                          : "text-black bg-black/10"
+                        : navTheme === "dark"
+                        ? "text-white/70 hover:text-white hover:bg-white/5"
+                        : "text-black/70 hover:text-black hover:bg-black/5"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile hamburger with "Menu"/"Close" label */}
               <div className="md:hidden">
                 <button
-                  className="p-2"
+                  className={cn(
+                    "flex items-center gap-1.5 px-2.5 py-1.5 rounded-full transition-all duration-300 border",
+                    navTheme === "dark"
+                      ? "border-white/15 hover:bg-white/5"
+                      : "border-black/10 hover:bg-black/5"
+                  )}
                   onClick={() => setIsOpen(!isOpen)}
                   aria-label="Toggle menu"
                 >
                   {isOpen ? (
                     <X
                       className={cn(
-                        "h-6 w-6 transition-colors",
+                        "h-4 w-4 transition-colors",
                         navTheme === "dark" ? "text-white" : "text-black"
                       )}
                     />
                   ) : (
                     <Menu
                       className={cn(
-                        "h-6 w-6 transition-colors",
+                        "h-4 w-4 transition-colors",
                         navTheme === "dark" ? "text-white" : "text-black"
                       )}
                     />
                   )}
+                  <span
+                    className={cn(
+                      "text-xs font-medium tracking-wide",
+                      navTheme === "dark" ? "text-white" : "text-black"
+                    )}
+                  >
+                    {isOpen ? "Close" : "Menu"}
+                  </span>
                 </button>
               </div>
             </div>
@@ -163,7 +211,7 @@ const Navigation = () => {
             : "bg-white/95 border-black/10 text-black"
         )}>
           <div className="flex flex-col gap-4 container px-4 mx-auto">
-            {links.map((link) => (
+            {mobileDropdownLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -178,6 +226,13 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
+            <div className="flex items-center gap-2 py-2 border-t border-current/10">
+              <ThemeToggle className={cn(navTheme === "dark" ? "text-white" : "text-black")} />
+              <span className={cn(
+                "text-sm font-medium",
+                navTheme === "dark" ? "text-white/60" : "text-black/60"
+              )}>Theme</span>
+            </div>
           </div>
         </div>
       )}

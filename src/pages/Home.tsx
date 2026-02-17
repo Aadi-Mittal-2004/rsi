@@ -185,11 +185,11 @@ const Home = () => {
         {/* Vignette gradient for cinematic depth */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none z-10" />
 
-        <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-24 md:pb-32 animate-fade-in">
-          <p className="uppercase tracking-[0.5em] font-medium text-[10px] md:text-xs text-white/70 mb-4 md:mb-6 elegant-fade-in">
+        <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-40 md:pb-40 animate-fade-in">
+          <p className="uppercase tracking-[0.5em] font-medium text-[10px] md:text-xs text-white/70 mb-2 md:mb-6 elegant-fade-in">
             Timeless Surfaces
           </p>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-2 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
             Where Stone<br />Becomes Art
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl elegant-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -202,9 +202,15 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-15" />
 
         {/* Scroll Down Indicator */}
-        <div className="absolute bottom-6 inset-x-0 z-20 flex flex-col items-center justify-center cursor-pointer scroll-indicator w-full opacity-50 hover:opacity-80 transition-opacity">
-          <span className="text-muted-foreground text-xs tracking-widest mb-1">Scroll</span>
-          <ChevronDown className="h-4 w-4 text-muted-foreground" />
+        <div
+          className="absolute bottom-2 inset-x-0 z-20 flex flex-col items-center cursor-pointer group"
+          onClick={() => {
+            const nextSection = document.querySelector('section + section');
+            nextSection?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <div className="w-px h-10 bg-gradient-to-b from-transparent to-white/40 group-hover:to-white/70 transition-colors duration-300" />
+          <ChevronDown className="h-4 w-4 text-white/50 group-hover:text-white/80 transition-colors duration-300 animate-bounce mt-1" style={{ animationDuration: '2s' }} />
         </div>
       </section>
 
@@ -360,8 +366,8 @@ const Home = () => {
                   <span className="absolute bottom-0 left-0 w-16 h-px bg-accent"></span>
                 </h2>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Discover our heritage of excellence. With decades of experience,
-                  we source the finest natural stones and transform them into
+                  Discover our heritage of excellence. For over four decades,
+                  we've been sourcing the finest natural stones and transforming them into
                   masterpieces of design and durability, upholding a steadfast
                   commitment to craftsmanship and quality.
                 </p>
@@ -383,13 +389,47 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Legacy Stats Banner */}
+      <section className="py-20 px-4 overflow-hidden">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            {[
+              { value: "43+", label: "Years of Excellence", highlight: true },
+              { value: "20+", label: "Countries Served" },
+              { value: "100+", label: "Stone Varieties" },
+              { value: "500+", label: "Projects Delivered" },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="flex flex-col items-center justify-center"
+              >
+                <span
+                  className={`font-serif text-4xl md:text-5xl font-bold tracking-tight mb-2 ${
+                    stat.highlight ? "text-accent" : "text-foreground"
+                  }`}
+                >
+                  {stat.value}
+                </span>
+                <span className="text-muted-foreground text-sm md:text-base tracking-wide uppercase font-medium">
+                  {stat.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Subtle Divider */}
       <div className="container mx-auto px-4">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
       {/* The Roop Stone Advantage */}
-      <section className="py-32 px-4 overflow-hidden" ref={advantagesRef}>
+      <section className="py-32 px-4 bg-card overflow-hidden" ref={advantagesRef}>
         <div className="container mx-auto max-w-6xl">
           <motion.div className="text-center mb-20" style={{ y: advantagesHeadingY }}>
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
@@ -432,7 +472,7 @@ const Home = () => {
       </div>
 
       {/* Trusted By Section */}
-      <section className="py-20 bg-card overflow-hidden" ref={trustedRef}>
+      <section className="py-20 overflow-hidden" ref={trustedRef}>
         <div className="container mx-auto px-4">
           <motion.div className="text-center mb-10" style={{ y: trustedHeadingY }}>
             <h3 className="text-2xl md:text-3xl font-bold mb-2 relative inline-block">
@@ -464,7 +504,7 @@ const Home = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-card text-card-foreground flex items-center justify-center overflow-hidden" ref={ctaRef}>
+      <section className="py-24 px-4 bg-card flex items-center justify-center overflow-hidden" ref={ctaRef}>
         <div className="container mx-auto text-center max-w-3xl">
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block" style={{ y: ctaHeadingY }}>
             Get in Touch
