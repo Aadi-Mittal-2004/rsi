@@ -19,6 +19,13 @@ import sandstoneKandlaGreyImg from "@/assets/products/sandstone-kandla-grey.jpg"
 import sandstoneLalitpurGreyImg from "@/assets/products/sandstone-lalitpur-grey.jpg";
 import sandstoneYellowImg from "@/assets/products/sandstone-yellow.jpg";
 
+// Quartzite images from mosaic folder (reclassified)
+import deoliGreenMosaicImg from "@/assets/mosaic/Deoli green.jpeg";
+import silverShineMosaicImg from "@/assets/mosaic/Silver shine.jpeg";
+import forestFireImg from "@/assets/mosaic/forest fire.jpeg";
+import sliverGrey1Img from "@/assets/mosaic/sliver grey (1).jpeg";
+import sliverGrey2Img from "@/assets/mosaic/sliver grey (2).jpeg";
+
 export interface Product {
   id: string;
   name: string;
@@ -27,6 +34,7 @@ export interface Product {
   description: string;
   usage: string;
   image: string;
+  images?: string[];
   properties: string[];
 }
 
@@ -66,8 +74,22 @@ const getSubcategoryUsage = (subcategory: string): string => {
   }
 };
 
+// Filenames to exclude from mosaic (reclassified to quartzite)
+const excludedMosaicFiles = [
+  'deoli green',
+  'silver shine',
+  'forest fire',
+  'sliver grey (1)',
+  'sliver grey (2)',
+];
+
 // Generate pattern products from imported images
-const mosaicProducts: Product[] = Object.entries(mosaicModules).map(([path, url], index) => {
+const mosaicProducts: Product[] = Object.entries(mosaicModules)
+  .filter(([path]) => {
+    const filename = path.split('/').pop()?.split('.')[0] || '';
+    return !excludedMosaicFiles.includes(filename.toLowerCase());
+  })
+  .map(([path, url], index) => {
   // Extract filename as name (simplified)
   const filename = path.split('/').pop()?.split('.')[0] || `Pattern ${index + 1}`;
   const cleanName = filename.replace(/_/g, ' ').replace(/-/g, ' ').replace(/model config 2k/gi, '').replace(/\d+/g, '').trim() || `Stone Pattern ${index + 1}`;
@@ -103,34 +125,28 @@ export const products: Product[] = [
       description: "Silver Shine is a stunning quartzite stone featuring a shimmering silver-grey surface with subtle metallic notes. Its natural cleft finish captures light beautifully, adding a touch of glamour and sophistication to interiors and exteriors.",
       usage: "Feature Walls, Flooring, Patios, Pool Surrounds",
       image: silverShineImg,
+      images: [silverShineMosaicImg],
       properties: ["Natural Cleft", "Metallic Lustre", "Premium"],
     },
     {
       id: "q3",
-      name: "Silver Gray Polished",
+      name: "Silver Grey",
       category: "quartzite",
-      description: "Sleek and sophisticated, Silver Gray Polished Quartzite offers a smooth silver-grey finish. It combines the extreme durability of quartzite with a refined aesthetic, perfect for modern architectural projects requiring a clean look.",
-      usage: "Interior Flooring, Wall Cladding, Countertops, Bathroom Tiles",
+      description: "Silver Grey quartzite is a versatile stone available in both polished and natural cleft finishes. The polished variant offers a sleek, sophisticated silver-grey surface ideal for modern interiors, while the natural cleft finish presents a refined palette with subtle veining for a more organic appeal.",
+      usage: "Interior Flooring, Wall Cladding, Countertops, Patios, Feature Walls",
       image: silverGrayPolishedImg,
-      properties: ["Polished", "Modern", "Sophisticated"],
+      images: [sliverGrey1Img, sliverGrey2Img],
+      properties: ["Polished", "Natural Cleft", "Modern", "Neutral", "Elegant"],
     },
     {
       id: "q4",
-      name: "Deoli Green Polished",
-      category: "quartzite",
-      description: "Deoli Green Polished is a luxurious quartzite with deep green tones and sparkling mica inclusions. This polished natural stone surface enhances the stone's rich color depth, creating an elegant and high-end visual appeal.",
-      usage: "Flooring, Wall Cladding, Bathrooms, Countertops",
-      image: quartziteImg,
-      properties: ["Polished", "Rich Color", "Elegant"],
-    },
-    {
-      id: "q5",
       name: "Deoli Green",
       category: "quartzite",
-      description: "Natural Deoli Green quartzite features a textured, organic surface with rich green hues. Its localized natural cleft finish provides excellent slip resistance and a raw, earthy beauty.",
-      usage: "Outdoor Paving, Garden Paths, Pool Decks, Wall Cladding",
-      image: quartziteImg,
-      properties: ["Natural Cleft", "Textured", "Organic"],
+      description: "Deoli Green is a luxurious quartzite featuring deep green tones with sparkling mica inclusions. Available in polished and natural cleft finishes — the polished surface enhances rich color depth for an elegant appeal, while the natural cleft provides excellent slip resistance and raw, earthy beauty.",
+      usage: "Flooring, Wall Cladding, Bathrooms, Countertops, Outdoor Paving, Garden Paths",
+      image: deoliGreenMosaicImg,
+      images: [quartziteImg],
+      properties: ["Polished", "Natural Cleft", "Rich Color", "Elegant", "Textured"],
     },
     {
       id: "q6",
@@ -143,21 +159,12 @@ export const products: Product[] = [
     },
     {
       id: "q7",
-      name: "Copper Polished",
-      category: "quartzite",
-      description: "A unique quartzite with striking copper and reddish-brown hues, finished to a high polish. The glossy surface highlights the intricate details and vibrant color variations of this distinctive stone.",
-      usage: "Interior Feature Walls, Flooring, Countertops, Decorative Accents",
-      image: quartziteImg,
-      properties: ["Polished", "Vibrant", "Unique"],
-    },
-    {
-      id: "q8",
       name: "Copper",
       category: "quartzite",
-      description: "Rustic and bold, Natural Copper quartzite offers deep copper tones with a textured cleft surface. This stone exudes a rugged charm perfect for adding character to both interior and exterior designs.",
-      usage: "Exterior Cladding, Roofing, Paving, Feature Walls",
+      description: "Copper quartzite showcases striking copper and reddish-brown hues. Available in a high polish that highlights intricate details and vibrant color variations, or a natural cleft finish that exudes rugged charm perfect for adding character to both interior and exterior designs.",
+      usage: "Feature Walls, Flooring, Countertops, Exterior Cladding, Roofing, Paving",
       image: quartziteImg,
-      properties: ["Natural Cleft", "Rustic", "Warm"],
+      properties: ["Polished", "Natural Cleft", "Vibrant", "Rustic", "Warm"],
     },
     {
       id: "q9",
@@ -195,6 +202,16 @@ export const products: Product[] = [
       image: quartziteImg,
       properties: ["Bold", "Classic", "Versatile"],
     },
+    {
+      id: "q13",
+      name: "Forest Fire",
+      category: "quartzite",
+      description: "Forest Fire quartzite showcases a dramatic blend of fiery reds, burnt oranges, and earthy browns reminiscent of autumn foliage. This striking natural stone adds bold warmth and character to any architectural setting.",
+      usage: "Feature Walls, Exterior Cladding, Flooring, Landscaping",
+      image: forestFireImg,
+      properties: ["Natural Cleft", "Vibrant", "Bold"],
+    },
+
 
     // Sandstone
     {

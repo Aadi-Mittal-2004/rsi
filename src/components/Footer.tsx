@@ -24,7 +24,7 @@ const Footer = () => {
               <img
                 src="/navbar-logo.png"
                 alt="Roop Stone Impex"
-                className="h-7"
+                className="h-7 dark:invert"
               />
             </a>
             <p className="text-sm text-muted-foreground font-medium leading-relaxed">
