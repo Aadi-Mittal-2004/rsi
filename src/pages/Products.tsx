@@ -8,16 +8,17 @@ import PageTransition, { staggerContainer, staggerItem } from "@/components/Page
 import SEO from "@/components/SEO";
 
 const Products = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const categoryFromUrl = searchParams.get("category") || "all";
+  const subcategoryFromUrl = searchParams.get("subcategory") || "all";
   const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
-  const [selectedSubcategory, setSelectedSubcategory] = useState("all");
+  const [selectedSubcategory, setSelectedSubcategory] = useState(subcategoryFromUrl);
   
-  // Update selected category when URL changes
+  // Update selected category/subcategory when URL changes
   useEffect(() => {
     setSelectedCategory(categoryFromUrl);
-    setSelectedSubcategory("all"); // Reset subcategory when category changes
-  }, [categoryFromUrl]);
+    setSelectedSubcategory(subcategoryFromUrl);
+  }, [categoryFromUrl, subcategoryFromUrl]);
 
   const categories = [
     { id: "all", name: "All Products" },
@@ -71,7 +72,11 @@ const Products = () => {
               key={category.id}
               variant={selectedCategory === category.id ? "default" : "outline"}
               onClick={() => {
-                setSelectedCategory(category.id);
+                if (category.id === "all") {
+                  setSearchParams({});
+                } else {
+                  setSearchParams({ category: category.id });
+                }
                 setSelectedSubcategory("all");
               }}
               className="min-w-[120px]"
@@ -96,7 +101,13 @@ const Products = () => {
                   key={sub.id}
                   variant="outline"
                   size="sm"
-                  onClick={() => setSelectedSubcategory(sub.id)}
+                  onClick={() => {
+                    if (sub.id === "all") {
+                      setSearchParams({ category: "mosaic" });
+                    } else {
+                      setSearchParams({ category: "mosaic", subcategory: sub.id });
+                    }
+                  }}
                   className={`transition-all duration-300 ${
                     selectedSubcategory === sub.id 
                       ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90" 
@@ -165,7 +176,7 @@ const Products = () => {
             and we'll help you find the perfect stone for your project.
           </p>
           <Button asChild className="bg-transparent border-foreground text-foreground hover:border-accent hover:text-accent hover:bg-transparent transition-colors" variant="outline">
-            <Link to="/contact">Request a Quote</Link>
+            <Link to="/contact#query-form">Request a Quote</Link>
           </Button>
         </div>
       </div>

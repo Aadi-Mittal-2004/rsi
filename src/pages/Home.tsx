@@ -186,10 +186,10 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none z-10" />
 
         <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-24 md:pb-32 animate-fade-in">
-          <p className="uppercase tracking-[0.5em] font-medium text-[10px] md:text-xs text-white/70 mb-8 md:mb-12 elegant-fade-in">
+          <p className="uppercase tracking-[0.5em] font-medium text-[10px] md:text-xs text-white/70 mb-4 md:mb-6 elegant-fade-in">
             Timeless Surfaces
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium mb-4 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
             Where Stone<br />Becomes Art
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl elegant-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -476,7 +476,7 @@ const Home = () => {
           </p>
           <motion.div style={{ y: ctaButtonY }}>
             <Button asChild variant="outline" size="lg" className="px-10 py-8 text-lg hover:border-foreground">
-              <Link to="/contact">
+              <Link to="/contact#query-form">
                 <span className="mr-2">Get in Touch</span>
                 <ArrowRight className="h-5 w-5" strokeWidth={1} />
               </Link>

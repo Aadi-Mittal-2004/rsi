@@ -57,7 +57,7 @@ const ProductDetails = () => {
     <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         <Link
-          to="/products"
+          to={`/products?category=${product.category}${product.subcategory ? `&subcategory=${product.subcategory}` : ''}`}
           className="inline-flex items-center text-muted-foreground hover:text-accent transition-colors mb-8"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />

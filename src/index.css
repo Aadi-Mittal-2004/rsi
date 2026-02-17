@@ -127,6 +127,13 @@ All colors MUST be HSL.
     line-height: 1.2;
   }
 
+  /* Thicken Poiret One wherever it's used — it only has weight 400 */
+  .font-serif,
+  .font-display,
+  h1, h2, h3, h4, h5, h6 {
+    -webkit-text-stroke: 0.5px currentColor;
+  }
+
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     letter-spacing: 0.14em;
