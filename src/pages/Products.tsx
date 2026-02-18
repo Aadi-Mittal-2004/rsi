@@ -175,7 +175,7 @@ const Products = () => {
             We have a wide variety of natural stones in stock. Contact us to discuss your requirements
             and we'll help you find the perfect stone for your project.
           </p>
-          <Button asChild className="bg-transparent border-foreground text-foreground hover:border-accent hover:text-accent hover:bg-transparent transition-colors" variant="outline">
+          <Button asChild variant="outline" size="lg" className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground">
             <Link to="/contact#query-form">Request a Quote</Link>
           </Button>
         </div>

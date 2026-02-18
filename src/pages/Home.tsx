@@ -23,7 +23,7 @@ const clientNames = ["Jagson India", "Mehta Stone", "SK World", "RM Internationa
 
 const Home = () => {
   const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 500], [0, 200]);
+
   const aboutY1 = useTransform(scrollY, [500, 1500], [0, -50]);
   const aboutY2 = useTransform(scrollY, [500, 1500], [0, 50]);
 
@@ -100,6 +100,7 @@ const Home = () => {
     return () => clearInterval(bgInterval);
   }, [imagesLoaded]);
 
+
   if (!imagesLoaded) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
@@ -167,7 +168,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - full bleed */}
-      <section className="relative h-[90vh] md:h-screen w-full overflow-hidden" data-section-theme="dark">
+      <section className="sticky top-0 z-0 h-[90vh] md:h-screen w-full overflow-hidden" data-section-theme="dark">
       <AnimatePresence mode="popLayout">
         <motion.div
           key={currentBgIndex}
@@ -176,7 +177,7 @@ const Home = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5 }}
           className="absolute inset-0 bg-cover bg-center kenburns-bg transform-gpu"
-          style={{ backgroundImage: `url(${backgroundImages[currentBgIndex]})`, y: heroY }}
+          style={{ backgroundImage: `url(${backgroundImages[currentBgIndex]})` }}
         />
       </AnimatePresence>
 
@@ -205,8 +206,7 @@ const Home = () => {
         <div
           className="absolute bottom-2 inset-x-0 z-20 flex flex-col items-center cursor-pointer group"
           onClick={() => {
-            const nextSection = document.querySelector('section + section');
-            nextSection?.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
           <div className="w-px h-10 bg-gradient-to-b from-transparent to-white/40 group-hover:to-white/70 transition-colors duration-300" />
@@ -215,8 +215,10 @@ const Home = () => {
       </section>
 
 
+      {/* Content Layer – slides over the sticky hero */}
+      <div className="relative z-10 bg-background">
       {/* Premium Collection */}
-      <section className="py-20 px-4 overflow-hidden" ref={collectionRef}>
+      <section id="products-section" className="py-20 px-4 overflow-hidden" ref={collectionRef}>
         <div className="container mx-auto">
           <motion.div className="text-center mb-12" style={{ y: collectionHeadingY }}>
             <h2 className="text-4xl font-bold mb-4 relative inline-block">
@@ -515,7 +517,7 @@ const Home = () => {
             inquiries or to request a quote.
           </p>
           <motion.div style={{ y: ctaButtonY }}>
-            <Button asChild variant="outline" size="lg" className="px-10 py-8 text-lg hover:border-foreground">
+            <Button asChild variant="outline" size="lg" className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground">
               <Link to="/contact#query-form">
                 <span className="mr-2">Get in Touch</span>
                 <ArrowRight className="h-5 w-5" strokeWidth={1} />
@@ -524,6 +526,7 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+      </div>{/* end content layer */}
     </div>
   );
 };

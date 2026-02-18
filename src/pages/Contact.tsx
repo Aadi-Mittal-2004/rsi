@@ -229,7 +229,9 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={status === "sending"}
+                  variant="outline"
                   size="lg"
+                  className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground"
                 >
                   {status === "sending" ? (
                     <>

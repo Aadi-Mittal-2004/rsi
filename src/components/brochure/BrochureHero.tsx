@@ -41,14 +41,14 @@ export function BrochureHero({ onRegister }: BrochureHeroProps) {
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button variant="outline" size="lg" onClick={onRegister} className="relative border-accent/40 hover:border-accent hover:text-accent transition-colors">
+              <Button variant="outline" size="lg" onClick={onRegister} className="btn-cta-hover relative px-10 py-8 text-lg hover:border-foreground transition-colors">
                 <span className="relative z-10">Enroll in Competition</span>
                 <span
                   aria-hidden
                   className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/25 to-transparent opacity-60 mask-image:linear-gradient(to_right,transparent,black,transparent) motion-safe:animate-shine"
                 />
               </Button>
-              <Button variant="ghost" size="lg" asChild>
+              <Button variant="ghost" size="lg" asChild className="btn-cta-hover px-10 py-8 text-lg">
                 <a href="#roadmap">View the Challenge</a>
               </Button>
             </div>

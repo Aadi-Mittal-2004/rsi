@@ -257,10 +257,10 @@ const Incubator = () => {
                   </p>
                   <div className="mt-8 flex flex-col items-center gap-4">
                     <div className="flex flex-col gap-3 sm:flex-row sm:justify-center w-full">
-                      <Button variant="outline" size="lg" asChild className="border-accent/40 hover:border-accent w-full sm:w-auto">
+                      <Button variant="outline" size="lg" asChild className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground w-full sm:w-auto">
                         <Link to="/apply">Start Your Application</Link>
                       </Button>
-                      <Button variant="ghost" size="lg" asChild className="w-full sm:w-auto">
+                      <Button variant="ghost" size="lg" asChild className="btn-cta-hover px-10 py-8 text-lg w-full sm:w-auto">
                         <a href="#intro">Back to top</a>
                       </Button>
                     </div>

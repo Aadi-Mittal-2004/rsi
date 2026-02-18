@@ -170,10 +170,10 @@ const ProductDetails = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" variant="default">
-                <Link to="/contact">Request a Quote</Link>
+              <Button asChild size="lg" variant="outline" className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground">
+                <Link to="/contact#query-form">Request a Quote</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="ghost" className="btn-cta-hover px-10 py-8 text-lg">
                 <Link to="/contact">Ask a Question</Link>
               </Button>
             </div>
