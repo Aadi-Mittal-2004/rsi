@@ -34,25 +34,60 @@ const Navigation = () => {
   const [navTheme, setNavTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
-    const onScroll = () => {
+    const checkNavbarColor = () => {
       const isScrolled = window.scrollY > 40;
       setScrolled(isScrolled);
 
-      // Detect theme based on element at top center
-      // We check slightly below the navbar (e.g. 80px) to see what's "behind" it
-      const element = document.elementFromPoint(window.innerWidth / 2, 80);
-      const section = element?.closest("[data-section-theme]");
-      const theme = section?.getAttribute("data-section-theme") as "light" | "dark" | null;
       
       // Default based on whether dark class is on html
       const isDark = document.documentElement.classList.contains("dark");
-      setNavTheme(theme || (isDark ? "dark" : "light"));
+
+      if (location.pathname === "/") {
+        // Force dark theme (white text) on Home page while at the top (Hero section)
+        if (!isScrolled) {
+          setNavTheme("dark");
+          return;
+        }
+
+        // On Home page (scrolled), detect theme based on element at top center
+        const element = document.elementFromPoint(window.innerWidth / 2, 80);
+        const section = element?.closest("[data-section-theme]");
+        const theme = section?.getAttribute("data-section-theme") as "light" | "dark" | null;
+        setNavTheme(theme || (isDark ? "dark" : "light"));
+      } else {
+        // On other pages, strictly follow global theme
+        setNavTheme(isDark ? "dark" : "light");
+      }
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    // Run immediately on mount/update
+    checkNavbarColor();
+
+    // Listen for scroll events
+    window.addEventListener("scroll", checkNavbarColor, { passive: true });
+
+    // Listen for theme changes (class changes on html element)
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          checkNavbarColor();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      window.removeEventListener("scroll", checkNavbarColor);
+      observer.disconnect();
+    };
+  }, [location.pathname]);
 
   const isHome = location.pathname === "/";
   const shouldShowSolid = scrolled || !isHome;

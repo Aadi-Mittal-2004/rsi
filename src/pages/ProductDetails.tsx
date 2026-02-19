@@ -1,6 +1,7 @@
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
@@ -49,6 +50,32 @@ const ProductDetails = () => {
     );
   }
 
+  // Session-based urgency toast — fires once per product per session
+  useEffect(() => {
+    const toastKey = `urgencyToast_${product.id}`;
+    if (sessionStorage.getItem(toastKey)) return;
+
+    const timer = setTimeout(() => {
+      sessionStorage.setItem(toastKey, "true");
+      toast(`📦 ${product.name} is in high demand this quarter`, {
+        description: "Request your specs now to lock in current container availability.",
+        action: {
+          label: "Request Quote",
+          onClick: () => {
+            const el = document.querySelector("#query-form") || document.querySelector("a[href*='contact']");
+            if (el && 'click' in el) (el as HTMLElement).click();
+          },
+        },
+        duration: 8000,
+      });
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [product.id, product.name]);
+
+  const siteUrl = "https://roopstoneimpex.in";
+  const categoryLabel = product.category.replace("-", " & ");
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -68,6 +95,13 @@ const ProductDetails = () => {
     }))
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: `${siteUrl}/` },
+    { name: "Products", url: `${siteUrl}/products` },
+    { name: categoryLabel, url: `${siteUrl}/products?category=${product.category}` },
+    { name: product.name, url: `${siteUrl}/products/${product.id}` },
+  ];
+
   return (
     <PageTransition>
     <SEO 
@@ -75,9 +109,10 @@ const ProductDetails = () => {
       description={product.description}
       keywords={`${product.name}, ${product.category}, ${product.subcategory || ''}, natural stone, Roop Stone Impex`}
       image={product.image}
-      url={window.location.href}
+      url={`${siteUrl}/products/${product.id}`}
       type="product"
       structuredData={jsonLd}
+      breadcrumbs={breadcrumbs}
     />
     <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
@@ -169,12 +204,18 @@ const ProductDetails = () => {
               </ul>
             </div>
             
+            <p className="text-xs text-muted-foreground/70 mb-6 italic">
+              ⏱ Most buyers request specs 2–3 weeks before container booking. Don't wait until slots fill up.
+            </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" variant="outline" className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground">
+              <Button asChild size="lg" className="btn-cta-hover bg-accent text-black hover:bg-accent/90 px-10 py-8 text-lg">
                 <Link to="/contact#query-form">Request a Quote</Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="btn-cta-hover px-10 py-8 text-lg">
-                <Link to="/contact">Ask a Question</Link>
+                <a href="https://wa.me/919214083550?text=Hi%20%E2%80%94%20I%27m%20interested%20in%20your%20" target="_blank" rel="noopener noreferrer">
+                  WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>

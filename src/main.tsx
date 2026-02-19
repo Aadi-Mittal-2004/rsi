@@ -14,3 +14,10 @@ createRoot(document.getElementById("root")!).render(
     <SpeedInsights />
   </>
 );
+
+// unregister service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.ready.then(registration => {
+    registration.unregister();
+  });
+}

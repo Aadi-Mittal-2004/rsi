@@ -8,21 +8,21 @@ const About = () => {
   const values = [
     {
       icon: Shield,
-      title: "Uncompromising Quality",
+      title: "14 Point Quality Protocol",
       description:
-        "From quarry to final product, we adhere to the strictest quality controls to deliver superior natural stone.",
+        "Every stone passes a 14 step inspection before packing. Dimensional accuracy, surface finish, shade consistency, edge integrity, nothing leaves our facility unchecked.",
     },
     {
       icon: Heart,
-      title: "Integrity & Trust",
+      title: "Zero Excuses Policy",
       description:
-        "We build lasting relationships through transparent, honest, and ethical business practices.",
+        "Wrong specs? We re-cut. Shade mismatch? We re-sort. Damaged in transit? We replace. Our reputation is built on making problems disappear, not making excuses.",
     },
     {
       icon: Building2,
-      title: "Sustainability",
+      title: "End to End Control",
       description:
-        "We are committed to responsible sourcing and environmentally conscious processes to protect our planet.",
+        "From quarry selection to container loading, every step is documented and supervised. You get photo proof at each stage, not just promises.",
     },
   ];
 
@@ -57,39 +57,33 @@ const About = () => {
 
             {/* Right - Text Content */}
             <div className="space-y-5 text-muted-foreground">
-              <p>
-                <strong className="text-foreground">Roop Stone Impex</strong> is an Indian company specializing in the 
-                fabrication of Very Premium Quality Natural Stone products with a proud owner of stone quarries since 1982. 
-                As leading natural stone cladding exporters in India, we have established ourselves as a trusted 
-                natural stone supplier for global markets.
+              <p className="text-foreground font-medium text-lg leading-relaxed border-l-2 border-accent pl-4">
+                Every year, procurement managers lose their credibility because they trusted the wrong stone supplier. Broken cargo, delayed shipments, and sub grade material don't just cost money, they cost relationships and reputations.
               </p>
               
               <p>
-                Our main office is located in Deoli (Rajasthan) on the Old Ajmer Road, RICCO Industrial Area. 
-                Our main products are Slate, Sandstone, Limestone, Quartzite, and Marble. We are the major manufacturers 
-                and exporter of Natural Stone Tiles, Natural Stone Claddings, Stone Slabs, and Stone Veneer in all 
-                standards and customize sizes, thicknesses, and surface finishes (flamed, brushed, polished, tumbled, etc.) 
-                for various purposes.
+                <strong className="text-foreground">Roop Stone Impex</strong> has been fabricating and exporting 
+                premium quality natural stone since 1982. Based in Deoli, Rajasthan, the heart of India's stone belt, we 
+                specialize in Slate, Sandstone, Limestone, Quartzite, and Marble.
               </p>
               
               <p>
-                As a prominent Indian sandstone manufacturer, we can supply non-standard sizes and thicknesses as per 
-                our customer's requirements. We not only supply the material to our buyer but also provide full logistic 
-                solutions at a very competitive price.
+                You need consistent quality. You need on-time delivery. You need a supplier who handles 
+                logistics end to end. When you <em className="text-foreground not-italic font-medium">partner with Roop Stone Impex</em>, 
+                you get all three, backed by 43 years of proven exports.
               </p>
               
               <p>
-                Being established natural stone cladding exporters in India, we ensure seamless delivery worldwide. 
-                Our strength is our presence in India and across the Globe. Our competent & experienced team under 
-                the guidance of our mentors makes us confident to provide our customers best quality natural stones 
-                according to their requirements.
+                We supply tiles, cladding, slabs, and veneer in all standard and custom sizes, 
+                thicknesses, and surface finishes (flamed, brushed, polished, tumbled). We don't just 
+                supply material, we provide full logistic solutions at competitive prices, from our 
+                factory floor to your destination port.
               </p>
               
               <p>
-                Our reputation as a reliable natural stone supplier and Indian sandstone manufacturer is built on 
-                decades of excellence. We provide customized packaging for our core products i.e. Slate, Sandstone, 
-                Stone Cladding, Stone Slabs, and Stone Veneer as per International Packaging Standards, reinforcing 
-                our position as premier natural stone cladding exporters in India.
+                Our customized packaging follows International Packaging Standards, double layer wooden 
+                crating, foam padded cardboard boxing, and weather sealed plastic wrapping. This 14 point 
+                packing protocol, refined over four decades, is why our clients keep coming back.
               </p>
             </div>
           </div>
@@ -140,13 +134,14 @@ const About = () => {
                 <span className="absolute bottom-0 left-0 w-16 h-px bg-accent"></span>
               </h2>
               <p className="text-muted-foreground mb-4">
-                Our process is a blend of time-honored techniques and cutting-edge technology. Each slab is
-                a testament to the skill of our artisans, who transform raw stone into works of art.
+                Our process combines decades of hands on experience with modern fabrication equipment. Each 
+                slab is cut, finished, and inspected by a team that understands what international buyers expect, 
+                because we've been shipping to them for 43 years.
               </p>
               <p className="text-muted-foreground mb-6">
-                We invest in the latest machinery to ensure precision, consistency, and a finish that
-                reveals the true beauty of the material. From the quarry to your project, every step is
-                executed with meticulous care.
+                Every piece is individually inspected for dimensional accuracy, surface quality, shade consistency, 
+                and edge integrity. Then it's packed using our 14 point protocol, the same system that keeps 
+                our breakage rate near zero across thousands of containers shipped.
               </p>
               <Link 
                 to="/products" 

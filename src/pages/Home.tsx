@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, ChevronDown, Globe2, Leaf, Scissors } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, Globe2, Leaf, Scissors, Shield, Package, Clock, Truck } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence, MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -140,28 +140,28 @@ const Home = () => {
 
   const advantages = [
     {
+      icon: Shield,
+      title: "Zero Damage Packing",
+      description:
+        "What's your current supplier's breakage rate? We use double layer wooden crating, foam padded cardboard boxing, and weather sealed plastic wrapping, refined over 43 years.",
+    },
+    {
+      icon: Truck,
+      title: "End to End Logistics",
+      description:
+        "Full logistic solutions at competitive prices. We don't just supply, we deliver to your port, handled end to end with customs documentation.",
+    },
+    {
       icon: CheckCircle2,
-      title: "Quality Assurance",
+      title: "14 Point Quality Check",
       description:
-        "Every stone is meticulously inspected to meet the highest standards of quality and beauty.",
-    },
-    {
-      icon: Globe2,
-      title: "Global Experience",
-      description:
-        "We export our premium stones worldwide, catering to diverse architectural and design needs.",
-    },
-    {
-      icon: Leaf,
-      title: "Sustainable Practices",
-      description:
-        "Our quarrying and processing methods are designed to be environmentally responsible.",
+        "Every stone passes our 14 step quality control process before packing. From raw block inspection to container seal verification.",
     },
     {
       icon: Scissors,
-      title: "Custom Solutions",
+      title: "Custom Fabrication",
       description:
-        "We offer bespoke cutting and finishing to bring your unique design visions to life.",
+        "Non standard sizes, thicknesses, and finishes, flamed, brushed, polished, tumbled, cut to your exact specifications. No minimums on customization.",
     },
   ];
 
@@ -187,16 +187,23 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none z-10" />
 
         <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-40 md:pb-40 animate-fade-in">
-          <p className="uppercase tracking-[0.5em] font-medium text-[10px] md:text-xs text-white/70 mb-2 md:mb-6 elegant-fade-in">
-            Timeless Surfaces
+          <p className="uppercase tracking-[0.35em] font-medium text-[10px] md:text-xs text-white/80 mb-2 md:mb-6 elegant-fade-in">
+            Zero Damage Packing · 43 Years · Trusted Worldwide
           </p>
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-2 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
-            Where Stone<br />Becomes Art
+            India's Most Trusted<br />Stone Exporter
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl elegant-fade-in" style={{ animationDelay: '0.3s' }}>
-            Discover the timeless elegance of our natural stones for
-            exquisite living.
+            What's your current supplier's breakage rate? Ours has been near zero for 43 years. Quartzite, sandstone, limestone & slate, packed to perfection.
           </p>
+          <div className="mt-6 md:mt-8 elegant-fade-in" style={{ animationDelay: '0.45s' }}>
+            <Button asChild size="lg" className="btn-cta-hover bg-accent text-black hover:bg-accent/90 px-8 py-6 text-base font-semibold tracking-wide">
+              <Link to="/contact#query-form">
+                <span className="mr-2">Get Your Free Export Consultation</span>
+                <ArrowRight className="h-5 w-5" strokeWidth={1.5} />
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {/* Bottom shadow gradient for emphasis */}
@@ -217,6 +224,26 @@ const Home = () => {
 
       {/* Content Layer – slides over the sticky hero */}
       <div className="relative z-10 bg-background">
+
+      {/* Trust Authority Bar */}
+      <section className="py-6 px-4 border-b border-border bg-card">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+            {[
+              { icon: Shield, label: "Zero Damage Packing", sublabel: "14 Point Protocol" },
+              { icon: Package, label: "500+ Containers", sublabel: "Shipped Worldwide" },
+              { icon: Globe2, label: "20+ Countries", sublabel: "Global Exports" },
+              { icon: Clock, label: "43+ Years", sublabel: "Of Excellence" },
+            ].map((item) => (
+              <div key={item.label} className="flex flex-col items-center gap-1.5 group">
+                <item.icon className="h-5 w-5 text-accent mb-1 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                <span className="text-sm font-semibold tracking-wide text-foreground">{item.label}</span>
+                <span className="text-xs text-muted-foreground">{item.sublabel}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Premium Collection */}
       <section id="products-section" className="py-20 px-4 overflow-hidden" ref={collectionRef}>
         <div className="container mx-auto">
@@ -368,15 +395,15 @@ const Home = () => {
                   <span className="absolute bottom-0 left-0 w-16 h-px bg-accent"></span>
                 </h2>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Discover our heritage of excellence. For over four decades,
-                  we've been sourcing the finest natural stones and transforming them into
-                  masterpieces of design and durability, upholding a steadfast
-                  commitment to craftsmanship and quality.
+                  You need a stone exporter you can trust. You know the risks — breakage during transit,
+                  port delays, inconsistent quality grades. For over four decades,
+                  we've eliminated those risks for buyers worldwide with our
+                  14-point quality protocol and zero-damage packing system.
                 </p>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  From quarry to final product, we adhere to the strictest quality
-                  controls to deliver superior natural stone that enhances
-                  architectural projects worldwide.
+                  From quarry selection to container loading, every step is
+                  controlled and documented. When you <em className="text-foreground not-italic font-medium">partner with Roop Stone Impex</em>, you
+                  get a supplier whose track record speaks for itself.
                 </p>
                 <Link 
                   to="/about" 
@@ -509,19 +536,26 @@ const Home = () => {
       <section className="py-24 px-4 bg-card flex items-center justify-center overflow-hidden" ref={ctaRef}>
         <div className="container mx-auto text-center max-w-3xl">
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block" style={{ y: ctaHeadingY }}>
-            Get in Touch
+            Stop Risking Your Next Shipment
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
           </motion.h2>
-          <p className="text-lg md:text-xl mb-12 max-w-2xl mx-auto mt-6 text-muted-foreground font-medium leading-relaxed">
-            We're here to help you find the perfect stone. Contact us for
-            inquiries or to request a quote.
+          <p className="text-lg md:text-xl mb-4 max-w-2xl mx-auto mt-6 text-muted-foreground font-medium leading-relaxed">
+            Every day you delay switching to a reliable supplier is another shipment at risk.
           </p>
-          <motion.div style={{ y: ctaButtonY }}>
+          <p className="text-base mb-12 max-w-2xl mx-auto text-muted-foreground/80 leading-relaxed">
+            Would you prefer to secure your container allocation now, or schedule a call with our export team for tomorrow?
+          </p>
+          <motion.div className="flex flex-col sm:flex-row gap-4 justify-center" style={{ y: ctaButtonY }}>
             <Button asChild variant="outline" size="lg" className="btn-cta-hover px-10 py-8 text-lg hover:border-foreground">
               <Link to="/contact#query-form">
-                <span className="mr-2">Get in Touch</span>
+                <span className="mr-2">Request a Quote Now</span>
                 <ArrowRight className="h-5 w-5" strokeWidth={1} />
               </Link>
+            </Button>
+            <Button asChild variant="ghost" size="lg" className="px-10 py-8 text-lg text-muted-foreground hover:text-foreground">
+              <a href="https://wa.me/919214083550?text=Hi%20-%20I%27d%20like%20to%20schedule%20a%20call%20about%20stone%20exports" target="_blank" rel="noopener noreferrer">
+                <span>Schedule a Call Instead</span>
+              </a>
             </Button>
           </motion.div>
         </div>

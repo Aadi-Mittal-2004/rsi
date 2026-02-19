@@ -1,5 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface SEOProps {
   title: string;
   description?: string;
@@ -8,6 +13,8 @@ interface SEOProps {
   url?: string;
   type?: string;
   structuredData?: object;
+  breadcrumbs?: BreadcrumbItem[];
+  noindex?: boolean;
   verification?: {
     google?: string;
     bing?: string;
@@ -29,11 +36,25 @@ const SEO = ({
   url = window.location.href,
   type = "website",
   structuredData,
+  breadcrumbs,
+  noindex = false,
   verification,
   geo
 }: SEOProps) => {
   const siteTitle = "Roop Stone Impex";
   const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+
+  // Generate BreadcrumbList schema
+  const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  } : null;
 
   return (
     <Helmet>
@@ -41,8 +62,12 @@ const SEO = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={url} />
+      <link rel="alternate" href={url} hrefLang="en" />
       <link rel="alternate" href={url} hrefLang="en-US" />
+      <link rel="alternate" href={url} hrefLang="en-GB" />
+      <link rel="alternate" href={url} hrefLang="en-AU" />
       <link rel="alternate" href={url} hrefLang="x-default" />
 
       {/* Geographic Meta Tags */}
@@ -61,6 +86,13 @@ const SEO = ({
       {structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+      )}
+
+      {/* Breadcrumb Schema */}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       )}
 

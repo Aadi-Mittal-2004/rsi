@@ -15,6 +15,9 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 import SEO from "./components/SEO";
+import ExitIntentPopup from "./components/ExitIntentPopup";
+import UrgencyBanner from "./components/UrgencyBanner";
+import StickyCTABar from "./components/StickyCTABar";
 
 const queryClient = new QueryClient();
 
@@ -57,10 +60,13 @@ const App = () => (
           }}
         />
         <ScrollToTop />
+        <UrgencyBanner />
         <Navigation />
         <AnimatedRoutes />
         <Footer />
+        <StickyCTABar />
         <WhatsAppButton />
+        <ExitIntentPopup />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
