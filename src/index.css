@@ -278,30 +278,56 @@ All colors MUST be HSL.
     overflow: hidden;
   }
 
-  .dark .btn-cta-hover::before {
+  .btn-cta-hover::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(212, 175, 55, 0.08) 25%,
-      rgba(212, 175, 55, 0.15) 50%,
-      rgba(212, 175, 55, 0.08) 75%,
+      rgba(255, 255, 255, 0.4) 25%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.4) 75%,
       transparent 100%
     );
     transform: translateX(-100%) skewX(-15deg);
     transition: none;
     pointer-events: none;
-    z-index: 0;
+    z-index: 10;
   }
 
-  .dark .btn-cta-hover:hover::before {
-    animation: btn-shimmer-sweep 0.6s ease-out forwards;
+  .btn-cta-hover:hover::before {
+    animation: btn-shimmer-sweep 0.8s ease-in-out forwards;
   }
 
-  .dark .btn-cta-hover:hover {
-    border-color: rgba(212, 175, 55, 0.5) !important;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), 0 0 30px rgba(212, 175, 55, 0.05);
+  .btn-cta-hover:hover {
+    border-color: rgba(212, 175, 55, 0.8) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+  }
+
+  /* WhatsApp Button Animation */
+  @keyframes whatsapp-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+
+  .btn-whatsapp-anim {
+    transition: all 0.3s ease;
+    border-color: rgba(37, 211, 102, 0.5) !important;
+    color: rgba(37, 211, 102, 0.9) !important;
+  }
+
+  .btn-whatsapp-anim:hover {
+    background-color: #25D366 !important;
+    color: white !important;
+    border-color: #25D366 !important;
+    animation: whatsapp-pulse 1.5s infinite;
   }
 }

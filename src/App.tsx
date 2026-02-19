@@ -23,6 +23,8 @@ const queryClient = new QueryClient();
 
 import Incubator from "./pages/Incubator";
 import Apply from "./pages/Apply";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -38,6 +40,8 @@ const AnimatedRoutes = () => {
         <Route path="/apply" element={<Apply />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

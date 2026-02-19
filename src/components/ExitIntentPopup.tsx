@@ -78,7 +78,7 @@ const ExitIntentPopup = () => {
             <Button
               asChild
               size="lg"
-              className="w-full bg-accent text-black hover:bg-accent/90 py-6 text-base font-semibold"
+              className="w-full bg-accent text-[#F7F5F3] hover:bg-accent/90 py-6 text-base font-semibold"
             >
               <Link to="/contact#query-form" onClick={handleDismiss}>
                 <span className="mr-2">Get the Free Checklist</span>

@@ -48,7 +48,7 @@ const StickyCTABar = () => {
               href="https://wa.me/919214083550?text=Hi%20%E2%80%94%20I%20noticed%20you%20export%20natural%20stone.%20I%27m%20looking%20for%20a%20reliable%20supplier.%20Can%20we%20discuss%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-sm border border-border text-foreground hover:border-green-500 hover:text-green-500 transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-sm border btn-whatsapp-anim transition-all"
             >
               <MessageCircle className="h-4 w-4" />
               <span className="hidden sm:inline">WhatsApp</span>
@@ -57,7 +57,7 @@ const StickyCTABar = () => {
 
             <Link
               to="/contact#query-form"
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-sm bg-accent text-black hover:bg-accent/90 transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-sm bg-accent text-[#F7F5F3] hover:bg-accent/90 btn-cta-hover transition-all"
             >
               <FileText className="h-4 w-4" />
               <span>Request Quote</span>

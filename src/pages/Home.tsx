@@ -182,32 +182,54 @@ const Home = () => {
       </AnimatePresence>
 
         {/* Dark scrim overlay for consistent readability across all slides */}
-        <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-black/50 pointer-events-none z-10" />
         {/* Vignette gradient for cinematic depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.5)_100%)] pointer-events-none z-10" />
+        {/* Strong gradient behind text area (bottom-left) */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent pointer-events-none z-10" />
 
-        <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-40 md:pb-40 animate-fade-in">
-          <p className="uppercase tracking-[0.35em] font-medium text-[10px] md:text-xs text-white/80 mb-2 md:mb-6 elegant-fade-in">
-            Zero Damage Packing · 43 Years · Trusted Worldwide
+        <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-32 md:pb-40 animate-fade-in">
+          <p className="uppercase tracking-[0.35em] font-medium text-[10px] md:text-xs text-white/80 mb-3 md:mb-5 elegant-fade-in" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+            Zero Damage Packing · 43 Years · 20+ Countries
           </p>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-2 md:mb-6 text-white drop-shadow-md elegant-fade-in" style={{ animationDelay: '0.15s' }}>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-6 text-white elegant-fade-in" style={{ animationDelay: '0.15s', textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.4)' }}>
             India's Most Trusted<br />Stone Exporter
           </h1>
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl elegant-fade-in" style={{ animationDelay: '0.3s' }}>
-            What's your current supplier's breakage rate? Ours has been near zero for 43 years. Quartzite, sandstone, limestone & slate, packed to perfection.
+          <p className="text-base md:text-lg text-white/90 max-w-xl elegant-fade-in leading-relaxed" style={{ animationDelay: '0.3s', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
+            When you <em className="not-italic font-semibold text-white">choose Roop Stone Impex</em>, you eliminate the #1 risk in stone procurement — breakage, delays, and inconsistent quality.
           </p>
-          <div className="mt-6 md:mt-8 elegant-fade-in" style={{ animationDelay: '0.45s' }}>
-            <Button asChild size="lg" className="btn-cta-hover bg-accent text-black hover:bg-accent/90 px-8 py-6 text-base font-semibold tracking-wide">
-              <Link to="/contact#query-form">
-                <span className="mr-2">Get Your Free Export Consultation</span>
-                <ArrowRight className="h-5 w-5" strokeWidth={1.5} />
-              </Link>
-            </Button>
+          <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 elegant-fade-in" style={{ animationDelay: '0.45s' }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Button asChild size="lg" className="btn-cta-hover bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-6 text-base font-semibold tracking-wide shadow-lg group">
+                <Link to="/contact#query-form">
+                  <span className="mr-2">Get a Free Quote</span>
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 hover:border-white/70 px-8 py-6 text-base font-semibold tracking-wide shadow-lg">
+                <a href="https://wa.me/919214083550?text=Hi%20-%20I%27d%20like%20to%20schedule%20a%20call%20about%20stone%20exports" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  <span>Schedule a Call</span>
+                </a>
+              </Button>
+            </motion.div>
           </div>
         </div>
 
         {/* Bottom shadow gradient for emphasis */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-15" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none z-15" />
 
         {/* Scroll Down Indicator */}
         <div
@@ -552,9 +574,12 @@ const Home = () => {
                 <ArrowRight className="h-5 w-5" strokeWidth={1} />
               </Link>
             </Button>
-            <Button asChild variant="ghost" size="lg" className="px-10 py-8 text-lg text-muted-foreground hover:text-foreground">
+            <Button asChild variant="ghost" size="lg" className="px-10 py-8 text-lg btn-whatsapp-anim">
               <a href="https://wa.me/919214083550?text=Hi%20-%20I%27d%20like%20to%20schedule%20a%20call%20about%20stone%20exports" target="_blank" rel="noopener noreferrer">
-                <span>Schedule a Call Instead</span>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mr-2">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span>WhatsApp Us</span>
               </a>
             </Button>
           </motion.div>

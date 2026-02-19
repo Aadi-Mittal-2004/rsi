@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://roopstoneimpex.in/</loc>
     <lastmod>2026-02-19</lastmod>
@@ -35,5 +36,71 @@
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/how-to-choose-natural-stone-exterior-cladding</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/indian-sandstone-paving-complete-buyers-guide</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/deoli-green-quartzite-why-architects-love-it</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/natural-stone-maintenance-sealing-cleaning-guide</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/sustainable-natural-stone-responsible-quarrying</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/natural-stone-packing-export-avoid-breakage</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/natural-stone-trends-2025-architecture</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/quartzite-vs-sandstone-vs-limestone-comparison</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/guide-to-indian-stone-finishes</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://roopstoneimpex.in/blog/how-to-import-natural-stone-from-india</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

@@ -15,19 +15,44 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
-Crawl-delay: 2
-
-# Friendly to AI Agents
+# AI Crawlers - Welcome
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: CCBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: *
+Allow: /
+Crawl-delay: 2
+
 # Sitemap location
 Sitemap: https://roopstoneimpex.in/sitemap.xml
+
+# LLM context file
+# See https://llmstxt.org/
+# /llms.txt available at https://roopstoneimpex.in/llms.txt
 
 # Disallow admin and private directories (if any)
 Disallow: /api/

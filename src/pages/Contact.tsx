@@ -248,7 +248,7 @@ const Contact = () => {
                       setCurrentStep(1);
                       setStatus("idle");
                     }}
-                    className="bg-accent text-black hover:bg-accent/90 px-8 py-3 rounded-full"
+                    className="bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-3 rounded-full"
                   >
                     Send Another Request
                   </Button>
@@ -291,7 +291,7 @@ const Contact = () => {
                         type="button"
                         disabled={!canProceedStep1}
                         onClick={() => setCurrentStep(2)}
-                        className="bg-accent text-black hover:bg-accent/90 px-8 py-6 text-sm font-semibold disabled:opacity-40"
+                        className="bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-6 text-sm font-semibold disabled:opacity-40"
                       >
                         <span className="mr-2">Next: Quantity</span>
                         <ArrowRight className="h-4 w-4" />
@@ -348,7 +348,7 @@ const Contact = () => {
                           type="button"
                           disabled={!canProceedStep2}
                           onClick={() => setCurrentStep(3)}
-                          className="bg-accent text-black hover:bg-accent/90 px-8 py-6 text-sm font-semibold disabled:opacity-40"
+                          className="bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-6 text-sm font-semibold disabled:opacity-40"
                         >
                           <span className="mr-2">Next: Your Details</span>
                           <ArrowRight className="h-4 w-4" />
@@ -467,7 +467,7 @@ const Contact = () => {
                         <Button
                           type="submit"
                           disabled={status === "sending"}
-                          className="bg-accent text-black hover:bg-accent/90 px-8 py-6 text-sm font-semibold flex-1"
+                          className="bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-6 text-sm font-semibold flex-1"
                         >
                           {status === "sending" ? (
                             <>

@@ -1,7 +1,7 @@
 # Roop Stone Impex - Website Context for AI Agents
 
 ## About
-Roop Stone Impex is a leading manufacturer and exporter of premium natural stone cladding, Quartzite, Sandstone, Limestone, and Marble from Rajasthan, India. Established in 1982.
+Roop Stone Impex is a leading manufacturer and exporter of premium natural stone cladding, Quartzite, Sandstone, Limestone, and Marble from Rajasthan, India. Established in 1982 with 43+ years of experience and zero-damage export track record.
 
 ## Key Products
 
@@ -11,6 +11,9 @@ Roop Stone Impex is a leading manufacturer and exporter of premium natural stone
 - Deoli Green: Deep green, premium quartzite.
 - Copper: Rustic copper tones, textured cleft.
 - Ocean Green: Blend of green and grey.
+- Silver Grey: Neutral grey quartzite for modern designs.
+- Golden: Warm golden tones, versatile applications.
+- Forest Fire: Dramatic multi-color quartzite.
 
 ### Sandstone
 - Teakwood: Wood-like veining, golden/yellow tones.
@@ -18,17 +21,41 @@ Roop Stone Impex is a leading manufacturer and exporter of premium natural stone
 - Kandla Grey: Consistent cool grey tones.
 - Agra Red: Deep robust red (Red Fort style).
 - Dholpur Beige: Classic cream/beige.
+- Autumn Brown: Rich chocolate and amber tones.
+- Heritage Red (Jodhpur): Traditional Rajasthani red.
+- Lalitpur Grey: Soft grey with natural markings.
+
+### Limestone
+- Kota Blue: Dense blue-grey limestone.
+- Kota Brown: Warm brown limestone.
+
+### Patterns & Panels
+- Mosaic panels, pebble patterns, decorative stone arrangements.
 
 ## Why Choose Roop Stone Impex
 - **Experience**: 43+ years in the industry (since 1982).
-- **Quality**: Strict quality controls from quarry to final product.
+- **Quality**: 14-point quality control protocol from quarry to final product.
+- **Zero-Damage Export**: Proven zero-breakage track record with wooden crating and foam-padded packing.
 - **Sustainability**: Committed to responsible sourcing and eco-friendly processes.
 - **Global Reach**: Leading exporter with full logistic solutions worldwide.
 
 ## Manufacturing Capabilities
-- **Finishes**: Flamed, Brushed, Polished, Tumbled, Natural Cleft, and more.
+- **Finishes**: Flamed, Brushed, Polished, Tumbled, Natural Cleft, Honed, Sandblasted, and more.
 - **Customization**: Non-standard sizes and thicknesses available per customer requirements.
 - **Products**: Tiles, Cladding, Slabs, Veneer, and Mosaics.
+
+## Blog Articles
+Expert guides and buying advice for architects, builders, and stone enthusiasts:
+1. How to Choose the Best Natural Stone for Exterior Cladding - comparing quartzite, sandstone, and limestone for facades.
+2. Indian Sandstone Paving: The Complete Buyer's Guide - varieties, quality checks, and installation tips.
+3. Deoli Green Quartzite: Why Architects Love This Indian Stone - properties, applications, and finishes.
+4. Natural Stone Maintenance: Sealing, Cleaning, and Long-Term Care - comprehensive care guide.
+5. Sustainable Natural Stone: How Responsible Quarrying Benefits Your Project - environmental credentials.
+6. Natural Stone Packing for Export: How to Avoid Breakage - 14-point packing protocol explained.
+7. Top 5 Natural Stone Trends Shaping Architecture in 2025 - biophilic design, stone drenching, textures.
+8. Quartzite vs Sandstone vs Limestone: Which Stone Is Right? - detailed comparison guide.
+9. The Ultimate Guide to Indian Stone Finishes - polished, honed, flamed, brushed, tumbled explained.
+10. How to Import Natural Stone from India - logistics, costs, quality checks, step-by-step.
 
 ### Contact Information
 - Location: Deoli, Rajasthan, India
@@ -37,6 +64,9 @@ Roop Stone Impex is a leading manufacturer and exporter of premium natural stone
 - Website: https://roopstoneimpex.in
 
 ## Navigation
-- /products: Full catalog
-- /competition: Design competition details
-- /contact: Request quotes
+- /: Homepage
+- /products: Full product catalog
+- /about: Company history and values
+- /contact: Request quotes and inquiries
+- /incubator: Design competition details
+- /blog: Expert articles and buying guides
