@@ -93,7 +93,7 @@ const Navigation = () => {
   const shouldShowSolid = scrolled || !isHome;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-auto">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-auto overflow-hidden">
       {/* Background Layer with Slide Animation */}
       <div
         className={cn(
@@ -108,9 +108,9 @@ const Navigation = () => {
       {/* Main Content Layer */}
       <div className="relative z-10 transition-colors duration-200">
         <div className="container mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex items-center py-3 md:py-4">
+          <div className="flex items-center py-3 md:py-4 flex-nowrap min-w-0">
             {/* Left: Logo */}
-            <div className="flex-1 flex items-center">
+            <div className="flex-1 flex items-center min-w-0">
               <Link
                 to="/"
                 className="flex items-center hover:opacity-80 transition-opacity"
@@ -120,7 +120,7 @@ const Navigation = () => {
                   src="/navbar-logo.png"
                   alt="Navbar Logo"
                   className={cn(
-                    "h-5 md:h-7 transition-all duration-300",
+                    "h-5 md:h-7 max-h-[1.5rem] md:max-h-[2rem] w-auto transition-all duration-300",
                     navTheme === "dark" ? "filter invert" : ""
                   )}
                 />
@@ -153,7 +153,7 @@ const Navigation = () => {
             </div>
 
             {/* Right: WhatsApp + Theme Toggle (desktop) + Priority Links + Mobile Menu */}
-            <div className="flex-1 flex justify-end items-center gap-2 sm:gap-3">
+            <div className="flex-1 flex justify-end items-center gap-1 sm:gap-2 md:gap-3 flex-nowrap min-w-0 overflow-hidden">
               <ThemeToggle className={cn("hidden md:flex", navTheme === "dark" ? "text-white" : "text-black")} />
               <a
                 href={`https://wa.me/917357923414?text=${encodeURIComponent("Hello! I'm interested in your products.")}`}
@@ -174,13 +174,13 @@ const Navigation = () => {
               </a>
 
               {/* Priority+ links visible on mobile */}
-              <div className="flex md:hidden items-center gap-1">
+              <div className="flex md:hidden items-center gap-0.5 sm:gap-1 flex-nowrap flex-shrink min-w-0">
                 {priorityLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
                     className={cn(
-                      "text-xs sm:text-sm font-medium px-2 sm:px-3 py-1.5 rounded-full transition-all duration-300",
+                      "text-[10px] sm:text-xs font-medium px-1.5 sm:px-2 py-1 rounded-full transition-all duration-300 whitespace-nowrap flex-shrink-0",
                       isActive(link.href)
                         ? navTheme === "dark"
                           ? "text-white bg-white/10"
@@ -199,7 +199,7 @@ const Navigation = () => {
               <div className="md:hidden">
                 <button
                   className={cn(
-                    "flex items-center gap-1.5 px-2.5 py-1.5 rounded-full transition-all duration-300 border",
+                    "flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-full transition-all duration-300 border flex-shrink-0",
                     navTheme === "dark"
                       ? "border-white/15 hover:bg-white/5"
                       : "border-black/10 hover:bg-black/5"

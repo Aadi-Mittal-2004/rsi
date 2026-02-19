@@ -188,7 +188,9 @@ const Home = () => {
         {/* Strong gradient behind text area (bottom-left) */}
         <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent pointer-events-none z-10" />
 
-        <div className="relative z-20 flex flex-col items-start justify-end h-full text-left px-8 md:px-16 lg:px-24 pb-32 md:pb-40 animate-fade-in">
+        <div className="relative z-20 flex flex-col items-start h-full text-left px-8 md:px-16 lg:px-24 pb-32 md:pb-40 animate-fade-in overflow-hidden">
+          {/* Spacer pushes content to bottom; min-h ensures navbar clearance even when zoomed */}
+          <div className="flex-1 min-h-[4.5rem]" />
           <p className="uppercase tracking-[0.35em] font-medium text-[10px] md:text-xs text-white/80 mb-3 md:mb-5 elegant-fade-in" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
             Zero Damage Packing · 43 Years · 20+ Countries
           </p>
