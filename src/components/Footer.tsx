@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import QualityChecklistModal from "@/components/QualityChecklistModal";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const [isChecklistOpen, setIsChecklistOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -15,6 +18,7 @@ const Footer = () => {
   };
 
   return (
+    <>
     <footer className="bg-card text-card-foreground border-t border-border">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -65,6 +69,14 @@ const Footer = () => {
                 <Link to="/blog" className="text-sm text-muted-foreground font-medium hover:text-foreground transition-colors duration-300">
                   Blog
                 </Link>
+              </li>
+              <li>
+                <button
+                  onClick={() => setIsChecklistOpen(true)}
+                  className="text-sm text-muted-foreground font-medium hover:text-foreground transition-colors duration-300 text-left"
+                >
+                  Quality Checklist
+                </button>
               </li>
             </ul>
           </div>
@@ -126,6 +138,12 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+
+    <QualityChecklistModal
+      open={isChecklistOpen}
+      onOpenChange={setIsChecklistOpen}
+    />
+    </>
   );
 };
 

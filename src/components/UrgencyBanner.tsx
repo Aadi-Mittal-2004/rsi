@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { X, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -6,6 +6,45 @@ const UrgencyBanner = () => {
   const [isVisible, setIsVisible] = useState(() => {
     return !sessionStorage.getItem("urgencyBannerDismissed");
   });
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 10000);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) {
+      document.body.style.setProperty("--banner-height", "0px");
+      return;
+    }
+
+    const updateHeight = () => {
+      if (bannerRef.current) {
+        document.body.style.setProperty(
+          "--banner-height",
+          `${bannerRef.current.offsetHeight}px`
+        );
+      }
+    };
+
+    updateHeight();
+    
+    const resizeObserver = new ResizeObserver(updateHeight);
+    if (bannerRef.current) {
+      resizeObserver.observe(bannerRef.current);
+    }
+
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      resizeObserver.disconnect();
+    };
+  }, [isVisible]);
 
   if (!isVisible) return null;
 
@@ -30,7 +69,7 @@ const UrgencyBanner = () => {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-accent text-black">
+    <div ref={bannerRef} className="fixed top-0 left-0 right-0 z-[60] bg-accent text-black">
       <div className="container mx-auto px-4 py-2.5 flex items-center justify-center gap-3 text-sm">
         <AlertTriangle className="h-4 w-4 flex-shrink-0 hidden sm:block" />
         <span className="font-semibold hidden sm:inline">{quarterLabel}:</span>

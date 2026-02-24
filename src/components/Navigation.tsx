@@ -93,7 +93,10 @@ const Navigation = () => {
   const shouldShowSolid = scrolled || !isHome;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-auto overflow-hidden">
+    <nav 
+      className="fixed left-0 right-0 z-50 h-auto overflow-hidden transition-[top] duration-300"
+      style={{ top: "var(--banner-height, 0px)" }}
+    >
       {/* Background Layer with Slide Animation */}
       <div
         className={cn(

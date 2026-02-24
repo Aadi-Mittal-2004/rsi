@@ -1,20 +1,19 @@
 import { useState, useEffect, FormEvent } from "react";
 import { useLocation } from "react-router-dom";
-import { MapPin, Phone, Mail, Send, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Mail, Send, CheckCircle, AlertCircle, ArrowRight, ArrowLeft, ChevronRight, Gem, Landmark, Mountain, Layers, Sparkles, CircleHelp } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-// Step 1 options — trivial commitment (FITD)
 const stoneTypes = [
-  { id: "quartzite", label: "Quartzite", emoji: "💎" },
-  { id: "sandstone", label: "Sandstone", emoji: "🏛️" },
-  { id: "limestone", label: "Limestone", emoji: "🪨" },
-  { id: "slate", label: "Slate", emoji: "⬛" },
-  { id: "marble", label: "Marble", emoji: "🤍" },
-  { id: "other", label: "Not Sure / Multiple", emoji: "📋" },
+  { id: "quartzite", label: "Quartzite", icon: Gem },
+  { id: "sandstone", label: "Sandstone", icon: Landmark },
+  { id: "limestone", label: "Limestone", icon: Mountain },
+  { id: "slate", label: "Slate", icon: Layers },
+  { id: "marble", label: "Marble", icon: Sparkles },
+  { id: "other", label: "Not Sure / Multiple", icon: CircleHelp },
 ];
 
 const quantityOptions = [
@@ -275,13 +274,17 @@ const Contact = () => {
                             key={stone.id}
                             type="button"
                             onClick={() => setFormData((prev) => ({ ...prev, stoneType: stone.label }))}
-                            className={`p-4 rounded-sm border text-left transition-all duration-200 hover:border-accent/50 ${
+                            className={`group p-4 rounded-sm border text-left transition-all duration-200 hover:border-accent/50 ${
                               formData.stoneType === stone.label
                                 ? "border-accent bg-accent/10 text-foreground"
                                 : "border-border text-muted-foreground hover:text-foreground"
                             }`}
                           >
-                            <span className="text-lg mb-1 block">{stone.emoji}</span>
+                            <span className={`mb-3 block transition-colors duration-200 ${
+                              formData.stoneType === stone.label ? "text-accent" : "text-muted-foreground group-hover:text-accent"
+                            }`}>
+                              <stone.icon className="h-7 w-7" strokeWidth={1.5} />
+                            </span>
                             <span className="text-sm font-medium">{stone.label}</span>
                           </button>
                         ))}
