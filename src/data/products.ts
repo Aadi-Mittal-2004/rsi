@@ -19,6 +19,40 @@ import sandstoneKandlaGreyImg from "@/assets/products/sandstone-kandla-grey.jpg"
 import sandstoneLalitpurGreyImg from "@/assets/products/sandstone-lalitpur-grey.jpg";
 import sandstoneYellowImg from "@/assets/products/sandstone-yellow.jpg";
 
+// New sandstone images
+import sandstoneAgraRedNewImg from "@/assets/products/sandstone-agra-red-new.jpg";
+import sandstoneBuffImg from "@/assets/products/sandstone-buff.png";
+import sandstoneChocolateImg from "@/assets/products/sandstone-chocolate.png";
+import sandstoneDesertBrownImg from "@/assets/products/sandstone-desert-brown.png";
+import sandstoneDholpurBeigeImg from "@/assets/products/sandstone-dholpur-beige.jpeg";
+import sandstoneDholpurPinkImg from "@/assets/products/sandstone-dholpur-pink.png";
+import sandstoneGwaliorMintImg from "@/assets/products/sandstone-gwalior-mint.jpg";
+import sandstoneHeritagePinkImg from "@/assets/products/sandstone-heritage-pink.jpeg";
+import sandstoneMonsoonBlack1Img from "@/assets/products/sandstone-monsoon-black-1.png";
+import sandstoneMonsoonBlack2Img from "@/assets/products/sandstone-monsoon-black-2.png";
+import sandstoneMultiBrownImg from "@/assets/products/sandstone-multi-brown.jpg";
+import sandstoneRajGreenImg from "@/assets/products/sandstone-raj-green.png";
+import sandstoneFossilImg from "@/assets/products/sandstone-fossil.png";
+import sandstoneLalitpurYellowImg from "@/assets/products/sandstone-lalitpur-yellow.jpeg";
+import sandstoneRaveenaImg from "@/assets/products/sandstone-raveena.png";
+import sandstoneAutumnBrownImg from "@/assets/products/sandstone-autumn-brown.jpg";
+
+// Limestone images
+import limestoneItaGoldImg from "@/assets/products/limestone-ita-gold.png";
+import limestoneJaisalmerYellowImg from "@/assets/products/limestone-jaisalmer-yellow.png";
+import limestoneKadappaBlackImg from "@/assets/products/limestone-kadappa-black.png";
+import limestoneKotaBlueNewImg from "@/assets/products/limestone-kota-blue.png";
+import limestoneKotaMixImg from "@/assets/products/limestone-kota-mix.png";
+import limestonePearlGoldImg from "@/assets/products/limestone-pearl-gold.png";
+import limestoneShabadYellowImg from "@/assets/products/limestone-shabad-yellow.png";
+
+// Quartzite images
+import quartziteCopperImg from "@/assets/products/quartzite-copper.png";
+import quartziteGoldenImg from "@/assets/products/quartzite-golden.png";
+import quartziteHimachalWhiteImg from "@/assets/products/quartzite-himachal-white.png";
+import quartziteOceanGreenImg from "@/assets/products/quartzite-ocean-green.png";
+import quartziteZeeraGreenImg from "@/assets/products/quartzite-zeera-green.png";
+
 // Quartzite images from mosaic folder (reclassified)
 import deoliGreenMosaicImg from "@/assets/mosaic/Deoli green.jpeg";
 import silverShineMosaicImg from "@/assets/mosaic/Silver shine.jpeg";
@@ -103,23 +137,15 @@ const mosaicProducts: Product[] = Object.entries(mosaicModules)
 
 export const products: Product[] = [
     // ===== QUARTZITE =====
-    {
-      id: "q1",
-      name: "Terra Red Slate",
-      category: "quartzite",
-      description: "Terra Red is a premium quartzite slate characterized by its deep red hues and natural cleft texture. This durable natural stone cladding brings warmth and earthy charm to any space, making it a standout choice for traditional and contemporary designs alike.",
-      usage: "Wall Cladding, Roofing, Flooring, Outdoor Paving",
-      image: terraRedImg,
-      properties: ["Natural Cleft", "Durable", "Slate"],
-    },
+
     {
       id: "q2",
       name: "Silver Shine Quartzite",
       category: "quartzite",
       description: "Silver Shine is a stunning quartzite stone featuring a shimmering silver-grey surface with subtle metallic notes. Its natural cleft finish captures light beautifully, adding a touch of glamour and sophistication to interiors and exteriors.",
       usage: "Feature Walls, Flooring, Patios, Pool Surrounds",
-      image: silverShineImg,
-      images: [silverShineMosaicImg],
+      image: silverShineMosaicImg,
+      images: [silverShineImg],
       properties: ["Natural Cleft", "Metallic Lustre", "Premium"],
     },
     {
@@ -139,25 +165,16 @@ export const products: Product[] = [
       description: "Deoli Green is a luxurious quartzite featuring deep green tones with sparkling mica inclusions. Available in polished and natural cleft finishes for an elegant appeal.",
       usage: "Flooring, Wall Cladding, Bathrooms, Countertops, Outdoor Paving",
       image: deoliGreenMosaicImg,
-      images: [quartziteImg],
       properties: ["Polished", "Natural Cleft", "Rich Color", "Elegant"],
     },
-    {
-      id: "q5",
-      name: "Raj Green Quartzite",
-      category: "quartzite",
-      description: "Raj Green quartzite offers a beautiful blend of green, grey, and earthy tones. Its natural texture and durability make it ideal for exterior applications and garden landscapes.",
-      usage: "Garden Paving, Driveways, Patios, Wall Coping",
-      image: "",
-      properties: ["Earthy", "Natural Blend", "Durable"],
-    },
+
     {
       id: "q6",
       name: "Golden Quartzite",
       category: "quartzite",
       description: "Radiating warmth, Golden quartzite showcases a beautiful blend of gold, yellow, and metallic tones. Its natural texture and vibrant colors make it an inviting choice for creating sunlit, welcoming spaces.",
       usage: "Feature Walls, Pender Cladding, Patios, Garden Features",
-      image: quartziteImg,
+      image: quartziteGoldenImg,
       properties: ["Natural Cleft", "Warm", "Luxury"],
     },
     {
@@ -166,7 +183,7 @@ export const products: Product[] = [
       category: "quartzite",
       description: "Copper quartzite showcases striking copper and reddish-brown hues. Available in a high polish or a natural cleft finish that exudes rugged charm perfect for adding character.",
       usage: "Feature Walls, Flooring, Countertops, Exterior Cladding, Roofing",
-      image: quartziteImg,
+      image: quartziteCopperImg,
       properties: ["Polished", "Natural Cleft", "Vibrant", "Rustic"],
     },
     {
@@ -175,7 +192,7 @@ export const products: Product[] = [
       category: "quartzite",
       description: "Himachal White quartzite features a pristine white surface with subtle natural veining. Its clean, bright appearance makes it ideal for modern and minimalist designs.",
       usage: "Interior Flooring, Wall Cladding, Countertops, Bathrooms",
-      image: "",
+      image: quartziteHimachalWhiteImg,
       properties: ["White", "Clean", "Modern"],
     },
     {
@@ -184,17 +201,17 @@ export const products: Product[] = [
       category: "quartzite",
       description: "Resembling the depths of the sea, Ocean Green quartzite features a calming blend of green and grey tones with intricate natural textures. A durable and versatile choice for serene environments.",
       usage: "Pool Surrounds, Paving, Wall Cladding, Bathrooms",
-      image: quartziteImg,
+      image: quartziteOceanGreenImg,
       properties: ["Natural", "Calming", "Textured"],
     },
     {
       id: "q10",
-      name: "Multi Green Quartzite",
+      name: "Zeera Green Quartzite",
       category: "quartzite",
-      description: "Multi Green quartzite features a rich blend of green shades with natural variation. Each piece is unique, creating dynamic visual interest in any application.",
-      usage: "Feature Walls, Cladding, Paving, Garden Features",
-      image: "",
-      properties: ["Multi-toned", "Natural", "Decorative"],
+      description: "Zeera Green quartzite features a distinctive green surface with fine, seed-like natural patterns. Its unique texture and rich green tones create a fresh, organic aesthetic for both indoor and outdoor applications.",
+      usage: "Feature Walls, Wall Cladding, Flooring, Garden Features",
+      image: quartziteZeeraGreenImg,
+      properties: ["Green", "Textured", "Natural"],
     },
     {
       id: "q11",
@@ -231,7 +248,7 @@ export const products: Product[] = [
       category: "sandstone",
       description: "Rich chocolate brown tones give this sandstone a warm, luxurious feel. Its deep color and natural texture make it perfect for creating sophisticated outdoor and indoor spaces.",
       usage: "Patio Paving, Feature Walls, Garden Paths, Driveways",
-      image: "",
+      image: sandstoneChocolateImg,
       properties: ["Rich", "Warm", "Luxurious"],
     },
     {
@@ -245,66 +262,122 @@ export const products: Product[] = [
     },
     {
       id: "s5",
-      name: "Autumn Brown Sandstone",
+      name: "Agra Red Sandstone",
       category: "sandstone",
-      description: "Reminiscent of falling leaves, Autumn Brown features a warm palette of reddish-browns and tans. This sandstone creates a rustic and inviting atmosphere.",
-      usage: "Patio Paving, Garden Paths, Retaining Walls, Driveways",
-      image: sandstoneImg,
-      properties: ["Warm", "Rustic", "Inviting"],
+      description: "A rich, warm red sandstone reminiscent of the iconic Agra Fort. Known for its deep reddish hue with fine grain, this stone adds a regal and historical character to any project.",
+      usage: "Exterior Cladding, Boundary Walls, Landscaping, Pathways",
+      image: sandstoneAgraRedNewImg,
+      properties: ["Red", "Regal", "Traditional"],
     },
     {
       id: "s6",
-      name: "Dholpur Red Sandstone",
+      name: "Buff Sandstone",
       category: "sandstone",
-      description: "A deep, robust red sandstone embodying the grandeur of historic Indian architecture. Its rich color and strength make it perfect for grand architectural statements.",
-      usage: "Exterior Cladding, Boundary Walls, Landscaping, Pathways",
-      image: sandstoneRedImg,
-      properties: ["Traditional", "Bold", "Textured"],
+      description: "A versatile, light-toned sandstone in warm cream and buff shades. Buff Sandstone is a UK favorite, offering a clean, contemporary look ideal for paving and walling.",
+      usage: "Patio Paving, Garden Walls, Driveways, Cladding",
+      image: sandstoneBuffImg,
+      properties: ["Cream", "Versatile", "Clean"],
     },
     {
       id: "s7",
-      name: "Mandana Red Sandstone",
+      name: "Desert Brown Sandstone",
       category: "sandstone",
-      description: "A deep reddish-brown to maroon stone known for its exceptional hardness and acid resistance. Perfect for heavy-traffic areas where durability and rich color are equally important.",
-      usage: "Industrial Flooring, Commercial Paving, Heavy Traffic Areas",
-      image: sandstoneRedImg,
-      properties: ["Dark", "Rich", "Durable"],
+      description: "Also known as Woodland Sandstone, this stone features a warm blend of brown and earthy tones with natural banding. It creates a rustic, natural aesthetic perfect for outdoor spaces.",
+      usage: "Patio Paving, Garden Paths, Feature Walls, Driveways",
+      image: sandstoneDesertBrownImg,
+      properties: ["Earthy", "Rustic", "Natural"],
     },
     {
       id: "s8",
-      name: "Panther Classic Sandstone",
+      name: "Dholpur Beige Sandstone",
       category: "sandstone",
-      description: "Showcasing a unique spotted and patterned surface reminiscent of a panther's coat. This exotic sandstone creates a wild and adventurous aesthetic for bold design choices.",
-      usage: "Accent Walls, Garden Features, Artistic Installations",
-      image: sandstoneImg,
-      properties: ["Patterned", "Wild", "Statement"],
+      description: "A sophisticated beige sandstone from Dholpur with a smooth, uniform surface and warm sandy tones. Its neutral elegance makes it suitable for both traditional and modern designs.",
+      usage: "Interior Flooring, Exterior Cladding, Facades, Pillars",
+      image: sandstoneDholpurBeigeImg,
+      properties: ["Beige", "Smooth", "Elegant"],
     },
     {
       id: "s9",
-      name: "Fossils Sandstone",
+      name: "Dholpur Pink Sandstone",
       category: "sandstone",
-      description: "A fascinating sandstone characterized by its fossil-like patterns and ancient textures. The surface markings tell a geological story, adding intrigue and natural history.",
-      usage: "Feature Walls, Museum Floors, Garden Features, Cladding",
-      image: "",
-      properties: ["Unique", "Fossil Look", "Ancient"],
+      description: "A beautiful pink sandstone from the Dholpur region with soft rose tones and fine grain. Widely used in heritage architecture, it brings a warm, inviting character to any space.",
+      usage: "Facades, Wall Cladding, Flooring, Landscaping",
+      image: sandstoneDholpurPinkImg,
+      properties: ["Pink", "Heritage", "Warm"],
     },
     {
       id: "s10",
-      name: "New Panther Sandstone",
+      name: "Gwalior Mint Sandstone",
       category: "sandstone",
-      description: "An updated take on the classic Panther stone with refined spotted patterns and improved consistency. Offers a modern yet exotic aesthetic for contemporary projects.",
-      usage: "Feature Walls, Exterior Cladding, Paving, Landscaping",
-      image: sandstoneImg,
-      properties: ["Patterned", "Modern", "Exotic"],
+      description: "A striking green-toned sandstone from Gwalior with a fresh, minty appearance. Its unique color and natural texture make it a standout choice for contemporary landscapes.",
+      usage: "Garden Paving, Pool Surrounds, Feature Walls, Patios",
+      image: sandstoneGwaliorMintImg,
+      properties: ["Green", "Fresh", "Unique"],
     },
     {
       id: "s11",
-      name: "Desert Sand Sandstone",
+      name: "Heritage Pink Sandstone",
       category: "sandstone",
-      description: "Light sandy tones reminiscent of vast desert landscapes. This sandstone brings a warm, sun-kissed ambiance to any space with its natural golden hues.",
-      usage: "Facades, Garden Paving, Wall Cladding, Pillars",
-      image: "",
-      properties: ["Sandy", "Warm", "Natural"],
+      description: "Also known as Jodhpur Pink, this sandstone features soft pink hues with subtle natural variations. A heritage stone that has graced palaces and forts across Rajasthan.",
+      usage: "Exterior Facades, Flooring, Wall Cladding, Heritage Restoration",
+      image: sandstoneHeritagePinkImg,
+      properties: ["Pink", "Heritage", "Classic"],
+    },
+    {
+      id: "s12",
+      name: "Monsoon Black Sandstone",
+      category: "sandstone",
+      description: "A dramatic dark sandstone with deep black and charcoal tones. Monsoon Black creates bold, contemporary surfaces with excellent durability and slip resistance.",
+      usage: "Modern Patios, Driveways, Interior Flooring, Pool Surrounds",
+      image: sandstoneMonsoonBlack1Img,
+      images: [sandstoneMonsoonBlack2Img],
+      properties: ["Black", "Bold", "Contemporary"],
+    },
+
+    {
+      id: "s14",
+      name: "Raj Green Sandstone",
+      category: "sandstone",
+      description: "A popular green-toned sandstone with subtle grey and brown veining. Raj Green is one of the most sought-after Indian sandstones for UK gardens and landscapes.",
+      usage: "Garden Paving, Patios, Driveways, Landscaping",
+      image: sandstoneRajGreenImg,
+      properties: ["Green", "Popular", "Durable"],
+    },
+    {
+      id: "s15",
+      name: "Fossil Sandstone",
+      category: "sandstone",
+      description: "A captivating sandstone featuring natural fossil imprints and ancient textures. Each slab tells a geological story, adding unique character and intrigue to any surface.",
+      usage: "Feature Walls, Paving, Garden Features, Cladding",
+      image: sandstoneFossilImg,
+      properties: ["Fossil", "Unique", "Ancient"],
+    },
+    {
+      id: "s16",
+      name: "Lalitpur Yellow Sandstone",
+      category: "sandstone",
+      description: "A vibrant yellow sandstone from Lalitpur with warm golden tones and fine texture. Its sunny hue brightens any space and pairs beautifully with lush green landscapes.",
+      usage: "Patio Paving, Wall Cladding, Garden Paths, Facades",
+      image: sandstoneLalitpurYellowImg,
+      properties: ["Yellow", "Vibrant", "Warm"],
+    },
+    {
+      id: "s17",
+      name: "Raveena Sandstone",
+      category: "sandstone",
+      description: "A beautiful multi-toned sandstone with a blend of purple, brown, and grey hues. Raveena creates a rich, layered look that adds depth and warmth to outdoor spaces.",
+      usage: "Patio Paving, Garden Paths, Driveways, Landscaping",
+      image: sandstoneRaveenaImg,
+      properties: ["Multi-toned", "Rich", "Layered"],
+    },
+    {
+      id: "s18",
+      name: "Autumn Brown Sandstone",
+      category: "sandstone",
+      description: "Reminiscent of falling leaves, Autumn Brown features a warm palette of reddish-browns and tans. This sandstone creates a rustic and inviting atmosphere for outdoor living.",
+      usage: "Patio Paving, Garden Paths, Retaining Walls, Driveways",
+      image: sandstoneAutumnBrownImg,
+      properties: ["Warm", "Rustic", "Inviting"],
     },
 
     // ===== LIMESTONE =====
@@ -323,83 +396,75 @@ export const products: Product[] = [
       category: "limestone",
       description: "Presenting a cool blue-grey palette, Kota Blue is a classic limestone with a smooth, matte finish. Its refined appearance and hard-wearing nature make it a staple.",
       usage: "Interior Flooring, Hallways, Exterior Paving, Wall Cladding",
-      image: kotaBlueImg,
+      image: limestoneKotaBlueNewImg,
+      images: [kotaBlueImg],
       properties: ["Cool Tone", "Classic", "Hard"],
     },
     {
       id: "l3",
-      name: "Limestone Tiles",
+      name: "Ita Gold Limestone",
       category: "limestone",
-      description: "Premium quality limestone tiles available in various finishes. These versatile tiles offer timeless elegance and are suitable for both interior and exterior applications.",
-      usage: "Interior Flooring, Wall Cladding, Bathrooms, Patios",
-      image: "",
-      properties: ["Versatile", "Elegant", "Timeless"],
+      description: "A luxurious golden limestone with warm amber tones and subtle natural veining. Ita Gold brings a sun-kissed elegance to both interior and exterior applications.",
+      usage: "Interior Flooring, Feature Walls, Countertops, Facades",
+      image: limestoneItaGoldImg,
+      properties: ["Golden", "Warm", "Luxurious"],
     },
     {
       id: "l4",
-      name: "Cuddapah Black Limestone",
+      name: "Jaisalmer Yellow Limestone",
       category: "limestone",
-      description: "A striking deep black limestone from the Cuddapah region. Known for its uniform dark color and smooth texture, it creates a dramatic and sophisticated statement.",
-      usage: "Interior Flooring, Wall Cladding, Countertops, Exterior Paving",
-      image: "",
-      properties: ["Black", "Smooth", "Sophisticated"],
+      description: "A vibrant yellow limestone from the historic city of Jaisalmer. Known for its warm golden hue and fine grain, this stone has graced palaces and forts for centuries.",
+      usage: "Exterior Facades, Wall Cladding, Flooring, Landscaping",
+      image: limestoneJaisalmerYellowImg,
+      properties: ["Yellow", "Heritage", "Fine Grain"],
     },
     {
       id: "l5",
-      name: "Kyra Pink Vitreous Limestone",
+      name: "Kadappa Black Limestone",
       category: "limestone",
-      description: "A vitreous variant of Kyra Pink limestone with a slightly glossy finish. Its soft pink hue and refined surface make it ideal for elegant interior spaces.",
-      usage: "Interior Flooring, Feature Walls, Bathrooms, Lobbies",
-      image: "",
-      properties: ["Vitreous", "Pink", "Elegant"],
+      description: "A striking deep black limestone from the Kadappa region. Known for its uniform dark color and smooth texture, it creates a dramatic and sophisticated statement.",
+      usage: "Interior Flooring, Wall Cladding, Countertops, Exterior Paving",
+      image: limestoneKadappaBlackImg,
+      properties: ["Black", "Smooth", "Sophisticated"],
     },
     {
       id: "l6",
-      name: "Kyra Grey Limestone",
+      name: "Kota Mix Limestone",
       category: "limestone",
-      description: "A sophisticated grey limestone with subtle tonal variations. Kyra Grey offers a contemporary, neutral palette that suits modern architectural designs.",
-      usage: "Flooring, Wall Cladding, Exterior Paving, Countertops",
-      image: "",
-      properties: ["Grey", "Contemporary", "Neutral"],
+      description: "A beautifully variegated limestone blending brown, blue, and grey tones from the Kota region. Each piece offers unique natural color variation for distinctive surfaces.",
+      usage: "Flooring, Paving, Patios, Garden Paths",
+      image: limestoneKotaMixImg,
+      properties: ["Multi-toned", "Natural", "Versatile"],
     },
     {
       id: "l7",
-      name: "Kyra Pink Limestone",
+      name: "Pearl Gold Limestone",
       category: "limestone",
-      description: "A beautiful natural limestone in soft pink tones. Its warm, inviting color adds a touch of natural warmth and charm to any project.",
-      usage: "Facades, Garden Paving, Interior Flooring, Wall Cladding",
-      image: "",
-      properties: ["Pink", "Warm", "Charming"],
+      description: "An exquisite limestone with pearlescent golden tones and a smooth, refined surface. Pearl Gold adds opulent warmth and timeless sophistication to premium spaces.",
+      usage: "Interior Flooring, Feature Walls, Countertops, Lobbies",
+      image: limestonePearlGoldImg,
+      properties: ["Pearl", "Golden", "Premium"],
     },
     {
       id: "l8",
-      name: "Kyra Green Limestone",
+      name: "Shabad Yellow Limestone",
       category: "limestone",
-      description: "A distinctive limestone featuring natural green tones. Kyra Green brings a fresh, organic feel to spaces while maintaining the durability of limestone.",
-      usage: "Flooring, Wall Cladding, Garden Features, Pool Surrounds",
-      image: "",
-      properties: ["Green", "Fresh", "Durable"],
-    },
-    {
-      id: "l9",
-      name: "Kyra Vitreous Green Limestone",
-      category: "limestone",
-      description: "The vitreous variant of Kyra Green, featuring a slightly polished surface that enhances its green tones. Ideal for premium applications requiring a refined finish.",
-      usage: "Interior Flooring, Feature Walls, Countertops, Lobbies",
-      image: "",
-      properties: ["Vitreous", "Green", "Premium"],
-    },
-    {
-      id: "l10",
-      name: "Kota Honey Limestone",
-      category: "limestone",
-      description: "A warm honey-toned limestone with a smooth, inviting surface. Kota Honey adds golden warmth to both indoor and outdoor spaces with its natural charm.",
-      usage: "Interior Flooring, Patios, Garden Paths, Wall Cladding",
-      image: "",
-      properties: ["Honey", "Warm", "Smooth"],
+      description: "A natural yellow limestone from Shabad with warm, sunny tones and a fine-grained texture. Its cheerful color and durability make it ideal for both traditional and modern designs.",
+      usage: "Flooring, Wall Cladding, Exterior Paving, Garden Features",
+      image: limestoneShabadYellowImg,
+      properties: ["Yellow", "Natural", "Durable"],
     },
 
     // ===== SLATE =====
+    {
+      id: "sl0",
+      name: "Terra Red Slate",
+      category: "slate",
+      description: "Terra Red is a premium slate characterized by its deep red hues and natural cleft texture. This durable natural stone cladding brings warmth and earthy charm to any space, making it a standout choice for traditional and contemporary designs alike.",
+      usage: "Wall Cladding, Roofing, Flooring, Outdoor Paving",
+      image: terraRedImg,
+      properties: ["Natural Cleft", "Durable", "Slate"],
+    },
     {
       id: "sl1",
       name: "Jak Multi Color Slate",

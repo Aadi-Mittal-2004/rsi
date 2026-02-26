@@ -130,11 +130,11 @@ const Blog = () => {
             quartzite, sandstone, and limestone from Rajasthan.
           </p>
           <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 bg-[#C4A265] hover:bg-[#B8944F] text-[#F7F5F3] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-[#C4A265]/20"
+            to="/contact#query-form"
+            className="group inline-flex items-center gap-2 btn-cta-hover bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-4 rounded-full text-base font-semibold tracking-wide shadow-lg transition-all duration-300"
           >
             Request a Quote
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
           </Link>
         </div>
       </section>

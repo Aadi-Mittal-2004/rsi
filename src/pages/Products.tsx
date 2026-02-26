@@ -307,19 +307,7 @@ const Products = () => {
           </div>
         )}
 
-        {/* CTA Section */}
-        <div className="mt-20 text-center py-12 border-t border-border">
-          <p className="text-xs tracking-[0.35em] uppercase text-accent font-medium mb-4">
-            Bespoke Requirements
-          </p>
-          <h2 className="text-2xl font-bold mb-4">Can't find what you're looking for?</h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-sm leading-relaxed">
-            Our collection extends far beyond what's listed. Share your project requirements and we'll source the perfect stone for you.
-          </p>
-          <Button asChild variant="outline" size="lg" className="btn-cta-hover px-10 py-7 text-base tracking-wider hover:border-foreground">
-            <Link to="/contact#query-form">Request a Quote</Link>
-          </Button>
-        </div>
+
       </div>
     </div>
     </PageTransition>

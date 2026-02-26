@@ -105,7 +105,7 @@ const BlogPost = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-block text-xs tracking-[0.2em] uppercase text-[#C4A265] font-medium mb-4"
+            className="inline-block text-xs tracking-[0.2em] uppercase text-accent font-medium mb-4"
           >
             {post.category}
           </motion.span>
@@ -175,7 +175,7 @@ const BlogPost = () => {
         className="px-4 md:px-8 pb-20"
       >
         <div
-          className="container mx-auto max-w-3xl prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:font-light prose-p:leading-relaxed prose-li:text-muted-foreground prose-li:font-light prose-strong:text-foreground prose-strong:font-medium prose-a:text-[#C4A265] prose-a:no-underline hover:prose-a:underline prose-table:text-sm prose-th:text-left prose-th:font-medium prose-td:py-2"
+          className="container mx-auto max-w-3xl prose prose-lg dark:prose-invert prose-headings:font-light prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:font-light prose-p:leading-relaxed prose-li:text-muted-foreground prose-li:font-light prose-strong:text-foreground prose-strong:font-medium prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-table:text-sm prose-th:text-left prose-th:font-medium prose-td:py-2"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </motion.article>
@@ -195,11 +195,11 @@ const BlogPost = () => {
               export guarantee, and direct quarry access.
             </p>
             <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-[#C4A265] hover:bg-[#B8944F] text-[#F7F5F3] px-8 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-[#C4A265]/20"
+              to="/contact#query-form"
+              className="group inline-flex items-center gap-2 btn-cta-hover bg-accent text-[#F7F5F3] hover:bg-accent/90 px-8 py-4 rounded-full text-base font-semibold tracking-wide shadow-lg transition-all duration-300"
             >
               Get a Free Quote
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
             </Link>
           </div>
         </div>
