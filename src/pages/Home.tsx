@@ -168,7 +168,9 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - full bleed */}
-      <section className="sticky top-0 z-0 h-[90vh] md:h-screen w-full overflow-hidden" data-section-theme="dark">
+      <section className="sticky top-0 z-0 min-h-screen w-full relative" data-section-theme="dark">
+        {/* Background wrapper - overflow-hidden only here so Ken Burns doesn't spill */}
+        <div className="absolute inset-0 overflow-hidden">
       <AnimatePresence mode="popLayout">
         <motion.div
           key={currentBgIndex}
@@ -188,19 +190,21 @@ const Home = () => {
         {/* Strong gradient behind text area (bottom-left) */}
         <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent pointer-events-none z-10" />
 
-        <div className="relative z-20 flex flex-col items-start h-full text-left px-8 md:px-16 lg:px-24 pb-32 md:pb-40 animate-fade-in overflow-hidden">
-          {/* Spacer pushes content to bottom; min-h ensures navbar clearance even when zoomed */}
-          <div className="flex-1 min-h-[4.5rem]" />
-          <p className="uppercase tracking-[0.35em] font-medium text-[10px] md:text-xs text-white/80 mb-3 md:mb-5 elegant-fade-in" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+        {/* Bottom shadow gradient for emphasis */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none z-15" />
+        </div>
+
+        <div className="relative z-20 flex flex-col justify-center items-start min-h-screen text-left px-8 md:px-16 lg:px-24 pt-20 pb-16 md:pb-20 animate-fade-in">
+          <p className="uppercase tracking-[0.35em] font-medium text-[10px] md:text-xs text-white/80 mb-5 md:mb-5 elegant-fade-in" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
             Zero Damage Packing · 43 Years · 20+ Countries
           </p>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-4 md:mb-6 text-white elegant-fade-in" style={{ animationDelay: '0.15s', textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.4)' }}>
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium mb-6 md:mb-6 text-white elegant-fade-in" style={{ animationDelay: '0.15s', textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.4)' }}>
             India's Most Trusted<br />Stone Exporter
           </h1>
           <p className="text-base md:text-lg text-white/90 max-w-xl elegant-fade-in leading-relaxed" style={{ animationDelay: '0.3s', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
             When you <em className="not-italic font-semibold text-white">choose Roop Stone Impex</em>, you eliminate the #1 risk in stone procurement — breakage, delays, and inconsistent quality.
           </p>
-          <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 elegant-fade-in" style={{ animationDelay: '0.45s' }}>
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 elegant-fade-in" style={{ animationDelay: '0.45s' }}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -230,17 +234,14 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Bottom shadow gradient for emphasis */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none z-15" />
-
-        {/* Scroll Down Indicator */}
+        {/* Scroll Down Indicator - absolute at bottom edge of hero */}
         <div
-          className="absolute bottom-2 inset-x-0 z-20 flex flex-col items-center cursor-pointer group"
+          className="absolute bottom-3 inset-x-0 z-30 flex flex-col items-center cursor-pointer group"
           onClick={() => {
             document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          <div className="w-px h-10 bg-gradient-to-b from-transparent to-white/40 group-hover:to-white/70 transition-colors duration-300" />
+          <div className="w-px h-8 sm:h-10 bg-gradient-to-b from-transparent to-white/40 group-hover:to-white/70 transition-colors duration-300" />
           <ChevronDown className="h-4 w-4 text-white/50 group-hover:text-white/80 transition-colors duration-300 animate-bounce mt-1" style={{ animationDuration: '2s' }} />
         </div>
       </section>

@@ -110,10 +110,10 @@ const Navigation = () => {
 
       {/* Main Content Layer */}
       <div className="relative z-10 transition-colors duration-200">
-        <div className="container mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex items-center py-3 md:py-4 flex-nowrap min-w-0">
+        <div className="container mx-auto px-3 sm:px-6 md:px-12 lg:px-16">
+          <div className="flex items-center py-2 sm:py-3 md:py-4 flex-nowrap min-w-0">
             {/* Left: Logo */}
-            <div className="flex-1 flex items-center min-w-0">
+            <div className="flex-shrink-0 flex items-center mr-2 sm:mr-3 md:mr-0 md:flex-1 min-w-0">
               <Link
                 to="/"
                 className="flex items-center hover:opacity-80 transition-opacity"
@@ -123,7 +123,7 @@ const Navigation = () => {
                   src="/navbar-logo.png"
                   alt="Navbar Logo"
                   className={cn(
-                    "h-5 md:h-7 max-h-[1.5rem] md:max-h-[2rem] w-auto transition-all duration-300",
+                    "h-4 sm:h-5 md:h-7 max-h-[1rem] sm:max-h-[1.5rem] md:max-h-[2rem] w-auto transition-all duration-300",
                     navTheme === "dark" ? "filter invert" : ""
                   )}
                 />
@@ -156,7 +156,7 @@ const Navigation = () => {
             </div>
 
             {/* Right: WhatsApp + Theme Toggle (desktop) + Priority Links + Mobile Menu */}
-            <div className="flex-1 flex justify-end items-center gap-1 sm:gap-2 md:gap-3 flex-nowrap min-w-0 overflow-hidden">
+            <div className="flex-1 flex justify-end items-center gap-0.5 sm:gap-1.5 md:gap-3 flex-nowrap min-w-0">
               <ThemeToggle className={cn("hidden md:flex", navTheme === "dark" ? "text-white" : "text-black")} />
               <a
                 href={`https://wa.me/917357923414?text=${encodeURIComponent("Hello! I'm interested in your products.")}`}

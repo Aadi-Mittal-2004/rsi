@@ -70,14 +70,14 @@ const UrgencyBanner = () => {
 
   return (
     <div ref={bannerRef} className="fixed top-0 left-0 right-0 z-[60] bg-accent text-black">
-      <div className="container mx-auto px-4 py-2.5 flex items-center justify-center gap-3 text-sm">
+      <div className="container mx-auto px-3 sm:px-4 py-1.5 sm:py-2.5 flex items-center justify-center gap-2 sm:gap-3 text-sm">
         <AlertTriangle className="h-4 w-4 flex-shrink-0 hidden sm:block" />
         <span className="font-semibold hidden sm:inline">{quarterLabel}:</span>
-        <span className="text-center text-xs sm:text-sm">
+        <span className="text-center text-[10px] sm:text-sm leading-tight sm:leading-normal line-clamp-2 sm:line-clamp-none">
           {urgencyMessage}
           <Link
             to="/contact#query-form"
-            className="font-bold underline underline-offset-2 ml-1.5 hover:no-underline"
+            className="font-bold underline underline-offset-2 ml-1 sm:ml-1.5 hover:no-underline"
           >
             Secure your allocation →
           </Link>
@@ -87,10 +87,10 @@ const UrgencyBanner = () => {
             setIsVisible(false);
             sessionStorage.setItem("urgencyBannerDismissed", "true");
           }}
-          className="ml-2 flex-shrink-0 hover:bg-black/10 rounded p-0.5 transition-colors"
+          className="ml-1 sm:ml-2 flex-shrink-0 hover:bg-black/10 rounded p-0.5 transition-colors"
           aria-label="Dismiss banner"
         >
-          <X className="h-4 w-4" />
+          <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </button>
       </div>
     </div>

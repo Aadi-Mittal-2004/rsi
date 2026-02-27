@@ -53,8 +53,6 @@ const Products = () => {
     { id: "pebbles", name: "Pebbles" },
     { id: "corner-pieces", name: "Corner Pieces" },
     { id: "wall-cladding", name: "Wall Cladding" },
-    { id: "matrix", name: "Matrix" },
-    { id: "stone-patterns", name: "Stone Patterns" },
   ];
 
   const filteredProducts = products.filter((p) => {

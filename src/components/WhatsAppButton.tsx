@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const WhatsAppButton = () => {
   const phoneNumber = "917357923414"; // WhatsApp number with country code
@@ -6,12 +6,26 @@ const WhatsAppButton = () => {
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
+  // Track whether the sticky CTA bar is visible (appears after 600px scroll)
+  const [stickyBarVisible, setStickyBarVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setStickyBarVisible(window.scrollY > 600);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // check initial state
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-20 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+      className="fixed right-4 sm:right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
+      style={{ bottom: stickyBarVisible ? '4.5rem' : '1.5rem' }}
       aria-label="Contact us on WhatsApp"
     >
       {/* WhatsApp Icon */}

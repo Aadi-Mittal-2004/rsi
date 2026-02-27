@@ -72,6 +72,8 @@ import silverShineMosaicImg from "@/assets/mosaic/Silver shine.jpeg";
 import forestFireImg from "@/assets/mosaic/forest fire.jpeg";
 import sliverGrey1Img from "@/assets/mosaic/sliver grey (1).jpeg";
 import sliverGrey2Img from "@/assets/mosaic/sliver grey (2).jpeg";
+import matrix1Img from "@/assets/mosaic/matrix (1).jpeg";
+import matrix2Img from "@/assets/mosaic/matrix (2).jpeg";
 
 export interface Product {
   id: string;
@@ -124,6 +126,8 @@ const excludedMosaicFiles = [
   'forest fire',
   'sliver grey (1)',
   'sliver grey (2)',
+  'matrix (1)',
+  'matrix (2)',
 ];
 
 const mosaicProducts: Product[] = Object.entries(mosaicModules)
@@ -135,18 +139,19 @@ const mosaicProducts: Product[] = Object.entries(mosaicModules)
   const filename = path.split('/').pop()?.split('.')[0] || `Pattern ${index + 1}`;
   const cleanName = filename.replace(/_/g, ' ').replace(/-/g, ' ').replace(/model config 2k/gi, '').replace(/\d+/g, '').trim() || `Stone Pattern ${index + 1}`;
   const subcategory = getSubcategory(filename);
+  const isMatrix = subcategory === 'matrix';
   
   return {
     id: `m${index + 1}`,
     name: cleanName.charAt(0).toUpperCase() + cleanName.slice(1),
-    category: "mosaic",
-    subcategory,
-    description: getSubcategoryDescription(subcategory),
-    usage: getSubcategoryUsage(subcategory),
+    category: isMatrix ? "quartzite" : "mosaic",
+    subcategory: isMatrix ? 'matrix' : subcategory,
+    description: isMatrix ? 'Geometric matrix quartzite patterns offering a modern, sophisticated aesthetic with structured yet natural appearance.' : getSubcategoryDescription(subcategory),
+    usage: isMatrix ? 'Modern Facades, Office Interiors, Feature Walls, Exterior Cladding' : getSubcategoryUsage(subcategory),
     image: url as string,
-    properties: ["Panels", "Pebbles", "Right Angles", "Decorative Patterns"],
+    properties: isMatrix ? ["Matrix", "Geometric", "Modern", "Natural Cleft"] : ["Panels", "Pebbles", "Right Angles", "Decorative Patterns"],
   };
-});
+}).filter(p => p.subcategory !== 'stone-patterns');
 
 export const products: Product[] = [
     // ===== QUARTZITE =====
@@ -234,6 +239,16 @@ export const products: Product[] = [
       usage: "Feature Walls, Exterior Cladding, Flooring, Landscaping",
       image: forestFireImg,
       properties: ["Natural Cleft", "Vibrant", "Bold"],
+    },
+    {
+      id: "q12",
+      name: "Matrix Quartzite",
+      category: "quartzite",
+      description: "Matrix Quartzite features striking geometric fossil-like patterns in dark tones, creating a bold, modern aesthetic. Its structured yet natural appearance makes it a standout choice for contemporary designs.",
+      usage: "Feature Walls, Modern Facades, Office Interiors, Exterior Cladding",
+      image: matrix1Img,
+      images: [matrix2Img],
+      properties: ["Matrix", "Geometric", "Modern", "Natural Cleft"],
     },
 
     // ===== SANDSTONE =====
