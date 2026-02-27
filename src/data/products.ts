@@ -53,6 +53,19 @@ import quartziteHimachalWhiteImg from "@/assets/products/quartzite-himachal-whit
 import quartziteOceanGreenImg from "@/assets/products/quartzite-ocean-green.png";
 import quartziteZeeraGreenImg from "@/assets/products/quartzite-zeera-green.png";
 
+// Slate images
+import slateChocolateImg from "@/assets/products/slate-chocolate.png";
+import slateIndianAutumnImg from "@/assets/products/slate-indian-autumn.png";
+import slateJakBlackRusticImg from "@/assets/products/slate-jak-black-rustic.png";
+import slateJakBlackImg from "@/assets/products/slate-jak-black.png";
+import slateKundMultiImg from "@/assets/products/slate-kund-multi.png";
+import slateMacGreenRusticImg from "@/assets/products/slate-mac-green-rustic.png";
+import slatePurePinkImg from "@/assets/products/slate-pure-pink.png";
+import slateRajaRedImg from "@/assets/products/slate-raja-red.png";
+import slateSraMulticolorImg from "@/assets/products/slate-sra-multicolor.png";
+import slateAutumnRusticImg from "@/assets/products/slate-autumn-rustic.png";
+import slateCaliforniaGoldImg from "@/assets/products/slate-california-gold.png";
+
 // Quartzite images from mosaic folder (reclassified)
 import deoliGreenMosaicImg from "@/assets/mosaic/Deoli green.jpeg";
 import silverShineMosaicImg from "@/assets/mosaic/Silver shine.jpeg";
@@ -467,66 +480,102 @@ export const products: Product[] = [
     },
     {
       id: "sl1",
-      name: "Jak Multi Color Slate",
+      name: "Chocolate Slate",
       category: "slate",
-      description: "A vibrant multi-colored slate featuring a dynamic mix of warm and cool tones. Each piece offers unique color variations, creating visually striking surfaces.",
-      usage: "Roofing, Wall Cladding, Flooring, Garden Paths",
-      image: "",
-      properties: ["Multi-Color", "Vibrant", "Unique"],
+      description: "A rich, deep brown slate with warm chocolate tones and a smooth natural cleft surface. Its earthy elegance and excellent durability make it a versatile choice for both interior and exterior applications.",
+      usage: "Flooring, Wall Cladding, Roofing, Paving",
+      image: slateChocolateImg,
+      properties: ["Brown", "Warm", "Elegant"],
     },
     {
       id: "sl2",
-      name: "Kund Multi Color Slate",
-      category: "slate",
-      description: "A vibrant multi-colored slate exhibiting a spectrum of reds, purples, yellows, and greys. Each tile is unique, creating a rich tapestry of color.",
-      usage: "Flooring, Wall Cladding, Roofing, Paviors",
-      image: quartziteImg,
-      properties: ["Colorful", "Varied", "Eye-catching"],
-    },
-    {
-      id: "sl3",
-      name: "Himachal Green Slate",
-      category: "slate",
-      description: "A premium green slate from the Himachal region featuring rich, deep green tones. Its natural cleft finish provides excellent texture and slip resistance.",
-      usage: "Roofing, Wall Cladding, Flooring, Exterior Paving",
-      image: "",
-      properties: ["Green", "Natural Cleft", "Premium"],
-    },
-    {
-      id: "sl4",
-      name: "Himachal Black Slate",
-      category: "slate",
-      description: "A classic black slate from Himachal with a deep, uniform dark surface. Its sleek appearance and durability make it ideal for both traditional and modern designs.",
-      usage: "Flooring, Roofing, Wall Cladding, Countertops",
-      image: "",
-      properties: ["Black", "Classic", "Durable"],
-    },
-    {
-      id: "sl5",
-      name: "Bazad Multi Color Slate",
-      category: "slate",
-      description: "An exotic multi-colored slate with unique patterns and color combinations. Bazad Multi Color brings a distinctive character and warmth to any installation.",
-      usage: "Feature Walls, Flooring, Exterior Cladding, Landscaping",
-      image: "",
-      properties: ["Multi-Color", "Exotic", "Textured"],
-    },
-    {
-      id: "sl6",
       name: "Indian Autumn Slate",
       category: "slate",
-      description: "Capturing the warm hues of autumn, this slate showcases a blend of rust, gold, and brown tones. Its earthy palette creates a cozy, inviting atmosphere.",
-      usage: "Flooring, Wall Cladding, Roofing, Garden Paths",
-      image: "",
+      description: "Capturing the warm hues of autumn, this slate showcases a stunning blend of rust, gold, copper, and brown tones. Its naturally layered palette creates a cozy, inviting atmosphere reminiscent of fall foliage.",
+      usage: "Flooring, Wall Cladding, Patios, Garden Paths",
+      image: slateIndianAutumnImg,
       properties: ["Autumn Tones", "Earthy", "Warm"],
     },
     {
-      id: "sl7",
-      name: "Kashmir Pink Slate",
+      id: "sl3",
+      name: "Jak Black Rustic Slate",
       category: "slate",
-      description: "A delicate pink slate with subtle natural variations. Kashmir Pink adds a soft, elegant touch while maintaining the rugged durability that slate is known for.",
+      description: "A rugged black slate with a textured rustic finish that enhances its natural character. The rough-hewn surface provides excellent grip and creates a dramatic, industrial-chic aesthetic.",
+      usage: "Exterior Paving, Feature Walls, Roofing, Driveways",
+      image: slateJakBlackRusticImg,
+      properties: ["Black", "Rustic", "Textured"],
+    },
+    {
+      id: "sl4",
+      name: "Jak Black Slate",
+      category: "slate",
+      description: "A sleek, deep black slate with a smooth natural cleft finish. Known for its uniform dark surface and exceptional durability, it brings a bold, sophisticated look to any space.",
+      usage: "Flooring, Wall Cladding, Roofing, Countertops",
+      image: slateJakBlackImg,
+      properties: ["Black", "Sleek", "Durable"],
+    },
+    {
+      id: "sl5",
+      name: "Kund Multi Color Slate",
+      category: "slate",
+      description: "A vibrant multi-colored slate exhibiting a rich spectrum of reds, purples, yellows, and greys. Each tile is uniquely patterned, creating a colourful tapestry that adds life and energy to surfaces.",
+      usage: "Flooring, Wall Cladding, Roofing, Paviors",
+      image: slateKundMultiImg,
+      properties: ["Colorful", "Varied", "Eye-catching"],
+    },
+    {
+      id: "sl6",
+      name: "Mac Green Rustic Slate",
+      category: "slate",
+      description: "A stunning green slate with a rustic, textured finish that highlights its natural mica inclusions and rich emerald tones. Perfect for creating organic, nature-inspired surfaces.",
+      usage: "Roofing, Exterior Cladding, Garden Paths, Feature Walls",
+      image: slateMacGreenRusticImg,
+      properties: ["Green", "Rustic", "Natural"],
+    },
+    {
+      id: "sl7",
+      name: "Pure Pink Slate",
+      category: "slate",
+      description: "A delicate pink slate with soft rose tones and subtle natural veining. Its gentle warmth and elegant appearance add a refined, feminine touch while maintaining slate's trademark durability.",
       usage: "Interior Flooring, Wall Cladding, Roofing, Decorative Features",
-      image: "",
-      properties: ["Pink", "Elegant", "Durable"],
+      image: slatePurePinkImg,
+      properties: ["Pink", "Elegant", "Delicate"],
+    },
+    {
+      id: "sl8",
+      name: "Raja Red Slate",
+      category: "slate",
+      description: "A bold, richly-hued red slate with deep crimson and maroon tones. Raja Red makes a regal statement, bringing royal warmth and striking character to walls, floors, and roofscapes.",
+      usage: "Wall Cladding, Roofing, Flooring, Feature Walls",
+      image: slateRajaRedImg,
+      properties: ["Red", "Bold", "Regal"],
+    },
+    {
+      id: "sl9",
+      name: "SRA Multicolor Slate",
+      category: "slate",
+      description: "An exotic multicolor slate with a dynamic blend of earth tones including green, rust, grey, and copper. Its naturally varied patterns ensure every installation is one-of-a-kind.",
+      usage: "Feature Walls, Flooring, Exterior Cladding, Landscaping",
+      image: slateSraMulticolorImg,
+      properties: ["Multi-Color", "Exotic", "Dynamic"],
+    },
+    {
+      id: "sl10",
+      name: "Autumn Rustic Slate",
+      category: "slate",
+      description: "A beautifully weathered slate in warm autumn tones with a rough, rustic texture. The interplay of rust, brown, and golden hues gives it an aged, timeless quality perfect for heritage-inspired designs.",
+      usage: "Paving, Feature Walls, Roofing, Garden Paths",
+      image: slateAutumnRusticImg,
+      properties: ["Rustic", "Autumn Tones", "Textured"],
+    },
+    {
+      id: "sl11",
+      name: "California Gold Slate",
+      category: "slate",
+      description: "A warm, sun-kissed slate featuring golden, amber, and subtle grey tones. California Gold brings a bright, inviting warmth reminiscent of golden landscapes to both indoor and outdoor spaces.",
+      usage: "Flooring, Wall Cladding, Patios, Pool Surrounds",
+      image: slateCaliforniaGoldImg,
+      properties: ["Golden", "Warm", "Inviting"],
     },
 
     // ===== MARBLE — EXOTIC =====
