@@ -1,5 +1,5 @@
-import heroImage from "@/assets/hero-split-stone.jpg";
-import stoneTexture from "@/assets/stone-texture.jpg";
+import heroImage from "@/assets/hero-split-stone.webp";
+import stoneTexture from "@/assets/stone-texture.webp";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 

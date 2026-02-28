@@ -1,4 +1,4 @@
-import cncImage from "@/assets/cnc-machinery.jpg";
+import cncImage from "@/assets/cnc-machinery.webp";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import PageTransition, { fadeIn, slideUp, staggerContainer, staggerItem } from "@/components/PageTransition";

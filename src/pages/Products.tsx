@@ -224,8 +224,10 @@ const Products = () => {
                         <img
                           src={product.image}
                           alt={product.name}
-                          loading="lazy"
+                          loading={index < 4 ? "eager" : "lazy"}
                           decoding="async"
+                          // @ts-ignore - fetchpriority is valid HTML but not in React types yet
+                          fetchpriority={index < 4 ? "high" : "auto"}
                           width="400"
                           height="500"
                           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"

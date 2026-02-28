@@ -1,79 +1,77 @@
 
-import quartziteImg from "@/assets/quartzite-texture.jpg";
-import graniteImg from "@/assets/granite-texture.jpg";
-import marbleImg from "@/assets/marble-texture.jpg";
-import sandstoneImg from "@/assets/sandstone-texture.jpg";
+import quartziteImg from "@/assets/quartzite-texture.webp";
+import sandstoneImg from "@/assets/sandstone-texture.webp";
 
 // Real product images
-import terraRedImg from "@/assets/products/terra-red.jpg";
-import silverShineImg from "@/assets/products/silver-shine.jpg";
-import silverGrayPolishedImg from "@/assets/products/silver-gray-polished.jpg";
-import teakwoodImg from "@/assets/products/teakwood.jpg";
-import kotaBrownImg from "@/assets/products/kota-brown.jpg";
-import kotaBlueImg from "@/assets/products/kota-blue.jpg";
-import rainbowImg from "@/assets/products/rainbow.jpg";
-import sandstoneRedImg from "@/assets/products/sandstone-red.jpg";
-import sandstonePinkImg from "@/assets/products/sandstone-pink.jpg";
-import sandstoneAgraRedImg from "@/assets/products/sandstone-agra-red.jpg";
-import sandstoneKandlaGreyImg from "@/assets/products/sandstone-kandla-grey.jpg";
-import sandstoneLalitpurGreyImg from "@/assets/products/sandstone-lalitpur-grey.jpg";
-import sandstoneYellowImg from "@/assets/products/sandstone-yellow.jpg";
+import terraRedImg from "@/assets/products/terra-red.webp";
+import silverShineImg from "@/assets/products/silver-shine.webp";
+import silverGrayPolishedImg from "@/assets/products/silver-gray-polished.webp";
+import teakwoodImg from "@/assets/products/teakwood.webp";
+import kotaBrownImg from "@/assets/products/kota-brown.webp";
+import kotaBlueImg from "@/assets/products/kota-blue.webp";
+import rainbowImg from "@/assets/products/rainbow.webp";
+import sandstoneRedImg from "@/assets/products/sandstone-red.webp";
+import sandstonePinkImg from "@/assets/products/sandstone-pink.webp";
+import sandstoneAgraRedImg from "@/assets/products/sandstone-agra-red.webp";
+import sandstoneKandlaGreyImg from "@/assets/products/sandstone-kandla-grey.webp";
+import sandstoneLalitpurGreyImg from "@/assets/products/sandstone-lalitpur-grey.webp";
+import sandstoneYellowImg from "@/assets/products/sandstone-yellow.webp";
 
 // New sandstone images
-import sandstoneAgraRedNewImg from "@/assets/products/sandstone-agra-red-new.jpg";
-import sandstoneBuffImg from "@/assets/products/sandstone-buff.png";
-import sandstoneChocolateImg from "@/assets/products/sandstone-chocolate.png";
-import sandstoneDesertBrownImg from "@/assets/products/sandstone-desert-brown.png";
-import sandstoneDholpurBeigeImg from "@/assets/products/sandstone-dholpur-beige.jpeg";
-import sandstoneDholpurPinkImg from "@/assets/products/sandstone-dholpur-pink.png";
-import sandstoneGwaliorMintImg from "@/assets/products/sandstone-gwalior-mint.jpg";
-import sandstoneHeritagePinkImg from "@/assets/products/sandstone-heritage-pink.jpeg";
-import sandstoneMonsoonBlack1Img from "@/assets/products/sandstone-monsoon-black-1.png";
-import sandstoneMonsoonBlack2Img from "@/assets/products/sandstone-monsoon-black-2.png";
-import sandstoneMultiBrownImg from "@/assets/products/sandstone-multi-brown.jpg";
-import sandstoneRajGreenImg from "@/assets/products/sandstone-raj-green.png";
-import sandstoneFossilImg from "@/assets/products/sandstone-fossil.png";
-import sandstoneLalitpurYellowImg from "@/assets/products/sandstone-lalitpur-yellow.jpeg";
-import sandstoneRaveenaImg from "@/assets/products/sandstone-raveena.png";
-import sandstoneAutumnBrownImg from "@/assets/products/sandstone-autumn-brown.jpg";
+import sandstoneAgraRedNewImg from "@/assets/products/sandstone-agra-red-new.webp";
+import sandstoneBuffImg from "@/assets/products/sandstone-buff.webp";
+import sandstoneChocolateImg from "@/assets/products/sandstone-chocolate.webp";
+import sandstoneDesertBrownImg from "@/assets/products/sandstone-desert-brown.webp";
+import sandstoneDholpurBeigeImg from "@/assets/products/sandstone-dholpur-beige.webp";
+import sandstoneDholpurPinkImg from "@/assets/products/sandstone-dholpur-pink.webp";
+import sandstoneGwaliorMintImg from "@/assets/products/sandstone-gwalior-mint.webp";
+import sandstoneHeritagePinkImg from "@/assets/products/sandstone-heritage-pink.webp";
+import sandstoneMonsoonBlack1Img from "@/assets/products/sandstone-monsoon-black-1.webp";
+import sandstoneMonsoonBlack2Img from "@/assets/products/sandstone-monsoon-black-2.webp";
+import sandstoneMultiBrownImg from "@/assets/products/sandstone-multi-brown.webp";
+import sandstoneRajGreenImg from "@/assets/products/sandstone-raj-green.webp";
+import sandstoneFossilImg from "@/assets/products/sandstone-fossil.webp";
+import sandstoneLalitpurYellowImg from "@/assets/products/sandstone-lalitpur-yellow.webp";
+import sandstoneRaveenaImg from "@/assets/products/sandstone-raveena.webp";
+import sandstoneAutumnBrownImg from "@/assets/products/sandstone-autumn-brown.webp";
 
 // Limestone images
-import limestoneItaGoldImg from "@/assets/products/limestone-ita-gold.png";
-import limestoneJaisalmerYellowImg from "@/assets/products/limestone-jaisalmer-yellow.png";
-import limestoneKadappaBlackImg from "@/assets/products/limestone-kadappa-black.png";
-import limestoneKotaBlueNewImg from "@/assets/products/limestone-kota-blue.png";
-import limestoneKotaMixImg from "@/assets/products/limestone-kota-mix.png";
-import limestonePearlGoldImg from "@/assets/products/limestone-pearl-gold.png";
-import limestoneShabadYellowImg from "@/assets/products/limestone-shabad-yellow.png";
+import limestoneItaGoldImg from "@/assets/products/limestone-ita-gold.webp";
+import limestoneJaisalmerYellowImg from "@/assets/products/limestone-jaisalmer-yellow.webp";
+import limestoneKadappaBlackImg from "@/assets/products/limestone-kadappa-black.webp";
+import limestoneKotaBlueNewImg from "@/assets/products/limestone-kota-blue.webp";
+import limestoneKotaMixImg from "@/assets/products/limestone-kota-mix.webp";
+import limestonePearlGoldImg from "@/assets/products/limestone-pearl-gold.webp";
+import limestoneShabadYellowImg from "@/assets/products/limestone-shabad-yellow.webp";
 
 // Quartzite images
-import quartziteCopperImg from "@/assets/products/quartzite-copper.png";
-import quartziteGoldenImg from "@/assets/products/quartzite-golden.png";
-import quartziteHimachalWhiteImg from "@/assets/products/quartzite-himachal-white.png";
-import quartziteOceanGreenImg from "@/assets/products/quartzite-ocean-green.png";
-import quartziteZeeraGreenImg from "@/assets/products/quartzite-zeera-green.png";
+import quartziteCopperImg from "@/assets/products/quartzite-copper.webp";
+import quartziteGoldenImg from "@/assets/products/quartzite-golden.webp";
+import quartziteHimachalWhiteImg from "@/assets/products/quartzite-himachal-white.webp";
+import quartziteOceanGreenImg from "@/assets/products/quartzite-ocean-green.webp";
+import quartziteZeeraGreenImg from "@/assets/products/quartzite-zeera-green.webp";
 
 // Slate images
-import slateChocolateImg from "@/assets/products/slate-chocolate.png";
-import slateIndianAutumnImg from "@/assets/products/slate-indian-autumn.png";
-import slateJakBlackRusticImg from "@/assets/products/slate-jak-black-rustic.png";
-import slateJakBlackImg from "@/assets/products/slate-jak-black.png";
-import slateKundMultiImg from "@/assets/products/slate-kund-multi.png";
-import slateMacGreenRusticImg from "@/assets/products/slate-mac-green-rustic.png";
-import slatePurePinkImg from "@/assets/products/slate-pure-pink.png";
-import slateRajaRedImg from "@/assets/products/slate-raja-red.png";
-import slateSraMulticolorImg from "@/assets/products/slate-sra-multicolor.png";
-import slateAutumnRusticImg from "@/assets/products/slate-autumn-rustic.png";
-import slateCaliforniaGoldImg from "@/assets/products/slate-california-gold.png";
+import slateChocolateImg from "@/assets/products/slate-chocolate.webp";
+import slateIndianAutumnImg from "@/assets/products/slate-indian-autumn.webp";
+import slateJakBlackRusticImg from "@/assets/products/slate-jak-black-rustic.webp";
+import slateJakBlackImg from "@/assets/products/slate-jak-black.webp";
+import slateKundMultiImg from "@/assets/products/slate-kund-multi.webp";
+import slateMacGreenRusticImg from "@/assets/products/slate-mac-green-rustic.webp";
+import slatePurePinkImg from "@/assets/products/slate-pure-pink.webp";
+import slateRajaRedImg from "@/assets/products/slate-raja-red.webp";
+import slateSraMulticolorImg from "@/assets/products/slate-sra-multicolor.webp";
+import slateAutumnRusticImg from "@/assets/products/slate-autumn-rustic.webp";
+import slateCaliforniaGoldImg from "@/assets/products/slate-california-gold.webp";
 
 // Quartzite images from mosaic folder (reclassified)
-import deoliGreenMosaicImg from "@/assets/mosaic/Deoli green.jpeg";
-import silverShineMosaicImg from "@/assets/mosaic/Silver shine.jpeg";
-import forestFireImg from "@/assets/mosaic/forest fire.jpeg";
-import sliverGrey1Img from "@/assets/mosaic/sliver grey (1).jpeg";
-import sliverGrey2Img from "@/assets/mosaic/sliver grey (2).jpeg";
-import matrix1Img from "@/assets/mosaic/matrix (1).jpeg";
-import matrix2Img from "@/assets/mosaic/matrix (2).jpeg";
+import deoliGreenMosaicImg from "@/assets/mosaic/Deoli green.webp";
+import silverShineMosaicImg from "@/assets/mosaic/Silver shine.webp";
+import forestFireImg from "@/assets/mosaic/forest fire.webp";
+import sliverGrey1Img from "@/assets/mosaic/sliver grey (1).webp";
+import sliverGrey2Img from "@/assets/mosaic/sliver grey (2).webp";
+import matrix1Img from "@/assets/mosaic/matrix (1).webp";
+import matrix2Img from "@/assets/mosaic/matrix (2).webp";
 
 export interface Product {
   id: string;

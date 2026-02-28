@@ -5,18 +5,14 @@ import { motion, useScroll, useTransform, AnimatePresence, MotionValue } from "f
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/home-bg-new-1.webp";
 import mainBackground from "@/assets/home-bg-new-2.webp";
-import quartziteImg from "@/assets/quartzite-texture.jpg";
-import graniteImg from "@/assets/granite-texture.jpg";
-import marbleImg from "@/assets/marble-texture.jpg";
-import sandstoneImg from "@/assets/sandstone-texture.jpg";
-import silverGrayPolishedImg from "@/assets/products/silver-gray-polished.jpg";
-import rainbowImg from "@/assets/products/rainbow.jpg";
-import kotaBlueImg from "@/assets/products/kota-blue.jpg";
-import patternsImg from "@/assets/products/patterns-panels.png";
-import goldenTeakImg from "@/assets/legacy/golden-teak.png";
-import villaExteriorImg from "@/assets/legacy/villa-exterior.png";
-import quartziteWallImg from "@/assets/legacy/quartzite-wall.png";
-import stackedSlateImg from "@/assets/legacy/stacked-slate.png";
+import silverGrayPolishedImg from "@/assets/products/silver-gray-polished.webp";
+import rainbowImg from "@/assets/products/rainbow.webp";
+import kotaBlueImg from "@/assets/products/kota-blue.webp";
+import patternsImg from "@/assets/products/patterns-panels.webp";
+import goldenTeakImg from "@/assets/legacy/golden-teak.webp";
+import villaExteriorImg from "@/assets/legacy/villa-exterior.webp";
+import quartziteWallImg from "@/assets/legacy/quartzite-wall.webp";
+import stackedSlateImg from "@/assets/legacy/stacked-slate.webp";
 
 // Client/Partner names
 const clientNames = ["Jagson India", "Mehta Stone", "SK World", "RM International"];
@@ -62,52 +58,28 @@ const Home = () => {
 
 
 
-  // Background image rotation
+  // Background image rotation — non-blocking (no preload gate)
   const backgroundImages = [heroImage, mainBackground];
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [secondImageReady, setSecondImageReady] = useState(false);
 
+  // Pre-fetch only the second image in the background (first renders immediately)
   useEffect(() => {
-    const preloadImages = async () => {
-      const promises = backgroundImages.map((src) => {
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-          img.onerror = reject;
-        });
-      });
-
-      try {
-        await Promise.all(promises);
-        setImagesLoaded(true);
-      } catch (error) {
-        console.error("Failed to preload images", error);
-        setImagesLoaded(true); // Proceed anyway to avoid getting stuck
-      }
-    };
-
-    preloadImages();
+    const img = new Image();
+    img.src = mainBackground;
+    img.onload = () => setSecondImageReady(true);
   }, []);
 
   useEffect(() => {
-    if (!imagesLoaded) return;
+    // Only start rotation after second image is cached
+    if (!secondImageReady) return;
     
     const bgInterval = setInterval(() => {
       setCurrentBgIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
     }, 8000); // Change every 8 seconds for a relaxed gallery feel
 
     return () => clearInterval(bgInterval);
-  }, [imagesLoaded]);
-
-
-  if (!imagesLoaded) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-accent"></div>
-      </div>
-    );
-  }
+  }, [secondImageReady]);
 
 
 
