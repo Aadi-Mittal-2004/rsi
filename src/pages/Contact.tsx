@@ -12,7 +12,7 @@ const stoneTypes = [
   { id: "sandstone", label: "Sandstone", icon: Landmark },
   { id: "limestone", label: "Limestone", icon: Mountain },
   { id: "slate", label: "Slate", icon: Layers },
-  { id: "marble", label: "Marble", icon: Sparkles },
+  // { id: "marble", label: "Marble", icon: Sparkles }, // Hidden temporarily
   { id: "other", label: "Not Sure / Multiple", icon: CircleHelp },
 ];
 

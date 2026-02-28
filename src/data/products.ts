@@ -91,33 +91,30 @@ export interface Product {
 // @ts-ignore
 const mosaicModules = import.meta.glob('@/assets/mosaic/*.{jpg,jpeg,png,webp}', { eager: true, query: '?url', import: 'default' });
 
-const getSubcategory = (filename: string): string => {
-  const lowerFilename = filename.toLowerCase();
-  if (lowerFilename.startsWith('pebbles')) return 'pebbles';
-  if (lowerFilename.startsWith('right angle')) return 'corner-pieces';
-  if (lowerFilename.includes('wall cladding') || lowerFilename.includes('desig')) return 'wall-cladding';
-  if (lowerFilename.startsWith('matrix')) return 'matrix';
-  return 'stone-patterns';
-};
-
-const getSubcategoryDescription = (subcategory: string): string => {
-  switch (subcategory) {
-    case 'pebbles': return 'Natural stone pebbles that add texture and organic beauty to any space. Perfect for creating serene garden paths or adding a unique touch to interior designs.';
-    case 'corner-pieces': return 'Precision-cut right angle corner pieces designed to provide a seamless and professional finish to your wall cladding projects, ensuring structural integrity and visual continuity.';
-    case 'wall-cladding': return 'Exquisite designer wall cladding that transforms ordinary walls into architectural masterpieces. Features intricate patterns and rich textures for a premium look.';
-    case 'matrix': return 'Geometric matrix patterns that offer a modern and sophisticated aesthetic. These stones create a striking visual impact with their structured yet natural appearance.';
-    default: return 'Premium decorative stone patterns available in a variety of intricate designs and textures. Ideal for adding character and elegance to both interior and exterior surfaces.';
-  }
-};
-
-const getSubcategoryUsage = (subcategory: string): string => {
-  switch (subcategory) {
-    case 'pebbles': return 'Garden Pathways, Landscaping, Aquariums, Decorative Features';
-    case 'corner-pieces': return 'External Corners, Pillars, Wall Returns';
-    case 'wall-cladding': return 'Interior Feature Walls, Exterior Facades, Chimney Breasts, Garden Walls';
-    case 'matrix': return 'Modern Facades, Office Interiors, Feature Walls';
-    default: return 'Feature Walls, Exterior Cladding, Garden Features, Interior Accents';
-  }
+// RSI naming convention: rsi-{type}-{number}.jpeg
+// Type codes: cl = Wall Cladding, pb = Pebbles, cn = Corner Pieces
+const RSI_TYPE_MAP: Record<string, { subcategory: string; label: string; description: string; usage: string; properties: string[] }> = {
+  'cl': {
+    subcategory: 'wall-cladding',
+    label: 'Cladding Design',
+    description: 'Exquisite designer wall cladding that transforms ordinary walls into architectural masterpieces. Features intricate patterns and rich textures for a premium look.',
+    usage: 'Interior Feature Walls, Exterior Facades, Chimney Breasts, Garden Walls',
+    properties: ["Panels", "Decorative Patterns"],
+  },
+  'pb': {
+    subcategory: 'pebbles',
+    label: 'Pebble Design',
+    description: 'Natural stone pebbles that add texture and organic beauty to any space. Perfect for creating serene garden paths or adding a unique touch to interior designs.',
+    usage: 'Garden Pathways, Landscaping, Aquariums, Decorative Features',
+    properties: ["Pebbles", "Natural"],
+  },
+  'cn': {
+    subcategory: 'corner-pieces',
+    label: 'Corner Piece Design',
+    description: 'Precision-cut right angle corner pieces designed to provide a seamless and professional finish to your wall cladding projects, ensuring structural integrity and visual continuity.',
+    usage: 'External Corners, Pillars, Wall Returns',
+    properties: ["Right Angles", "Precision Cut"],
+  },
 };
 
 const excludedMosaicFiles = [
@@ -136,22 +133,30 @@ const mosaicProducts: Product[] = Object.entries(mosaicModules)
     return !excludedMosaicFiles.includes(filename.toLowerCase());
   })
   .map(([path, url], index) => {
-  const filename = path.split('/').pop()?.split('.')[0] || `Pattern ${index + 1}`;
-  const cleanName = filename.replace(/_/g, ' ').replace(/-/g, ' ').replace(/model config 2k/gi, '').replace(/\d+/g, '').trim() || `Stone Pattern ${index + 1}`;
-  const subcategory = getSubcategory(filename);
-  const isMatrix = subcategory === 'matrix';
+  const filename = path.split('/').pop()?.split('.')[0] || '';
   
-  return {
-    id: `m${index + 1}`,
-    name: cleanName.charAt(0).toUpperCase() + cleanName.slice(1),
-    category: isMatrix ? "quartzite" : "mosaic",
-    subcategory: isMatrix ? 'matrix' : subcategory,
-    description: isMatrix ? 'Geometric matrix quartzite patterns offering a modern, sophisticated aesthetic with structured yet natural appearance.' : getSubcategoryDescription(subcategory),
-    usage: isMatrix ? 'Modern Facades, Office Interiors, Feature Walls, Exterior Cladding' : getSubcategoryUsage(subcategory),
-    image: url as string,
-    properties: isMatrix ? ["Matrix", "Geometric", "Modern", "Natural Cleft"] : ["Panels", "Pebbles", "Right Angles", "Decorative Patterns"],
-  };
-}).filter(p => p.subcategory !== 'stone-patterns');
+  // Parse RSI convention: rsi-{type}-{number}
+  const rsiMatch = filename.match(/^rsi-(\w+)-(\d+)$/);
+  if (rsiMatch) {
+    const [, typeCode, number] = rsiMatch;
+    const typeInfo = RSI_TYPE_MAP[typeCode];
+    if (typeInfo) {
+      return {
+        id: `m${index + 1}`,
+        name: `${typeInfo.label} #${parseInt(number)}`,
+        category: 'mosaic',
+        subcategory: typeInfo.subcategory,
+        description: typeInfo.description,
+        usage: typeInfo.usage,
+        image: url as string,
+        properties: typeInfo.properties,
+      };
+    }
+  }
+  
+  // Fallback for non-RSI files (shouldn't happen after migration)
+  return null;
+}).filter(Boolean) as Product[];
 
 export const products: Product[] = [
     // ===== QUARTZITE =====

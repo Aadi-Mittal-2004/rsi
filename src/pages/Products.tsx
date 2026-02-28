@@ -27,7 +27,7 @@ const Products = () => {
 
   const categories = [
     { id: "all", name: "All Stones" },
-    { id: "marble", name: "Marble" },
+    // { id: "marble", name: "Marble" }, // Hidden temporarily
     { id: "sandstone", name: "Sandstone" },
     { id: "quartzite", name: "Quartzite" },
     { id: "limestone", name: "Limestone" },
@@ -56,6 +56,8 @@ const Products = () => {
   ];
 
   const filteredProducts = products.filter((p) => {
+    // Hide marble products temporarily
+    if (p.category === "marble") return false;
     if (selectedCategory !== "all" && p.category !== selectedCategory) return false;
     if (selectedCategory === "marble" && selectedSubcategory !== "all" && p.subcategory !== selectedSubcategory) return false;
     if (selectedCategory === "mosaic" && selectedSubcategory !== "all" && p.subcategory !== selectedSubcategory) return false;
