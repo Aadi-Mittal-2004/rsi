@@ -9,10 +9,22 @@ import silverGrayPolishedImg from "@/assets/products/silver-gray-polished.webp";
 import rainbowImg from "@/assets/products/rainbow.webp";
 import kotaBlueImg from "@/assets/products/kota-blue.webp";
 import patternsImg from "@/assets/products/patterns-panels.webp";
-import goldenTeakImg from "@/assets/legacy/golden-teak.webp";
-import villaExteriorImg from "@/assets/legacy/villa-exterior.webp";
-import quartziteWallImg from "@/assets/legacy/quartzite-wall.webp";
-import stackedSlateImg from "@/assets/legacy/stacked-slate.webp";
+import slateIndianAutumnImg from "@/assets/products/slate-indian-autumn.webp";
+import legacyImg1 from "@/assets/generated/legacy_img_1_luxury_1772359881585.png";
+import legacyImg2 from "@/assets/generated/legacy_img_2_luxury_1772359896592.png";
+import legacyImg3 from "@/assets/generated/legacy_img_3_luxury_1772359911001.png";
+import legacyImg4 from "@/assets/generated/legacy_img_4_luxury_1772359925757.png";
+
+// Generated New Luxury Images
+import galleryInsta1 from "@/assets/generated/luxury_villa_exterior_1772359277045.png";
+import galleryInsta2 from "@/assets/generated/quartzite_feature_wall_1772359292214.png";
+import galleryInsta3 from "@/assets/generated/limestone_luxury_floor_1772359308511.png";
+import galleryInsta4 from "@/assets/generated/luxury_slate_texture_1772359350320.png";
+import advantageSplitImage from "@/assets/products/sandstone-fossil-high-res.jpg";
+import appFlooring from "@/assets/generated/app_flooring_1772359378532.png";
+import appCladding from "@/assets/generated/app_cladding_1772359403793.png";
+import appPoolDeck from "@/assets/generated/app_pool_deck_1772359417973.png";
+import appFacade from "@/assets/generated/app_facades_1772359434259.png";
 
 // Client/Partner names
 const clientNames = ["Jagson India", "Mehta Stone", "SK World", "RM International"];
@@ -20,10 +32,15 @@ const clientNames = ["Jagson India", "Mehta Stone", "SK World", "RM Internationa
 const Home = () => {
   const { scrollY } = useScroll();
 
-  const aboutY1 = useTransform(scrollY, [500, 1500], [0, -50]);
-  const aboutY2 = useTransform(scrollY, [500, 1500], [0, 50]);
-
   // --- Per-section parallax refs & transforms ---
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: aboutProgress } = useScroll({
+    target: aboutRef,
+    offset: ["start end", "end start"], // smoother animation based on section visibility
+  });
+  
+  const aboutY1 = useTransform(aboutProgress, [0, 1], [30, -30]); 
+  const aboutY2 = useTransform(aboutProgress, [0, 1], [-30, 30]);
   const collectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: collectionProgress } = useScroll({
     target: collectionRef,
@@ -101,6 +118,12 @@ const Home = () => {
       image: kotaBlueImg,
       description: "Subtle elegance with smooth finishes",
       category: "limestone",
+    },
+    {
+      name: "Slate",
+      image: slateIndianAutumnImg,
+      description: "Rich textures with deep, rustic colorations",
+      category: "slate",
     },
     {
       name: "Patterns & Panels",
@@ -303,7 +326,7 @@ const Home = () => {
           </div>
 
           {/* Desktop: Grid layout */}
-          <motion.div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ y: collectionCardsY }}>
+          <motion.div className="hidden md:grid md:grid-cols-2 lg:grid-cols-5 gap-6" style={{ y: collectionCardsY }}>
             {products.map((product, index) => (
               <motion.div
                 key={product.name}
@@ -344,22 +367,22 @@ const Home = () => {
       </div>
 
       {/* About Section - Broken Grid Layout */}
-      <section className="py-20 px-4 bg-card text-card-foreground">
+      <section className="py-20 px-4 bg-card text-card-foreground" ref={aboutRef}>
         <div className="container mx-auto">
           <div className="relative">
             {/* Image Grid - Primary Visual */}
             <div className="grid grid-cols-2 gap-4 md:w-3/5 md:ml-auto">
               <motion.div className="space-y-4" style={{ y: aboutY1 }}>
                 <img
-                  src={goldenTeakImg}
-                  alt="Golden Teak Sandstone Texture"
+                  src={legacyImg1}
+                  alt="Golden Teak Sandstone Detail"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <img
-                  src={villaExteriorImg}
-                  alt="Luxury Stone Villa Exterior"
+                  src={legacyImg2}
+                  alt="Luxury Modern Villa Exterior with Stone"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
@@ -367,15 +390,15 @@ const Home = () => {
               </motion.div>
               <motion.div className="space-y-4 mt-8" style={{ y: aboutY2 }}>
                 <img
-                  src={quartziteWallImg}
-                  alt="Quartzite Feature Wall"
+                  src={legacyImg3}
+                  alt="Luxurious Quartzite Feature Wall"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
                 />
                 <img
-                  src={stackedSlateImg}
-                  alt="Stacked Slate Detail"
+                  src={legacyImg4}
+                  alt="Rich Stacked Slate Texture"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
@@ -454,41 +477,105 @@ const Home = () => {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
       </div>
 
-      {/* The Roop Stone Advantage */}
-      <section className="py-32 px-4 bg-card overflow-hidden" ref={advantagesRef}>
-        <div className="container mx-auto max-w-6xl">
-          <motion.div className="text-center mb-20" style={{ y: advantagesHeadingY }}>
-            <h2 className="text-4xl font-bold mb-4 relative inline-block">
-              The Roop Stone Advantage
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-accent"></span>
-            </h2>
-            <p className="text-muted-foreground text-lg mt-6">
-              Our commitment to excellence sets us apart in the global market.
-            </p>
-          </motion.div>
-
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16" style={{ y: advantagesCardsY }}>
-            {advantages.map((advantage, index) => (
-              <motion.div 
-                key={advantage.title} 
-                className="text-center group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="mb-6 inline-block transform transition-transform duration-300 group-hover:scale-110">
-                  <advantage.icon className="h-10 w-10 text-accent" strokeWidth={0.75} />
+      {/* Stone in the World - Inspirations Gallery */}
+      <section className="py-24 px-4 bg-background overflow-hidden">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <p className="uppercase tracking-[0.2em] text-xs font-semibold text-muted-foreground mb-4">Inspirations</p>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium mb-6">Stone in the World</h2>
+          </div>
+          
+          {/* Asymmetric Editorial Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[400px]">
+            {/* Large Feature - Spans 2 rows, 8 cols */}
+            <div className="md:col-span-8 md:row-span-2 group relative overflow-hidden">
+              <img src={galleryInsta1} alt="Luxury Villa Exterior" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <span className="text-white font-medium tracking-wide text-sm bg-black/50 backdrop-blur-sm px-4 py-2 rounded-sm">Natural Stone · Villa Facade</span>
+              </div>
+            </div>
+            
+            {/* Top Right - 4 cols, 1 row */}
+            <div className="md:col-span-4 md:row-span-1 group relative overflow-hidden">
+              <img src={galleryInsta2} alt="Quartzite Feature Wall" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <span className="text-white font-medium tracking-wide text-xs bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-sm">Quartzite · Feature Wall</span>
+              </div>
+            </div>
+            
+            {/* Bottom Right - 2 cols, 1 row */}
+            <div className="md:col-span-4 md:row-span-1 grid grid-cols-2 gap-4 md:gap-6">
+              <div className="col-span-1 group relative overflow-hidden">
+                <img src={galleryInsta3} alt="Limestone Luxury Floor" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  <span className="text-white font-medium tracking-wide text-[10px] uppercase bg-black/50 backdrop-blur-sm px-2 py-1 rounded-sm">Limestone</span>
                 </div>
-                <h3 className="text-lg font-medium mb-3 tracking-wide">
-                  {advantage.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {advantage.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+              <div className="col-span-1 group relative overflow-hidden">
+                <img src={galleryInsta4} alt="Slate Texture Wall" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  <span className="text-white font-medium tracking-wide text-[10px] uppercase bg-black/50 backdrop-blur-sm px-2 py-1 rounded-sm">Slate Cladding</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+             <Link to="/products" className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-semibold hover:text-accent transition-colors pb-1 border-b border-foreground hover:border-accent">
+               Explore the Collections <ArrowRight className="w-4 h-4" />
+             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Subtle Divider */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+      </div>
+
+      {/* The Roop Stone Advantage */}
+      <section className="bg-card w-full" ref={advantagesRef}>
+        <div className="flex flex-col lg:flex-row w-full min-h-[800px]">
+          {/* Left Column: Image */}
+          <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-full">
+            <img src={advantageSplitImage} alt="Premium Quality Stone" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          
+          {/* Right Column: Content */}
+          <div className="lg:w-1/2 px-8 lg:px-20 py-20 lg:py-32 flex flex-col justify-center">
+            <motion.div style={{ y: advantagesHeadingY }} className="mb-16">
+              <h2 className="font-serif text-4xl lg:text-5xl font-medium mb-6">
+                The Roop Stone Advantage
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
+                Our commitment to excellence sets us apart in the global market. We don't just export stone; we export peace of mind.
+              </p>
+            </motion.div>
+
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-14" style={{ y: advantagesCardsY }}>
+              {advantages.map((advantage, index) => (
+                <motion.div 
+                  key={advantage.title} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <advantage.icon className="h-8 w-8 text-accent mb-5" strokeWidth={1} />
+                  <h3 className="text-xl font-medium mb-3 font-serif">
+                    {advantage.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {advantage.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -521,6 +608,38 @@ const Home = () => {
               </span>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Subtle Divider */}
+      <div className="container mx-auto px-4">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+      </div>
+
+      {/* Applications Strip */}
+      <section className="py-20 px-4 bg-background overflow-hidden">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-serif font-medium tracking-wide">Where Our Stone Lives</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            {[
+              { name: "Flooring", image: appFlooring },
+              { name: "Wall Cladding", image: appCladding },
+              { name: "Pool Decks", image: appPoolDeck },
+              { name: "Facades", image: appFacade },
+            ].map((app) => (
+              <div key={app.name} className="flex flex-col gap-4 group cursor-pointer">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+                  <img src={app.image} alt={app.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <span className="text-center font-medium tracking-widest uppercase text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                  {app.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
