@@ -18,6 +18,35 @@ const Blog = () => {
         description="Expert guides on natural stone cladding, quartzite, sandstone, and limestone. Buying tips, maintenance advice, design trends, and export insights from Roop Stone Impex."
         keywords="natural stone blog, quartzite guide, sandstone paving tips, stone cladding trends, Indian stone exporter blog"
         url="https://roopstoneimpex.in/blog"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "The Stone Journal — Natural Stone Blog by Roop Stone Impex",
+          "description": "Expert guides on natural stone cladding, quartzite, sandstone, and limestone. Buying tips, maintenance advice, design trends, and export insights.",
+          "url": "https://roopstoneimpex.in/blog",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Roop Stone Impex",
+            "url": "https://roopstoneimpex.in",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://roopstoneimpex.in/logo.png"
+            }
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": blogPosts.map((post, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "url": `https://roopstoneimpex.in/blog/${post.slug}`,
+              "name": post.title
+            }))
+          }
+        }}
+        breadcrumbs={[
+          { name: "Home", url: "https://roopstoneimpex.in/" },
+          { name: "Blog", url: "https://roopstoneimpex.in/blog" },
+        ]}
       />
 
       {/* Hero Section */}

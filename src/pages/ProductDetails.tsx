@@ -81,13 +81,18 @@ const ProductDetails = () => {
     "@type": "Product",
     "name": product.name,
     "description": product.description,
-    "image": window.location.origin + product.image,
+    "image": product.image ? window.location.origin + product.image : undefined,
     "brand": {
       "@type": "Brand",
       "name": "Roop Stone Impex"
     },
-    "category": product.category,
-    "keywords": product.properties.join(", "),
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Roop Stone Impex",
+      "url": "https://roopstoneimpex.in"
+    },
+    "category": `Building Materials > Natural Stone > ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}`,
+    "material": product.category.charAt(0).toUpperCase() + product.category.slice(1),
     "additionalProperty": product.properties.map(prop => ({
       "@type": "PropertyValue",
       "name": "Feature",

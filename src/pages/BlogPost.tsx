@@ -35,13 +35,16 @@ const BlogPost = () => {
     .sort((a, b) => (a.category === post.category ? -1 : b.category === post.category ? 1 : 0))
     .slice(0, 3);
 
+  // Calculate word count from content for SEO
+  const wordCount = content ? content.replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length : 0;
+
   // Article structured data
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: `https://roopstoneimpex.in${post.image}`,
+    image: post.image ? `${window.location.origin}${post.image}` : "https://roopstoneimpex.in/logo.png",
     author: {
       "@type": "Organization",
       name: "Roop Stone Impex",
@@ -56,7 +59,10 @@ const BlogPost = () => {
       },
     },
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: "2026-03-06",
+    wordCount: wordCount,
+    articleSection: post.category,
+    keywords: post.keywords,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://roopstoneimpex.in/blog/${post.slug}`,
