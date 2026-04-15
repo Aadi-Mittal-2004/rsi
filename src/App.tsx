@@ -25,6 +25,7 @@ import Incubator from "./pages/Incubator";
 import Apply from "./pages/Apply";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Pricing from "./pages/Pricing";
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -36,6 +37,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/incubator" element={<Incubator />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/about" element={<About />} />
