@@ -26,6 +26,9 @@ import Apply from "./pages/Apply";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Pricing from "./pages/Pricing";
+import StoneForApplication from "./pages/StoneForApplication";
+import StoneComparison from "./pages/StoneComparison";
+import ExportToCountry from "./pages/ExportToCountry";
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -44,6 +47,10 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        {/* Programmatic SEO pages */}
+        <Route path="/stone/:slug" element={<StoneForApplication />} />
+        <Route path="/compare/:slug" element={<StoneComparison />} />
+        <Route path="/export/:slug" element={<ExportToCountry />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

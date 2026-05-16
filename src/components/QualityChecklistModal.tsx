@@ -89,7 +89,7 @@ const checklistSteps = [
   },
 ];
 
-const WHATSAPP_NUMBER = "919214083550";
+const WHATSAPP_NUMBER = "917357923414";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi, I'd like to receive the 14-Point Quality Checklist for my next stone shipment."
 );

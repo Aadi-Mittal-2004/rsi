@@ -45,7 +45,7 @@ const StickyCTABar = () => {
             </a>
 
             <a
-              href="https://wa.me/919214083550?text=Hi%20%E2%80%94%20I%20noticed%20you%20export%20natural%20stone.%20I%27m%20looking%20for%20a%20reliable%20supplier.%20Can%20we%20discuss%3F"
+              href="https://wa.me/917357923414?text=Hi%20%E2%80%94%20I%20noticed%20you%20export%20natural%20stone.%20I%27m%20looking%20for%20a%20reliable%20supplier.%20Can%20we%20discuss%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-sm border btn-whatsapp-anim transition-all"
