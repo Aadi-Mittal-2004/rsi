@@ -32,7 +32,7 @@ const SEO = ({
   title, 
   description = "Roop Stone Impex - Premium Natural Stone Cladding, Quartzite & Sandstone Manufacturer | Rajasthan, India", 
   keywords = "natural stone cladding, quartzite, Deoli Green, sandstone, limestone, manufacturer, exporter, Rajasthan, India, natural stone exporter USA, quartzite slabs USA",
-  image = "https://roopstoneimpex.in/logo.png",
+  image = "https://www.roopstoneimpex.in/logo.png",
   url = window.location.href,
   type = "website",
   structuredData,

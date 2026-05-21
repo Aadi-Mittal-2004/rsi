@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
@@ -42,6 +42,7 @@ const AnimatedRoutes = () => {
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/incubator" element={<Incubator />} />
+        <Route path="/competition" element={<Navigate to="/incubator" replace />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

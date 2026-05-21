@@ -63,7 +63,7 @@ const StoneForApplication = () => {
   const specs = getSpecsForStone(product.id, product.category);
   const intro = generateApplicationIntro(product, application);
   const startPrice = getStartingPrice(product.id);
-  const siteUrl = 'https://roopstoneimpex.in';
+  const siteUrl = 'https://www.roopstoneimpex.in';
   const pageUrl = `${siteUrl}/stone/${slug}`;
   const catLabel = product.category.charAt(0).toUpperCase() + product.category.slice(1);
 

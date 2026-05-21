@@ -82,7 +82,7 @@ const ProductDetails = () => {
     return () => clearTimeout(timer);
   }, [product.id, product.name]);
 
-  const siteUrl = "https://roopstoneimpex.in";
+  const siteUrl = "https://www.roopstoneimpex.in";
   const categoryLabel = product.category.replace("-", " & ");
 
   const jsonLd = {
@@ -98,7 +98,7 @@ const ProductDetails = () => {
     "manufacturer": {
       "@type": "Organization",
       "name": "Roop Stone Impex",
-      "url": "https://roopstoneimpex.in"
+      "url": "https://www.roopstoneimpex.in"
     },
     "category": `Building Materials > Natural Stone > ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}`,
     "material": product.category.charAt(0).toUpperCase() + product.category.slice(1),

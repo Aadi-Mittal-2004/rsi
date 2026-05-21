@@ -110,31 +110,31 @@ const Products = () => {
         title={selectedCategory === 'all' ? 'Our Premium Stone Collection' : `${categories.find(c => c.id === selectedCategory)?.name || 'Products'} Collection`}
         description={`Explore our curated collection of ${selectedCategory === 'all' ? 'premium natural stones including quartzite, sandstone, limestone, and slate' : selectedCategory}. Over 150 stones sourced directly from Rajasthan quarries. Request a free quote from Roop Stone Impex.`}
         keywords={`${selectedCategory}, natural stone, sandstone, quartzite, limestone, slate, Roop Stone Impex, Indian stone, stone tiles, stone cladding`}
-        url="https://roopstoneimpex.in/products"
+        url="https://www.roopstoneimpex.in/products"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "Premium Natural Stone Collection — Roop Stone Impex",
           "description": "Over 150 premium natural stones including quartzite, sandstone, limestone, and slate. Sourced directly from Rajasthan quarries.",
-          "url": "https://roopstoneimpex.in/products",
+          "url": "https://www.roopstoneimpex.in/products",
           "publisher": {
             "@type": "Organization",
             "name": "Roop Stone Impex",
-            "url": "https://roopstoneimpex.in"
+            "url": "https://www.roopstoneimpex.in"
           },
           "mainEntity": {
             "@type": "ItemList",
             "itemListElement": filteredProducts.slice(0, 50).map((product, index) => ({
               "@type": "ListItem",
               "position": index + 1,
-              "url": `https://roopstoneimpex.in/products/${product.id}`,
+              "url": `https://www.roopstoneimpex.in/products/${product.id}`,
               "name": product.name
             }))
           }
         }}
         breadcrumbs={[
-          { name: "Home", url: "https://roopstoneimpex.in/" },
-          { name: "Products", url: "https://roopstoneimpex.in/products" },
+          { name: "Home", url: "https://www.roopstoneimpex.in/" },
+          { name: "Products", url: "https://www.roopstoneimpex.in/products" },
         ]}
       />
     <div className="min-h-screen pt-24 pb-12">

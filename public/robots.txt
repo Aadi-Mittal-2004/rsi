@@ -1,5 +1,5 @@
 # Robots.txt for Roop Stone Impex
-# https://roopstoneimpex.in
+# https://www.roopstoneimpex.in
 
 User-agent: Googlebot
 Allow: /
@@ -48,11 +48,11 @@ Allow: /
 Crawl-delay: 2
 
 # Sitemap location
-Sitemap: https://roopstoneimpex.in/sitemap.xml
+Sitemap: https://www.roopstoneimpex.in/sitemap.xml
 
 # LLM context file
 # See https://llmstxt.org/
-# /llms.txt available at https://roopstoneimpex.in/llms.txt
+# /llms.txt available at https://www.roopstoneimpex.in/llms.txt
 
 # Disallow admin and private directories (if any)
 Disallow: /api/

@@ -53,7 +53,7 @@ const ExportToCountry = () => {
 
   const { category, categoryLabel, country } = pageData;
   const intro = generateExportIntro(categoryLabel, country);
-  const siteUrl = 'https://roopstoneimpex.in';
+  const siteUrl = 'https://www.roopstoneimpex.in';
   const pageUrl = `${siteUrl}/export/${slug}`;
 
   // All products in this category

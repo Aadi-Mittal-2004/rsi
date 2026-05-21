@@ -137,7 +137,7 @@ const Apply = () => {
                 </motion.p>
                 <motion.div variants={slideUp} className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button variant="outline" size="lg" asChild className="border-accent/40 hover:border-accent">
-                    <Link to="/competition">Back to Competition</Link>
+                    <Link to="/incubator">Back to Incubator</Link>
                   </Button>
                   <Button variant="ghost" size="lg" asChild>
                     <Link to="/">Go to Homepage</Link>
@@ -166,11 +166,11 @@ const Apply = () => {
             <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/25 to-background" />
             <div className="container relative py-14 md:py-20">
               <Link
-                to="/competition"
+                to="/incubator"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-6"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Back to Competition
+                Back to Incubator
               </Link>
               <p className="text-sm tracking-[0.28em] text-accent">APPLICATION</p>
               <h1 className="mt-4 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">

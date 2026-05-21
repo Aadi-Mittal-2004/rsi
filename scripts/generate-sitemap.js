@@ -9,7 +9,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SITE_URL = 'https://roopstoneimpex.in';
+const SITE_URL = 'https://www.roopstoneimpex.in';
 const TODAY = new Date().toISOString().split('T')[0];
 
 // ── Import product data directly (simple parse) ────────────

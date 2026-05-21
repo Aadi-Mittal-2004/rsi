@@ -17,20 +17,20 @@ const Blog = () => {
         title="Blog | Natural Stone Guides & Insights"
         description="Expert guides on natural stone cladding, quartzite, sandstone, and limestone. Buying tips, maintenance advice, design trends, and export insights from Roop Stone Impex."
         keywords="natural stone blog, quartzite guide, sandstone paving tips, stone cladding trends, Indian stone exporter blog"
-        url="https://roopstoneimpex.in/blog"
+        url="https://www.roopstoneimpex.in/blog"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           "name": "The Stone Journal — Natural Stone Blog by Roop Stone Impex",
           "description": "Expert guides on natural stone cladding, quartzite, sandstone, and limestone. Buying tips, maintenance advice, design trends, and export insights.",
-          "url": "https://roopstoneimpex.in/blog",
+          "url": "https://www.roopstoneimpex.in/blog",
           "publisher": {
             "@type": "Organization",
             "name": "Roop Stone Impex",
-            "url": "https://roopstoneimpex.in",
+            "url": "https://www.roopstoneimpex.in",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://roopstoneimpex.in/logo.png"
+              "url": "https://www.roopstoneimpex.in/logo.png"
             }
           },
           "mainEntity": {
@@ -38,14 +38,14 @@ const Blog = () => {
             "itemListElement": blogPosts.map((post, index) => ({
               "@type": "ListItem",
               "position": index + 1,
-              "url": `https://roopstoneimpex.in/blog/${post.slug}`,
+              "url": `https://www.roopstoneimpex.in/blog/${post.slug}`,
               "name": post.title
             }))
           }
         }}
         breadcrumbs={[
-          { name: "Home", url: "https://roopstoneimpex.in/" },
-          { name: "Blog", url: "https://roopstoneimpex.in/blog" },
+          { name: "Home", url: "https://www.roopstoneimpex.in/" },
+          { name: "Blog", url: "https://www.roopstoneimpex.in/blog" },
         ]}
       />
 

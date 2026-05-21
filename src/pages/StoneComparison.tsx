@@ -66,7 +66,7 @@ const StoneComparison = () => {
   const priceA = getLowestPrice(productA.id);
   const priceB = getLowestPrice(productB.id);
   const intro = generateComparisonIntro(productA, productB, pair.context);
-  const siteUrl = 'https://roopstoneimpex.in';
+  const siteUrl = 'https://www.roopstoneimpex.in';
   const pageUrl = `${siteUrl}/compare/${slug}`;
   const catA = productA.category.charAt(0).toUpperCase() + productA.category.slice(1);
   const catB = productB.category.charAt(0).toUpperCase() + productB.category.slice(1);

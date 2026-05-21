@@ -259,7 +259,7 @@ const Pricing = () => {
         title="International Pricing — FOB Export Prices"
         description="Transparent FOB export prices for premium Indian quartzite, sandstone, limestone & slate in USD per sq ft. Natural, Brushed, Polished & Sandblast finishes available. Direct from manufacturer — Roop Stone Impex."
         keywords="quartzite price, sandstone price, limestone price, slate price, indian stone export price, FOB price natural stone, Roop Stone Impex pricing"
-        url="https://roopstoneimpex.in/pricing"
+        url="https://www.roopstoneimpex.in/pricing"
       />
 
       <div className="min-h-screen pt-24 pb-20">

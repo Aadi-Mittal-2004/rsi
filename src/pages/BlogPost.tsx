@@ -44,18 +44,18 @@ const BlogPost = () => {
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
-    image: post.image ? `${window.location.origin}${post.image}` : "https://roopstoneimpex.in/logo.png",
+    image: post.image ? `${window.location.origin}${post.image}` : "https://www.roopstoneimpex.in/logo.png",
     author: {
       "@type": "Organization",
       name: "Roop Stone Impex",
-      url: "https://roopstoneimpex.in",
+      url: "https://www.roopstoneimpex.in",
     },
     publisher: {
       "@type": "Organization",
       name: "Roop Stone Impex",
       logo: {
         "@type": "ImageObject",
-        url: "https://roopstoneimpex.in/logo.png",
+        url: "https://www.roopstoneimpex.in/logo.png",
       },
     },
     datePublished: post.date,
@@ -65,7 +65,7 @@ const BlogPost = () => {
     keywords: post.keywords,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://roopstoneimpex.in/blog/${post.slug}`,
+      "@id": `https://www.roopstoneimpex.in/blog/${post.slug}`,
     },
   };
 
@@ -81,13 +81,13 @@ const BlogPost = () => {
         title={post.title}
         description={post.metaDescription}
         keywords={post.keywords}
-        url={`https://roopstoneimpex.in/blog/${post.slug}`}
+        url={`https://www.roopstoneimpex.in/blog/${post.slug}`}
         type="article"
         structuredData={articleSchema}
         breadcrumbs={[
-          { name: "Home", url: "https://roopstoneimpex.in/" },
-          { name: "Blog", url: "https://roopstoneimpex.in/blog" },
-          { name: post.title, url: `https://roopstoneimpex.in/blog/${post.slug}` },
+          { name: "Home", url: "https://www.roopstoneimpex.in/" },
+          { name: "Blog", url: "https://www.roopstoneimpex.in/blog" },
+          { name: post.title, url: `https://www.roopstoneimpex.in/blog/${post.slug}` },
         ]}
       />
 
