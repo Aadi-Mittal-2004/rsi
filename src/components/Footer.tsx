@@ -78,6 +78,11 @@ const Footer = () => {
                   Quality Checklist
                 </button>
               </li>
+              <li>
+                <Link to="/return-policy" className="text-sm text-muted-foreground font-medium hover:text-foreground transition-colors duration-300">
+                  Return Policy
+                </Link>
+              </li>
             </ul>
           </div>
 

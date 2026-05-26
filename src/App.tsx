@@ -29,6 +29,7 @@ import Pricing from "./pages/Pricing";
 import StoneForApplication from "./pages/StoneForApplication";
 import StoneComparison from "./pages/StoneComparison";
 import ExportToCountry from "./pages/ExportToCountry";
+import ReturnPolicy from "./pages/ReturnPolicy";
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -52,6 +53,7 @@ const AnimatedRoutes = () => {
         <Route path="/stone/:slug" element={<StoneForApplication />} />
         <Route path="/compare/:slug" element={<StoneComparison />} />
         <Route path="/export/:slug" element={<ExportToCountry />} />
+        <Route path="/return-policy" element={<ReturnPolicy />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
