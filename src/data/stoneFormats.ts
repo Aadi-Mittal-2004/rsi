@@ -40,7 +40,7 @@ export const ALL_FORMATS: Record<string, StoneFormat> = {
   'walling':        { id: 'walling',        label: 'Walling Blocks',     icon: '⊞', description: 'Cut blocks for traditional walling' },
   'ledger':         { id: 'ledger',         label: 'Ledger Stone',       icon: '☰', description: '6×24 panels for stacked stone cladding' },
   'stacked':        { id: 'stacked',        label: 'Stacked Stone',      icon: '▥', description: 'Pre-assembled stacked stone veneer panels' },
-  'thin-veneer':    { id: 'thin-veneer',    label: 'Thin Stone Veneer',  icon: '◫', description: 'Ultra-thin sheets (1–2mm) for lightweight cladding' },
+  'thin-veneer':    { id: 'thin-veneer',    label: 'Thin Stone Veneer',  icon: '◫', description: 'Natural stone wall facing; confirm rigid or flexible construction, thickness and backing for the project' },
   'corners':        { id: 'corners',        label: 'Corner Pieces',      icon: '⌐', description: 'L-shaped pieces for seamless outside corners' },
   'roofing':        { id: 'roofing',        label: 'Roofing Tiles',      icon: '⌂', description: 'Split stone tiles for natural roofing' },
   'countertops':    { id: 'countertops',    label: 'Countertop Blanks',  icon: '▭', description: 'Pre-cut blanks for kitchen & bath counters' },

@@ -1,6 +1,14 @@
 {
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },
+    { "source": "/de/blog", "destination": "/de/blog/index.html" },
+    { "source": "/ru/blog", "destination": "/ru/blog/index.html" },
+    { "source": "/de/blog/:slug", "destination": "/de/blog/:slug/index.html" },
+    { "source": "/ru/blog/:slug", "destination": "/ru/blog/:slug/index.html" },
+    { "source": "/thin-stone-veneer", "destination": "/thin-stone-veneer/index.html" },
+    { "source": "/guides/cold-climate-stone", "destination": "/guides/cold-climate-stone/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

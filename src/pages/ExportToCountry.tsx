@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
+import RelatedGuides from '@/components/RelatedGuides';
 import { products } from '@/data/products';
 import { EXPORT_COUNTRIES, getAllExportSlugs, generateExportIntro } from '@/data/seoPages';
 import { getPricingLink, FULL_CONTAINER_DISCOUNT } from '@/data/stoneFormats';
@@ -210,6 +211,7 @@ const ExportToCountry = () => {
           {/* FAQ Schema */}
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
+          <RelatedGuides category={category} />
           {/* CTA */}
           <div className="text-center py-12 border-t border-border">
             <h2 className="text-2xl font-bold mb-3">Export to {country.name}? Let's Talk.</h2>

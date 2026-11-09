@@ -8,6 +8,8 @@ import { products } from "@/data/products";
 import { ArrowLeft, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import SEO from "@/components/SEO";
+import RelatedGuides from '@/components/RelatedGuides';
+import { absoluteUrl } from '@/lib/seo';
 import { getStoneFinishes, getStoneFormats, getPricingLink, FULL_CONTAINER_DISCOUNT } from "@/data/stoneFormats";
 import {
   STONE_VARIETIES, SIZE_OPTIONS, FINISH_OPTIONS, calculateFOBPerSqFt, formatUSD,
@@ -83,14 +85,14 @@ const ProductDetails = () => {
   }, [product.id, product.name]);
 
   const siteUrl = "https://www.roopstoneimpex.in";
-  const categoryLabel = product.category.replace("-", " & ");
+  const categoryLabel = product.category === 'mosaic' ? 'Stone Veneer, Patterns & Panels' : product.category.replace("-", " & ");
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
     "description": product.description,
-    "image": product.image ? window.location.origin + product.image : undefined,
+    "image": product.image ? absoluteUrl(product.image) : undefined,
     "brand": {
       "@type": "Brand",
       "name": "Roop Stone Impex"
@@ -249,6 +251,8 @@ const ProductDetails = () => {
       </div>
     </div>
 
+    {product.category === 'mosaic' && <div className="container mx-auto px-4 pb-8 text-sm"><Link to="/thin-stone-veneer" className="text-accent underline underline-offset-4">Compare rigid veneer, flexible panels and custom patterns</Link></div>}
+    <RelatedGuides category={product.category} productId={product.id} />
     {/* Fullscreen Lightbox Modal */}
     <AnimatePresence>
       {lightboxOpen && (
@@ -363,7 +367,7 @@ const FinishesSection = ({ productId, category }: { productId: string; category:
               <span className="w-1.5 h-1.5 rounded-full bg-accent mr-2 shrink-0" />
               {f.label}
             </span>
-            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded-md bg-foreground text-background text-[10px] leading-tight whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-40 px-2.5 py-1 rounded-md bg-foreground text-background text-[10px] leading-tight whitespace-normal text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
               {f.description}
             </span>
           </div>
@@ -385,7 +389,7 @@ const FormatsSection = ({ productId, category }: { productId: string; category: 
           <div key={f.id} className="group relative flex items-center gap-2.5 p-2.5 rounded-lg border border-border bg-muted/30 hover:border-accent/30 hover:bg-accent/5 transition-all duration-200 cursor-default">
             <span className="text-lg shrink-0 leading-none">{f.icon}</span>
             <span className="text-xs font-medium text-foreground leading-tight">{f.label}</span>
-            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded-md bg-foreground text-background text-[10px] leading-tight whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 max-w-[200px] text-center">
+            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-40 px-2.5 py-1 rounded-md bg-foreground text-background text-[10px] leading-tight whitespace-normal opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10 text-center">
               {f.description}
             </span>
           </div>

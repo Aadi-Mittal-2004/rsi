@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { SITE_URL, absoluteUrl, canonicalUrl } from '@/lib/seo';
 
 interface BreadcrumbItem {
   name: string;
@@ -13,6 +14,9 @@ interface SEOProps {
   url?: string;
   type?: string;
   structuredData?: object;
+  language?: string;
+  alternates?: { language: string; url: string }[];
+  imageAlt?: string;
   breadcrumbs?: BreadcrumbItem[];
   noindex?: boolean;
   verification?: {
@@ -33,16 +37,19 @@ const SEO = ({
   description = "Roop Stone Impex - Premium Natural Stone Cladding, Quartzite & Sandstone Manufacturer | Rajasthan, India", 
   keywords = "natural stone cladding, quartzite, Deoli Green, sandstone, limestone, manufacturer, exporter, Rajasthan, India, natural stone exporter USA, quartzite slabs USA",
   image = "https://www.roopstoneimpex.in/logo.png",
-  url = window.location.href,
+  url = typeof window === 'undefined' ? SITE_URL : window.location.href,
   type = "website",
   structuredData,
   breadcrumbs,
   noindex = false,
   verification,
-  geo
+  geo,
+  language = 'en', alternates = [], imageAlt = title
 }: SEOProps) => {
   const siteTitle = "Roop Stone Impex";
   const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+  const canonical = canonicalUrl(url);
+  const socialImage = absoluteUrl(image);
 
   // Generate BreadcrumbList schema
   const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
@@ -58,17 +65,14 @@ const SEO = ({
 
   return (
     <Helmet>
+      <html lang={language} />
       {/* Standard Metadata */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
-      <link rel="canonical" href={url} />
-      <link rel="alternate" href={url} hrefLang="en" />
-      <link rel="alternate" href={url} hrefLang="en-US" />
-      <link rel="alternate" href={url} hrefLang="en-GB" />
-      <link rel="alternate" href={url} hrefLang="en-AU" />
-      <link rel="alternate" href={url} hrefLang="x-default" />
+      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+      <link rel="canonical" href={canonical} />
+      {alternates.map(alternate => <link key={alternate.language} rel="alternate" href={absoluteUrl(alternate.url)} hrefLang={alternate.language} />)}
 
       {/* Geographic Meta Tags */}
       <meta name="geo.region" content={geo?.region || "IN-RJ"} />
@@ -85,7 +89,7 @@ const SEO = ({
       {/* Structured Data */}
       {structuredData && (
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify(structuredData).replace(/</g, '\\u003c')}
         </script>
       )}
 
@@ -98,18 +102,20 @@ const SEO = ({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonical} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={socialImage} />
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta property="og:locale" content={language === 'de' ? 'de_DE' : language === 'ru' ? 'ru_RU' : 'en_US'} />
       <meta property="og:site_name" content={siteTitle} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={url} />
+      <meta name="twitter:url" content={canonical} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={socialImage} />
     </Helmet>
   );
 };

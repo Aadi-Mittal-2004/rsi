@@ -182,7 +182,7 @@ export const EXPORT_COUNTRIES: ExportCountry[] = [
     popularCategories: ['quartzite', 'sandstone', 'slate', 'marble'],
     popularStoneIds: ['q2', 'q3', 'q7', 's4', 's14', 'sl4', 'sl11'],
     climateNote: 'Frost-resistant stones are essential for northern states. Southern regions benefit from heat-resistant, cool-underfoot options.',
-    complianceNote: 'All stones meet ASTM C615 (granite/quartzite), C616 (sandstone), C568 (limestone), and C629 (slate) standards.',
+    complianceNote: 'Confirm applicable stone specifications, import requirements and project acceptance criteria with your US specifier and broker. Request documentation for the actual material and assembly.',
     currencyCode: 'USD',
   },
   {

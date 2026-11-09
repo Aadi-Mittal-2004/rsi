@@ -94,10 +94,10 @@ const mosaicModules = import.meta.glob('@/assets/mosaic/*.{jpg,jpeg,png,webp}', 
 const RSI_TYPE_MAP: Record<string, { subcategory: string; label: string; description: string; usage: string; properties: string[] }> = {
   'cl': {
     subcategory: 'wall-cladding',
-    label: 'Cladding Design',
-    description: 'Exquisite designer wall cladding that transforms ordinary walls into architectural masterpieces. Features intricate patterns and rich textures for a premium look.',
+    label: 'Natural Stone Veneer Design',
+    description: 'Natural stone veneer design for custom wall cladding and architectural panels. Rigid pieces and flexible panel constructions are available across our range. Confirm the construction, pattern, dimensions, thickness and finish of this design in your project quotation.',
     usage: 'Interior Feature Walls, Exterior Facades, Chimney Breasts, Garden Walls',
-    properties: ["Panels", "Decorative Patterns"],
+    properties: ["Stone Veneer", "Custom Panels"],
   },
   'pb': {
     subcategory: 'pebbles',
@@ -108,8 +108,8 @@ const RSI_TYPE_MAP: Record<string, { subcategory: string; label: string; descrip
   },
   'cn': {
     subcategory: 'corner-pieces',
-    label: 'Corner Piece Design',
-    description: 'Precision-cut right angle corner pieces designed to provide a seamless and professional finish to your wall cladding projects, ensuring structural integrity and visual continuity.',
+    label: 'Stone Veneer Corner Design',
+    description: 'Natural stone corner design for wall returns, pillars and veneer transitions. Confirm the profile, construction, dimensions and compatible flat veneer design with the approved project drawings.',
     usage: 'External Corners, Pillars, Wall Returns',
     properties: ["Right Angles", "Precision Cut"],
   },

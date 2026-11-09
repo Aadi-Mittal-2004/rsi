@@ -3,6 +3,12 @@ import indianSandstonePavingImg from "@/assets/blogs/indian_sandstone_paving.png
 import stoneMaintenanceImg from "@/assets/blogs/stone_maintenance.png";
 import stoneExportPackingImg from "@/assets/blogs/stone_export_packing.png";
 import modernStoneArchitectureImg from "@/assets/blogs/modern_stone_architecture.png";
+import { coldClimateGuides, type ColdClimateGuide } from './coldClimateGuides';
+import { translatedGuides } from './translatedGuides';
+import { russianOriginalGuides } from './russianOriginalGuides';
+import { expandedTranslations } from './expandedTranslations';
+
+export const allGuides = [...coldClimateGuides, ...russianOriginalGuides, ...translatedGuides, ...expandedTranslations];
 
 export interface BlogPost {
   slug: string;
@@ -15,9 +21,20 @@ export interface BlogPost {
   date: string;
   category: string;
   readTime: string;
+  language?: 'en' | 'de' | 'ru';
+  updated?: string;
+  guide?: ColdClimateGuide;
 }
 
 export const blogPosts: BlogPost[] = [
+  ...allGuides.map(guide => ({
+    slug: guide.slug, title: guide.title, metaDescription: guide.metaDescription,
+    keywords: guide.keywords, excerpt: guide.summary, image: guide.image,
+    author: 'Roop Stone Impex', date: '2026-11-09', updated: '2026-11-09',
+    category: guide.category, language: guide.language || 'en' as const,
+    readTime: `${Math.max(3, Math.ceil(guide.sections.map(s => s.html.replace(/<[^>]*>/g, ' ')).join(' ').split(/\s+/).length / 180))} min`,
+    guide,
+  })),
   {
     slug: "how-to-choose-natural-stone-exterior-cladding",
     title: "How to Choose the Best Natural Stone for Exterior Cladding",

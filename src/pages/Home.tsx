@@ -126,7 +126,7 @@ const Home = () => {
       category: "slate",
     },
     {
-      name: "Patterns & Panels",
+      name: "Veneer, Patterns & Panels",
       image: patternsImg,
       description: "Decorative stone panels, pebbles & patterns",
       category: "mosaic",

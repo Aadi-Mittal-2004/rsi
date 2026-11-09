@@ -1,7 +1,11 @@
 // Blog article content stored as HTML strings
 // Separated from blogData.ts to keep files manageable
 
+import { allGuides } from './blogData';
+import { guideContent } from './coldClimateGuides';
+
 export const blogContent: Record<string, string> = {
+  ...Object.fromEntries(allGuides.map(guide => [guide.slug, guideContent(guide)])),
   "how-to-choose-natural-stone-exterior-cladding": `
 <p>Selecting the right natural stone for your building's exterior is one of the most important architectural decisions you'll make. The stone you choose will define the character of your structure for decades, influence maintenance requirements, and impact long-term costs. With so many options available, from Indian quartzite to Rajasthan sandstone, making the right choice requires understanding each stone's unique properties.</p>
 

@@ -1,154 +1,52 @@
-/**
- * Sitemap Generator for Programmatic SEO
- * Run: node scripts/generate-sitemap.js
- * Auto-runs as postbuild via package.json
- */
+/** Build the sitemap and readable HTML from the same data as the application. */
+import { createServer } from 'vite';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-import { readFileSync, writeFileSync } from 'fs';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const SITE_URL = 'https://www.roopstoneimpex.in';
-const TODAY = new Date().toISOString().split('T')[0];
-
-// ── Import product data directly (simple parse) ────────────
-// We parse the products.ts to extract IDs rather than running TS
-const productsFile = readFileSync(resolve(__dirname, '../src/data/products.ts'), 'utf8');
-const productIdRegex = /id:\s*["']([^"']+)["']/g;
-const categoryRegex = /category:\s*["']([^"']+)["']/g;
-const productIds = [];
-const productCategories = [];
-let m;
-while ((m = productIdRegex.exec(productsFile))) productIds.push(m[1]);
-while ((m = categoryRegex.exec(productsFile))) productCategories.push(m[1]);
-
-// ── Static pages ───────────────────────────────────────────
-const staticPages = [
-  { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/products', priority: '0.9', changefreq: 'weekly' },
-  { url: '/pricing', priority: '0.8', changefreq: 'monthly' },
-  { url: '/about', priority: '0.6', changefreq: 'monthly' },
-  { url: '/contact', priority: '0.7', changefreq: 'monthly' },
-  { url: '/blog', priority: '0.7', changefreq: 'weekly' },
-  { url: '/incubator', priority: '0.5', changefreq: 'monthly' },
-  { url: '/apply', priority: '0.4', changefreq: 'monthly' },
-];
-
-// ── Product pages ──────────────────────────────────────────
-const productPages = productIds.map(id => ({
-  url: `/products/${id}`, priority: '0.8', changefreq: 'monthly',
-}));
-
-// ── Application definitions (mirrored from seoPages.ts) ────
-const applications = [
-  'patio-paving', 'driveway', 'wall-cladding', 'flooring',
-  'pool-surround', 'garden-path', 'roofing', 'countertop',
-  'fireplace', 'facade', 'landscape', 'bathroom',
-  'commercial-flooring', 'step-treads-copings',
-];
-
-const appCategories = {
-  'patio-paving': ['sandstone', 'limestone', 'quartzite', 'slate'],
-  'driveway': ['sandstone', 'limestone', 'quartzite'],
-  'wall-cladding': ['quartzite', 'sandstone', 'slate', 'marble'],
-  'flooring': ['limestone', 'marble', 'quartzite', 'sandstone', 'slate'],
-  'pool-surround': ['sandstone', 'limestone', 'quartzite'],
-  'garden-path': ['sandstone', 'limestone', 'slate', 'quartzite'],
-  'roofing': ['slate'],
-  'countertop': ['quartzite', 'marble', 'limestone'],
-  'fireplace': ['quartzite', 'slate', 'sandstone'],
-  'facade': ['sandstone', 'quartzite', 'limestone', 'marble'],
-  'landscape': ['sandstone', 'limestone', 'quartzite', 'slate'],
-  'bathroom': ['marble', 'limestone', 'slate', 'quartzite'],
-  'commercial-flooring': ['limestone', 'quartzite', 'marble'],
-  'step-treads-copings': ['sandstone', 'limestone', 'quartzite'],
-};
-
-// Read product names from file for slug generation
-const nameRegex = /name:\s*["']([^"']+)["']/g;
-const productNames = [];
-while ((m = nameRegex.exec(productsFile))) productNames.push(m[1]);
-
-// Build application pages
-const applicationPages = [];
-for (const app of applications) {
-  const cats = appCategories[app] || [];
-  for (let i = 0; i < productIds.length && i < productNames.length && i < productCategories.length; i++) {
-    if (cats.includes(productCategories[i]) && productCategories[i] !== 'mosaic') {
-      const stoneSlug = productNames[i].toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-      applicationPages.push({
-        url: `/stone/${stoneSlug}-for-${app}`,
-        priority: '0.7',
-        changefreq: 'monthly',
-      });
-    }
-  }
-}
-
-// ── Comparison pages ───────────────────────────────────────
-const comparisonSlugs = [
-  'kandla-grey-vs-raj-green-sandstone', 'autumn-brown-vs-raveena-sandstone',
-  'buff-vs-dholpur-beige-sandstone', 'teakwood-vs-rainbow-sandstone',
-  'agra-red-vs-heritage-pink-sandstone', 'monsoon-black-vs-chocolate-sandstone',
-  'gwalior-mint-vs-raj-green-sandstone', 'fossil-vs-lalitpur-yellow-sandstone',
-  'kota-blue-vs-kadappa-black-limestone', 'kota-brown-vs-kota-blue-limestone',
-  'jaisalmer-yellow-vs-ita-gold-limestone', 'pearl-gold-vs-shabad-yellow-limestone',
-  'silver-shine-vs-silver-grey-quartzite', 'deoli-green-vs-ocean-green-quartzite',
-  'copper-vs-golden-quartzite', 'himachal-white-vs-silver-shine-quartzite',
-  'jak-black-vs-california-gold-slate', 'indian-autumn-vs-kund-multi-slate',
-  'sandstone-vs-limestone-paving', 'quartzite-vs-sandstone-cladding',
-  'slate-vs-sandstone-paving', 'quartzite-vs-limestone-flooring',
-  'marble-vs-quartzite-countertops', 'slate-vs-quartzite-cladding',
-];
-
-const comparisonPages = comparisonSlugs.map(slug => ({
-  url: `/compare/${slug}`, priority: '0.7', changefreq: 'monthly',
-}));
-
-// ── Export pages ───────────────────────────────────────────
-const exportCountries = {
-  usa: ['quartzite', 'sandstone', 'slate', 'marble'],
-  uk: ['sandstone', 'limestone', 'slate', 'quartzite'],
-  australia: ['sandstone', 'quartzite', 'limestone'],
-  canada: ['quartzite', 'slate', 'sandstone'],
-  uae: ['marble', 'limestone', 'sandstone'],
-  germany: ['quartzite', 'sandstone', 'slate'],
-  france: ['limestone', 'sandstone', 'marble'],
-  'saudi-arabia': ['marble', 'limestone', 'sandstone'],
-  'south-africa': ['sandstone', 'quartzite', 'slate'],
-  italy: ['marble', 'quartzite', 'limestone'],
-};
-
-const exportPages = [];
-for (const [country, cats] of Object.entries(exportCountries)) {
-  for (const cat of cats) {
-    exportPages.push({
-      url: `/export/${cat}-to-${country}`, priority: '0.7', changefreq: 'monthly',
-    });
-  }
-}
-
-// ── Generate XML ───────────────────────────────────────────
-const allPages = [...staticPages, ...productPages, ...applicationPages, ...comparisonPages, ...exportPages];
-
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages.map(p => `  <url>
-    <loc>${SITE_URL}${p.url}</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`;
-
-const outPath = resolve(__dirname, '../dist/sitemap.xml');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const site = 'https://www.roopstoneimpex.in';
+const escapeXml = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+process.env.NODE_ENV = 'production';
+const server = await createServer({ root, mode: 'production', configFile: false, resolve: { alias: { '@': resolve(root, 'src') } }, esbuild: { jsx: 'automatic' }, ssr: { noExternal: ['react-helmet-async'] }, optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, hmr: false, watch: null, preTransformRequests: false }, appType: 'custom', logLevel: 'error' });
 try {
-  writeFileSync(outPath, xml);
-  console.log(`✅ Sitemap generated: ${allPages.length} URLs → dist/sitemap.xml`);
-} catch {
-  // dist/ might not exist yet during dev — write to public/
-  const pubPath = resolve(__dirname, '../public/sitemap.xml');
-  writeFileSync(pubPath, xml);
-  console.log(`✅ Sitemap generated: ${allPages.length} URLs → public/sitemap.xml`);
+  const { getSeoRoutes, prerenderPaths, blogPosts } = await server.ssrLoadModule('/src/seo/routes.ts');
+  const { blogPath } = await server.ssrLoadModule('/src/lib/seo.ts');
+  const routes = [...new Map(getSeoRoutes().map(r => [r.path, r])).values()];
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${routes.map(route => {
+    const post = blogPosts.find(p => blogPath(p) === route.path);
+    const family = post?.guide?.translationOf || post?.slug;
+    const editions = post ? blogPosts.filter(p => p.slug === family || p.guide?.translationOf === family) : [];
+    const defaultEdition = editions.find(p => p.slug === family) || post;
+    const links = editions.length > 1 ? [...editions.map(p => ({ language: p.language || 'en', path: blogPath(p) })), { language: 'x-default', path: blogPath(defaultEdition) }] : [];
+    return `  <url><loc>${escapeXml(site + route.path)}</loc>${route.lastmod ? `<lastmod>${route.lastmod}</lastmod>` : ''}${links.map(l => `<xhtml:link rel="alternate" hreflang="${l.language}" href="${escapeXml(site + l.path)}" />`).join('')}</url>`;
+  }).join('\n')}\n</urlset>\n`;
+  await writeFile(resolve(root, 'public/sitemap.xml'), xml);
+  await writeFile(resolve(root, 'dist/sitemap.xml'), xml);
+  const manifest = JSON.parse(await readFile(resolve(root, 'dist/.vite/manifest.json'), 'utf8'));
+  const assets = Object.entries(manifest).filter(([key]) => key.startsWith('src/')).map(([key, value]) => [`/${key}`, encodeURI(`/${value.file}`)]);
+  const resolveAssets = html => {
+    for (const [source, output] of assets) html = html.replaceAll(source, output).replaceAll(encodeURI(source), output);
+    return html;
+  };
+  let template = await readFile(resolve(root, 'dist/index.html'), 'utf8');
+  // Each rendered page supplies its own metadata and schemas. Retain fonts, CSS,
+  // favicon, theme tags and the same client bundle used by the SPA.
+  template = template.replace(/<title[\s\S]*?<\/title>/gi, '')
+    .replace(/<meta\b[^>]*(?:name|property)="(?:description|keywords|robots|googlebot|author|og:[^"]+|twitter:[^"]+|geo\.[^"]+|ICBM)"[^>]*>/gi, '')
+    .replace(/<link\b[^>]*rel="(?:canonical|alternate)"[^>]*>/gi, '')
+    .replace(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/gi, '');
+  const { renderSeoPage } = await server.ssrLoadModule('/src/seo/render.tsx');
+  for (const path of prerenderPaths) {
+    const rendered = renderSeoPage(path);
+    const html = resolveAssets(template.replace('<html lang="en">', `<html lang="${rendered.language}">`).replace('</head>', `${rendered.head}\n</head>`).replace('<div id="root"></div>', `<div id="root">${rendered.body}</div>`));
+    if (!html.includes('<h1') || !html.includes('rel="canonical"')) throw new Error(`Incomplete prerender: ${path}`);
+    const output = resolve(root, `dist${path}/index.html`);
+    await mkdir(dirname(output), { recursive: true });
+    await writeFile(output, html);
+  }
+  console.log(`Generated ${routes.length} sitemap URLs and ${prerenderPaths.length} readable HTML pages.`);
+} finally {
+  await server.close();
 }

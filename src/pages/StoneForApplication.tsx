@@ -5,6 +5,7 @@ import { Check, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageTransition from '@/components/PageTransition';
 import SEO from '@/components/SEO';
+import RelatedGuides from '@/components/RelatedGuides';
 import { products } from '@/data/products';
 import { APPLICATIONS, generateApplicationIntro, generateApplicationPageSlugs, type Application } from '@/data/seoPages';
 import { getStoneFinishes, getStoneFormats, getPricingLink, FULL_CONTAINER_DISCOUNT } from '@/data/stoneFormats';
@@ -79,10 +80,10 @@ const StoneForApplication = () => {
 
   // FAQ data
   const faqs = [
-    { q: `Is ${product.name} suitable for ${application.name.toLowerCase()}?`, a: `Yes. ${product.name} is an excellent choice for ${application.name.toLowerCase()} due to its ${specs.weatherResistance.toLowerCase()} weather resistance, ${specs.slipResistance} slip resistance rating, and ${specs.porosity.toLowerCase()} porosity. It is ${specs.frostResistant ? 'frost resistant' : 'recommended for indoor use or mild climates'}.` },
+    { q: `Is ${product.name} suitable for ${application.name.toLowerCase()}?`, a: `Review the selected stone, thickness, finish, installation and exposure with your project specifier. Request product-specific documentation for ${product.name} before approving it for ${application.name.toLowerCase()}.` },
     { q: `What finishes are available for ${product.name}?`, a: `${product.name} is available in ${finishes.map(f => f.label).join(', ')} finishes. For ${application.name.toLowerCase()}, we recommend ${finishes[0]?.label || 'Natural'} finish for the best performance.` },
     { q: `How much does ${product.name} cost for ${application.name.toLowerCase()}?`, a: startPrice ? `${product.name} starts from ${startPrice}/sq ft FOB (Free on Board, delivered to nearest Indian port). Full container orders of a single stone variety receive a ${Math.round(FULL_CONTAINER_DISCOUNT * 100)}% discount.` : `Contact us for a custom quote tailored to your ${application.name.toLowerCase()} project. Pricing depends on the format, finish, and quantity required.` },
-    { q: `Can ${product.name} be used outdoors?`, a: specs.frostResistant ? `Absolutely. ${product.name} has a water absorption rate of ${specs.waterAbsorption}%, making it highly resistant to frost damage and suitable for outdoor use in all climates.` : `${product.name} is best suited for sheltered or indoor ${application.name.toLowerCase()} applications. For exposed outdoor projects, consider our quartzite or sandstone ranges.` },
+    { q: `Can ${product.name} be used outdoors?`, a: `Exterior suitability depends on the actual product and assembly. For freezing climates, assess moisture exposure, drainage, finish and relevant environmental testing. Request the technical submittal for the selected material.` },
   ];
 
   const faqSchema = {
@@ -170,17 +171,15 @@ const StoneForApplication = () => {
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4">Technical Specifications</h2>
+              <h2 className="text-2xl font-bold mb-4">Technical Submittal Checklist</h2>
               <div className="border border-border rounded-lg overflow-hidden">
                 {[
-                  ['Compressive Strength', `${specs.compressiveStrength} MPa`],
-                  ['Water Absorption', `${specs.waterAbsorption}%`],
-                  ['Mohs Hardness', specs.mohsHardness],
-                  ['Density', `${specs.density} kg/m³`],
-                  ['Frost Resistant', specs.frostResistant ? '✓ Yes' : '✗ Not recommended'],
-                  ['Slip Resistance', specs.slipResistance],
-                  ['Porosity', specs.porosity],
-                  ['Weather Resistance', specs.weatherResistance],
+                  ['Material identity', 'Confirm source and sample'],
+                  ['Water absorption and density', 'Request test documentation'],
+                  ['Strength and wear', 'Review for the intended use'],
+                  ['Freeze–thaw exposure', 'Confirm product and assembly suitability'],
+                  ['Wet surface traction', 'Confirm the specified finish'],
+                  ['Thickness and tolerances', 'Agree in the project drawings'],
                 ].map(([label, value], i) => (
                   <div key={label} className={cn('flex justify-between px-4 py-2.5 text-sm', i % 2 === 0 ? 'bg-muted/30' : '')}>
                     <span className="text-muted-foreground">{label}</span>
@@ -257,6 +256,7 @@ const StoneForApplication = () => {
             </div>
           )}
 
+          <RelatedGuides category={product.category} productId={product.id} />
           {/* Bottom CTA */}
           <div className="text-center py-12 border-t border-border">
             <h2 className="text-2xl font-bold mb-3">Ready to order {product.name}?</h2>

@@ -30,6 +30,7 @@ import StoneForApplication from "./pages/StoneForApplication";
 import StoneComparison from "./pages/StoneComparison";
 import ExportToCountry from "./pages/ExportToCountry";
 import ReturnPolicy from "./pages/ReturnPolicy";
+import StoneGuides from './pages/StoneGuides';
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -49,6 +50,10 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/:locale/blog" element={<Blog />} />
+        <Route path="/:locale/blog/:slug" element={<BlogPost />} />
+        <Route path="/guides/cold-climate-stone" element={<StoneGuides />} />
+        <Route path="/thin-stone-veneer" element={<StoneGuides />} />
         {/* Programmatic SEO pages */}
         <Route path="/stone/:slug" element={<StoneForApplication />} />
         <Route path="/compare/:slug" element={<StoneComparison />} />

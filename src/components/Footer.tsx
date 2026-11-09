@@ -40,6 +40,8 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-medium tracking-wide mb-5">Quick Links</h3>
             <ul className="space-y-3">
+              <li><Link to="/guides/cold-climate-stone" className="text-sm text-muted-foreground hover:text-foreground">Cold-climate stone guides</Link></li>
+              <li><Link to="/thin-stone-veneer" className="text-sm text-muted-foreground hover:text-foreground">Thin Stone Veneer</Link></li>
               <li>
                 <a href="/" onClick={handleHomeClick} className="text-sm text-muted-foreground font-medium hover:text-foreground transition-colors duration-300">
                   Home
@@ -107,7 +109,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/products?category=mosaic" onClick={(e) => { e.preventDefault(); navigate('/products?category=mosaic'); setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100); }} className="text-sm text-muted-foreground font-medium hover:text-foreground transition-colors duration-300 cursor-pointer">
-                  Patterns & Panels
+                  Veneer, Patterns & Panels
                 </a>
               </li>
             </ul>

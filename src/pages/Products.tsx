@@ -32,7 +32,7 @@ const Products = () => {
     { id: "quartzite", name: "Quartzite" },
     { id: "limestone", name: "Limestone" },
     { id: "slate", name: "Slate" },
-    { id: "mosaic", name: "Patterns & Panels" },
+    { id: "mosaic", name: "Veneer, Patterns & Panels" },
   ];
 
   const marbleSubcategories = [
@@ -52,7 +52,7 @@ const Products = () => {
     { id: "all", name: "All" },
     { id: "pebbles", name: "Pebbles" },
     { id: "corner-pieces", name: "Corner Pieces" },
-    { id: "wall-cladding", name: "Wall Cladding" },
+    { id: "wall-cladding", name: "Veneer Panels & Designs" },
   ];
 
   const filteredProducts = products.filter((p) => {
@@ -182,6 +182,7 @@ const Products = () => {
           </div>
         </nav>
 
+        {selectedCategory === 'mosaic' && <div className="mb-8 border border-border rounded-lg p-5 text-sm leading-relaxed"><h2 className="font-serif text-xl mb-2">Natural stone veneer and custom panels</h2><p className="text-muted-foreground mb-3">Explore veneer designs, decorative panels, pebbles and corners. Our custom range includes rigid natural stone pieces, flexible panels and random/crazy-pattern work. Confirm the construction and dimensions for each selected design.</p><Link to="/thin-stone-veneer" className="text-accent underline underline-offset-4">Compare veneer constructions and custom options</Link></div>}
         {/* Subcategory Pills — for Marble and Mosaic */}
         <AnimatePresence>
           {activeSubcategories && (

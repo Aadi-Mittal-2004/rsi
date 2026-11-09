@@ -31,7 +31,7 @@ const Navigation = () => {
 
   // Track scroll position to switch navbar style (transparent over hero -> solid on scroll)
   const [scrolled, setScrolled] = useState(false);
-  const [navTheme, setNavTheme] = useState<"light" | "dark">("dark");
+  const [navTheme, setNavTheme] = useState<"light" | "dark">(location.pathname === '/' ? 'dark' : 'light');
 
   useEffect(() => {
     const checkNavbarColor = () => {
