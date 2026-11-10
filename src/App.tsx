@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,11 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
-import Products from "./pages/Products";
-import ProductDetails from "./pages/ProductDetails";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -21,16 +17,21 @@ import StickyCTABar from "./components/StickyCTABar";
 
 const queryClient = new QueryClient();
 
-import Incubator from "./pages/Incubator";
-import Apply from "./pages/Apply";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Pricing from "./pages/Pricing";
-import StoneForApplication from "./pages/StoneForApplication";
-import StoneComparison from "./pages/StoneComparison";
-import ExportToCountry from "./pages/ExportToCountry";
-import ReturnPolicy from "./pages/ReturnPolicy";
-import StoneGuides from './pages/StoneGuides';
+const Products = lazy(() => import('./pages/Products'));
+const ProductDetails = lazy(() => import('./pages/ProductDetails'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Incubator = lazy(() => import('./pages/Incubator'));
+const Apply = lazy(() => import('./pages/Apply'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const StoneForApplication = lazy(() => import('./pages/StoneForApplication'));
+const StoneComparison = lazy(() => import('./pages/StoneComparison'));
+const ExportToCountry = lazy(() => import('./pages/ExportToCountry'));
+const ReturnPolicy = lazy(() => import('./pages/ReturnPolicy'));
+const StoneGuides = lazy(() => import('./pages/StoneGuides'));
 
 // Animated routes wrapper
 const AnimatedRoutes = () => {
@@ -83,7 +84,9 @@ const App = () => (
         <ScrollToTop />
         <UrgencyBanner />
         <Navigation />
-        <AnimatedRoutes />
+        <Suspense fallback={<main className="min-h-screen pt-32 px-4" aria-busy="true"><p role="status" className="text-center text-sm text-muted-foreground">Loading…</p></main>}>
+          <AnimatedRoutes />
+        </Suspense>
         <Footer />
         <StickyCTABar />
         <WhatsAppButton />

@@ -1,5 +1,7 @@
 {
   "trailingSlash": false,
+  "installCommand": "node scripts/vercel-npm.mjs ci --include=dev --include=optional",
+  "buildCommand": "node scripts/vercel-npm.mjs run build",
   "rewrites": [
     { "source": "/blog", "destination": "/blog/index.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },

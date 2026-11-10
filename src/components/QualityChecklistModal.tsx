@@ -8,8 +8,6 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { CheckCircle2, MessageCircle, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { jsPDF } from "jspdf";
-import autoTable from "jspdf-autotable";
 
 interface QualityChecklistModalProps {
   open: boolean;
@@ -99,6 +97,9 @@ export const QualityChecklistModal = ({
   onOpenChange,
 }: QualityChecklistModalProps) => {
   const handleDownload = async () => {
+    const [{ jsPDF }, { default: autoTable }] = await Promise.all([
+      import('jspdf'), import('jspdf-autotable'),
+    ]);
     // Determine the base URL for the image
     const imgUrl = '/stone_factory_pdf.png';
     const response = await fetch(imgUrl);

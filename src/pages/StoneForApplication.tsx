@@ -10,29 +10,10 @@ import { products } from '@/data/products';
 import { APPLICATIONS, generateApplicationIntro, generateApplicationPageSlugs, type Application } from '@/data/seoPages';
 import { getStoneFinishes, getStoneFormats, getPricingLink, FULL_CONTAINER_DISCOUNT } from '@/data/stoneFormats';
 import { getSpecsForStone } from '@/data/technicalSpecs';
-import {
-  STONE_VARIETIES, SIZE_OPTIONS, FINISH_OPTIONS, calculateFOBPerSqFt, formatUSD,
-  SANDSTONE_VARIETIES, SANDSTONE_SIZE_OPTIONS, SANDSTONE_FINISH_OPTIONS, calculateSandstoneFOBPerSqFt,
-  LIMESTONE_VARIETIES, LIMESTONE_SIZE_OPTIONS, LIMESTONE_FINISH_OPTIONS, calculateLimestoneFOBPerSqFt,
-  SLATE_VARIETIES, SLATE_SIZE_OPTIONS, SLATE_FINISH_OPTIONS, calculateSlateFOBPerSqFt,
-} from '@/data/pricingData';
+import { formatUSD } from '@/data/pricingData';
+import { getStartingProductPrice } from '@/lib/productPricing';
+import { buildProductPageStructuredData } from '@/lib/productStructuredData';
 import { cn } from '@/lib/utils';
-
-function getStartingPrice(productId: string): string | null {
-  const link = getPricingLink(productId);
-  if (!link) return null;
-  let variety: any, calcFn: any;
-  switch (link.type) {
-    case 'quartzite': variety = STONE_VARIETIES.find(v => v.id === link.varietyId); calcFn = (b: number) => calculateFOBPerSqFt(b, 'natural'); break;
-    case 'sandstone': variety = SANDSTONE_VARIETIES.find(v => v.id === link.varietyId); calcFn = (b: number) => calculateSandstoneFOBPerSqFt(b, 'natural'); break;
-    case 'limestone': variety = LIMESTONE_VARIETIES.find(v => v.id === link.varietyId); calcFn = (b: number) => calculateLimestoneFOBPerSqFt(b, 'natural'); break;
-    case 'slate': variety = SLATE_VARIETIES.find(v => v.id === link.varietyId); calcFn = (b: number) => calculateSlateFOBPerSqFt(b, 'natural'); break;
-  }
-  if (!variety) return null;
-  const prices = Object.values(variety.basePricesINR) as number[];
-  const minPrice = calcFn(Math.min(...prices));
-  return formatUSD(minPrice);
-}
 
 const StoneForApplication = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -63,7 +44,8 @@ const StoneForApplication = () => {
   const formats = getStoneFormats(product.id, product.category);
   const specs = getSpecsForStone(product.id, product.category);
   const intro = generateApplicationIntro(product, application);
-  const startPrice = getStartingPrice(product.id);
+  const publicPrice = getStartingProductPrice(product.id);
+  const startPrice = publicPrice === null ? null : formatUSD(publicPrice);
   const siteUrl = 'https://www.roopstoneimpex.in';
   const pageUrl = `${siteUrl}/stone/${slug}`;
   const catLabel = product.category.charAt(0).toUpperCase() + product.category.slice(1);
@@ -95,16 +77,12 @@ const StoneForApplication = () => {
     })),
   };
 
-  const productSchema = {
-    '@context': 'https://schema.org', '@type': 'Product',
+  const productSchema = buildProductPageStructuredData({
     name: `${product.name} for ${application.name}`,
-    description: intro,
-    image: product.image ? `${siteUrl}${product.image}` : undefined,
-    brand: { '@type': 'Brand', name: 'Roop Stone Impex' },
-    manufacturer: { '@type': 'Organization', name: 'Roop Stone Impex', url: siteUrl },
+    description: intro, url: pageUrl, image: product.image,
+    sku: product.id, price: publicPrice,
     category: `Natural Stone > ${catLabel} > ${application.name}`,
-    ...(startPrice ? { offers: { '@type': 'Offer', priceCurrency: 'USD', price: startPrice.replace('$', ''), availability: 'https://schema.org/InStock' } } : {}),
-  };
+  });
 
   return (
     <PageTransition>

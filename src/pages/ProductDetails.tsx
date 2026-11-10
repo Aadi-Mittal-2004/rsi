@@ -9,20 +9,17 @@ import { ArrowLeft, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import SEO from "@/components/SEO";
 import RelatedGuides from '@/components/RelatedGuides';
-import { absoluteUrl } from '@/lib/seo';
+import { buildProductPageStructuredData } from '@/lib/productStructuredData';
+import { getDefaultProductPrice, getProductPricingConfig as getPricingConfig } from '@/lib/productPricing';
 import { getStoneFinishes, getStoneFormats, getPricingLink, FULL_CONTAINER_DISCOUNT } from "@/data/stoneFormats";
-import {
-  STONE_VARIETIES, SIZE_OPTIONS, FINISH_OPTIONS, calculateFOBPerSqFt, formatUSD,
-  SANDSTONE_VARIETIES, SANDSTONE_SIZE_OPTIONS, SANDSTONE_FINISH_OPTIONS, calculateSandstoneFOBPerSqFt,
-  LIMESTONE_VARIETIES, LIMESTONE_SIZE_OPTIONS, LIMESTONE_FINISH_OPTIONS, calculateLimestoneFOBPerSqFt,
-  SLATE_VARIETIES, SLATE_SIZE_OPTIONS, SLATE_FINISH_OPTIONS, calculateSlateFOBPerSqFt,
-  type FinishType, type SizeKey, type SandstoneSizeKey, type LimestoneSizeKey, type SlateSizeKey, type SlateFinishType,
-} from "@/data/pricingData";
+import { formatUSD } from "@/data/pricingData";
 import { cn } from "@/lib/utils";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
+  const [selectedOffer, setSelectedOffer] = useState(() => ({ productId: id, price: getDefaultProductPrice(id) }));
+  const updateOfferPrice = useCallback((price: number | null) => setSelectedOffer({ productId: id, price }), [id]);
   
   // Combine primary image with additional images
   const allImages = product ? [product.image, ...(product.images || [])] : [];
@@ -87,29 +84,13 @@ const ProductDetails = () => {
   const siteUrl = "https://www.roopstoneimpex.in";
   const categoryLabel = product.category === 'mosaic' ? 'Stone Veneer, Patterns & Panels' : product.category.replace("-", " & ");
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": product.name,
-    "description": product.description,
-    "image": product.image ? absoluteUrl(product.image) : undefined,
-    "brand": {
-      "@type": "Brand",
-      "name": "Roop Stone Impex"
-    },
-    "manufacturer": {
-      "@type": "Organization",
-      "name": "Roop Stone Impex",
-      "url": "https://www.roopstoneimpex.in"
-    },
-    "category": `Building Materials > Natural Stone > ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}`,
-    "material": product.category.charAt(0).toUpperCase() + product.category.slice(1),
-    "additionalProperty": product.properties.map(prop => ({
-      "@type": "PropertyValue",
-      "name": "Feature",
-      "value": prop
-    }))
-  };
+  const jsonLd = buildProductPageStructuredData({
+    name: product.name, description: product.description,
+    url: `${siteUrl}/products/${product.id}`, image: product.image, sku: product.id,
+    category: `Building Materials > Natural Stone > ${categoryLabel}`,
+    properties: product.properties,
+    price: selectedOffer.productId === id ? selectedOffer.price : getDefaultProductPrice(id),
+  });
 
   const breadcrumbs = [
     { name: "Home", url: `${siteUrl}/` },
@@ -227,7 +208,7 @@ const ProductDetails = () => {
             <FormatsSection productId={product.id} category={product.category} />
 
             {/* ── Pricing Quick-View ── */}
-            <PricingWidget productId={product.id} category={product.category} productName={product.name} />
+            <PricingWidget key={product.id} productId={product.id} productName={product.name} onPriceChange={updateOfferPrice} />
             
             <p className="text-xs text-muted-foreground/70 mb-6 italic">
               ⏱ Most buyers request specs 2–3 weeks before container booking. Don't wait until slots fill up.
@@ -339,17 +320,6 @@ const ProductDetails = () => {
   );
 };
 
-// ── Helper: get pricing config for a stone type ──
-function getPricingConfig(type: string) {
-  switch (type) {
-    case 'quartzite': return { varieties: STONE_VARIETIES, sizes: SIZE_OPTIONS, finishes: FINISH_OPTIONS, calcFn: calculateFOBPerSqFt };
-    case 'sandstone': return { varieties: SANDSTONE_VARIETIES, sizes: SANDSTONE_SIZE_OPTIONS, finishes: SANDSTONE_FINISH_OPTIONS, calcFn: calculateSandstoneFOBPerSqFt };
-    case 'limestone': return { varieties: LIMESTONE_VARIETIES, sizes: LIMESTONE_SIZE_OPTIONS, finishes: LIMESTONE_FINISH_OPTIONS, calcFn: calculateLimestoneFOBPerSqFt };
-    case 'slate': return { varieties: SLATE_VARIETIES, sizes: SLATE_SIZE_OPTIONS, finishes: SLATE_FINISH_OPTIONS, calcFn: calculateSlateFOBPerSqFt };
-    default: return null;
-  }
-}
-
 // ── Finishes Section ──
 const FinishesSection = ({ productId, category }: { productId: string; category: string }) => {
   const finishes = getStoneFinishes(productId, category);
@@ -400,7 +370,7 @@ const FormatsSection = ({ productId, category }: { productId: string; category: 
 };
 
 // ── Pricing Widget ──
-const PricingWidget = ({ productId, category, productName }: { productId: string; category: string; productName: string }) => {
+const PricingWidget = ({ productId, productName, onPriceChange }: { productId: string; productName: string; onPriceChange: (price: number | null) => void }) => {
   const pricingLink = getPricingLink(productId);
 
   // No pricing data → show CTA
@@ -426,11 +396,11 @@ const PricingWidget = ({ productId, category, productName }: { productId: string
     );
   }
 
-  return <PricingCalculator pricingLink={pricingLink} productName={productName} />;
+  return <PricingCalculator pricingLink={pricingLink} productName={productName} onPriceChange={onPriceChange} />;
 };
 
 // ── Pricing Calculator (extracted to keep hooks unconditional) ──
-const PricingCalculator = ({ pricingLink, productName }: { pricingLink: { type: string; varietyId: string }; productName: string }) => {
+const PricingCalculator = ({ pricingLink, productName, onPriceChange }: { pricingLink: { type: string; varietyId: string }; productName: string; onPriceChange: (price: number | null) => void }) => {
   const config = getPricingConfig(pricingLink.type);
   const variety = config?.varieties.find((v: any) => v.id === pricingLink.varietyId);
 
@@ -448,6 +418,8 @@ const PricingCalculator = ({ pricingLink, productName }: { pricingLink: { type: 
     if (!price) return null;
     return Math.ceil(price * (1 - FULL_CONTAINER_DISCOUNT) * 100) / 100;
   }, [price]);
+
+  useEffect(() => { onPriceChange(price); }, [price, onPriceChange]);
 
   if (!config || !variety) return null;
 
